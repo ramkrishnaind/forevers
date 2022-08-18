@@ -1,0 +1,22 @@
+.btn{
+    border:none;
+    outline:none;
+    background-color:red;
+    color:white;
+    padding:7px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius:5px;
+    border:1px black solid;
+    transition:0.2s;
+    &:hover{
+        background-color:rgb(212, 0, 0);
+    }
+}
+.miningResult{
+    text-align:center;
+    a{
+        color:blue;
+        text-decoration:underline;
+    }
+}
