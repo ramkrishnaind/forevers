@@ -1,7 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import styles from "./style.module.scss";
+import classes from "./addPost.module.css";
 import axios from "axios";
 import Link from "next/link";
+import TextEditor from "../../../components/utilities/TextEditor";
+import ReactTags from "react-tag-autocomplete";
 const initialState = {
   title: "",
   details: "",
@@ -10,6 +13,43 @@ const initialState = {
 };
 function AddPost() {
   const [successMsg, setSuccessMsg] = useState(false);
+  const reactTags = React.createRef();
+
+  const [tagsState, setTagsState] = useState({
+    tags: [
+      { id: 1, name: "Apples" },
+      { id: 2, name: "Pears" },
+    ],
+    suggestions: [
+      { id: 3, name: "Bananas" },
+      { id: 4, name: "Mangos" },
+      { id: 5, name: "Lemons" },
+      { id: 6, name: "Apricots" },
+      { id: 1, name: "Apples" },
+      { id: 2, name: "Pears" },
+    ],
+  });
+  const onDelete = (i) => {
+    const tags = tagsState.tags.slice(0);
+    tags.splice(i, 1);
+    setTagsState((prevState) => {
+      return {
+        ...prevState,
+        tags: [...tags],
+      };
+    });
+    // props.onTagsChanged(tags);
+  };
+  const onAddition = (tag) => {
+    const tags = [].concat(tagsState.tags, tag);
+    setTagsState((prevState) => {
+      return {
+        ...prevState,
+        tags: [...tags],
+      };
+    });
+    // props.onTagsChanged(tags);
+  };
   const [data, setData] = React.useState(initialState);
   async function handleAddPost() {
     if (data.title.length > 0 && data.details.length > 0) {
@@ -37,12 +77,16 @@ function AddPost() {
         </div>
         <div className={styles.input}>
           <label>Details</label>
-          <textarea
+          <TextEditor
+            // content={data.details}
+            setContent={(content) => setData({ ...data, details: content })}
+          />
+          {/* <textarea
             type="text"
             required
             value={data.details}
             onChange={(e) => setData({ ...data, details: e.target.value })}
-          />
+          /> */}
         </div>
         <div className={styles.input}>
           <label>Author</label>
@@ -53,6 +97,21 @@ function AddPost() {
             onChange={(e) => setData({ ...data, author: e.target.value })}
           />
         </div>
+        <div className={styles.input}>
+          <label>Category</label>
+          <ReactTags
+            placeholderText={"Enter a value"}
+            ref={reactTags}
+            minQueryLength={1}
+            tags={tagsState.tags}
+            suggestions={tagsState.suggestions}
+            onDelete={onDelete}
+            allowNew
+            onAddition={onAddition}
+            className={classes.reactTags}
+          />
+        </div>
+
         <div className={styles.input}>
           <label>ImageURL</label>
           <input
@@ -74,9 +133,13 @@ function AddPost() {
         </Link>{" "}
         to go back to admin console.
       </p>
-      <button onClick={handleAddPost} className={styles.addPostBtn}>
-        Submit
-      </button>
+      <div
+        style={{ display: "flex", justifyContent: "flex-end", width: "40%" }}
+      >
+        <button onClick={handleAddPost} className={styles.addPostBtn}>
+          Submit
+        </button>
+      </div>
     </div>
   );
 }

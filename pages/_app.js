@@ -7,9 +7,9 @@ import Head from "next/head";
 import Script from "next/script";
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
+    // !window.adsbygoogle
+    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+    //   : console.log("Adsbygoogle already exists");
   }, []);
   return (
     <>
@@ -25,9 +25,30 @@ function MyApp({ Component, pageProps }) {
           crossorigin="anonymous"
         />
         <GlobalContext>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              minHeight: "100vh",
+              flex: 1,
+            }}
+          >
+            <Header />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "auto",
+                minWidth: "100%",
+                flex: 1,
+              }}
+            >
+              <Component {...pageProps} />
+            </div>
+            <Footer />
+          </div>
         </GlobalContext>
       </div>
     </>
