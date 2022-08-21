@@ -115,7 +115,7 @@ function AddPost() {
           setData(initialState);
           setTimeout(() => {
             setCategoriesFetched(null);
-          }, 1000);
+          }, 4000);
           router.push("/");
         }
       });
