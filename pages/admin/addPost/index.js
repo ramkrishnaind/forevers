@@ -5,6 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import TextEditor from "../../../components/utilities/TextEditor";
 import ReactTags from "react-tag-autocomplete";
+import AutoComplete from "../../../components/utilities/Autocomplete";
 const initialState = {
   title: "",
   details: "",
@@ -14,32 +15,43 @@ const initialState = {
 function AddPost() {
   const [successMsg, setSuccessMsg] = useState(false);
   const reactTags = React.createRef();
-
-  const [tagsState, setTagsState] = useState({
-    tags: [
-      { id: 1, name: "Apples" },
-      { id: 2, name: "Pears" },
-    ],
-    suggestions: [
-      { id: 3, name: "Bananas" },
-      { id: 4, name: "Mangos" },
-      { id: 5, name: "Lemons" },
-      { id: 6, name: "Apricots" },
-      { id: 1, name: "Apples" },
-      { id: 2, name: "Pears" },
-    ],
-  });
-  const onDelete = (i) => {
-    const tags = tagsState.tags.slice(0);
-    tags.splice(i, 1);
-    setTagsState((prevState) => {
-      return {
-        ...prevState,
-        tags: [...tags],
-      };
-    });
-    // props.onTagsChanged(tags);
-  };
+  const initialTags = [
+    { id: 1, name: "Apples" },
+    { id: 2, name: "Pears" },
+  ];
+  const categories = [
+    { id: 3, name: "Bananas" },
+    { id: 4, name: "Mangos" },
+    { id: 5, name: "Lemons" },
+    { id: 6, name: "Apricots" },
+    { id: 1, name: "Apples" },
+    { id: 2, name: "Pears" },
+  ];
+  // const [tagsState, setTagsState] = useState({
+  //   tags: [
+  //     { id: 1, name: "Apples" },
+  //     { id: 2, name: "Pears" },
+  //   ],
+  //   suggestions: [
+  //     { id: 3, name: "Bananas" },
+  //     { id: 4, name: "Mangos" },
+  //     { id: 5, name: "Lemons" },
+  //     { id: 6, name: "Apricots" },
+  //     { id: 1, name: "Apples" },
+  //     { id: 2, name: "Pears" },
+  //   ],
+  // });
+  // const onDelete = (i) => {
+  //   const tags = tagsState.tags.slice(0);
+  //   tags.splice(i, 1);
+  //   setTagsState((prevState) => {
+  //     return {
+  //       ...prevState,
+  //       tags: [...tags],
+  //     };
+  //   });
+  //   // props.onTagsChanged(tags);
+  // };
   const tagsChangeHandler = (tags) => {
     setTags(tags);
   };
