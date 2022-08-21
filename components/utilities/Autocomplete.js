@@ -7,14 +7,7 @@ const AutoComplete = (props) => {
   const reactTags = React.createRef();
   const [tagsState, setTagsState] = useState({
     tags: props.tags || [],
-    suggestions: props.suggestions || [
-      { id: 1, name: "Apples" },
-      { id: 2, name: "Pears" },
-      { id: 3, name: "Bananas" },
-      { id: 4, name: "Mangos" },
-      { id: 5, name: "Lemons" },
-      { id: 6, name: "Apricots" },
-    ],
+    suggestions: props.suggestions || [],
   });
   const onDelete = (i) => {
     const tags = tagsState.tags.slice(0);
@@ -28,14 +21,45 @@ const AutoComplete = (props) => {
     props.onTagsChanged(tags);
   };
   const onAddition = (tag) => {
-    const tags = [].concat(tagsState.tags, tag);
-    setTagsState((prevState) => {
-      return {
-        ...prevState,
-        tags: [...tags],
-      };
-    });
-    props.onTagsChanged(tags);
+    debugger;
+    const tagFound = tagsState.tags.find(
+      (a) => a.name.toLowerCase().trim() === tag.name.toLowerCase().trim()
+    );
+    if (!tagFound) {
+      const tags = [
+        ...tagsState.tags,
+        {
+          id: tagsState.tags.length + 1,
+          name: tag.name,
+        },
+      ];
+      setTagsState((prevState) => {
+        props.onTagsChanged([...tags]);
+        return {
+          ...prevState,
+          tags: [...tags],
+        };
+      });
+    }
+    const suggestionFound = tagsState.suggestions.find(
+      (a) => a.name.toLowerCase().trim() === tag.name.toLowerCase().trim()
+    );
+    if (!suggestionFound) {
+      const sugestions = [
+        ...tagsState.suggestions,
+        {
+          id: tagsState.suggestions.length + 1,
+          name: tag.name,
+        },
+      ];
+      setTagsState((prevState) => {
+        return {
+          ...prevState,
+          suggestions: [...sugestions],
+        };
+      });
+    } else {
+    }
   };
   return (
     <div className={classes.container}>

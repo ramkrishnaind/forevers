@@ -1,7 +1,8 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styles from "./style.module.scss";
 import classes from "./addPost.module.css";
 import axios from "axios";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import TextEditor from "../../../components/utilities/TextEditor";
 import ReactTags from "react-tag-autocomplete";
@@ -15,18 +16,39 @@ const initialState = {
 function AddPost() {
   const [successMsg, setSuccessMsg] = useState(false);
   const reactTags = React.createRef();
-  const initialTags = [
-    { id: 1, name: "Apples" },
-    { id: 2, name: "Pears" },
-  ];
+  const [tags, setTags] = useState();
+  const router = useRouter();
   const categories = [
-    { id: 3, name: "Bananas" },
-    { id: 4, name: "Mangos" },
-    { id: 5, name: "Lemons" },
-    { id: 6, name: "Apricots" },
-    { id: 1, name: "Apples" },
-    { id: 2, name: "Pears" },
+    // { id: 3, name: "Bananas" },
+    // { id: 4, name: "Mangos" },
+    // { id: 5, name: "Lemons" },
+    // { id: 6, name: "Apricots" },
+    // { id: 1, name: "Apples" },
+    // { id: 2, name: "Pears" },
   ];
+  const [categoriesFetched, setCategoriesFetched] = useState([]);
+  const [categoriesToAdd, setCategoriesToAdd] = useState(
+    categories.map((i) => i.name)
+  );
+  useEffect(() => {
+    const url = process.env.NEXT_PUBLIC_HOST_URL + "/postCategories";
+    (async () => {
+      axios.get(url).then((res) => {
+        console.log("res.data", res.data);
+        setCategoriesFetched(
+          res.data.data.map((item, index) => ({
+            id: index + 1,
+            name: item.data.name,
+          }))
+        );
+      });
+    })();
+  }, []);
+  const initialTags = [
+    // { id: 1, name: "Apples" },
+    // { id: 2, name: "Pears" },
+  ];
+
   // const [tagsState, setTagsState] = useState({
   //   tags: [
   //     { id: 1, name: "Apples" },
@@ -54,6 +76,12 @@ function AddPost() {
   // };
   const tagsChangeHandler = (tags) => {
     setTags(tags);
+    const tagNames = tags.map((i) => i.name);
+    const prevCategories = categoriesFetched.map((i) => i.name);
+    const categoriesNew = tagNames.filter((i) => !prevCategories.includes(i));
+
+    setData({ ...data, categories: tagNames });
+    setCategoriesToAdd((prev) => [...prev, ...categoriesNew]);
   };
 
   const onAddition = (tag) => {
@@ -66,18 +94,34 @@ function AddPost() {
     });
     // props.onTagsChanged(tags);
   };
+  console.log("tags", tags);
+  console.log("categoriesFetched", categoriesFetched);
+  console.log("setCategoriesToAdd", categoriesToAdd);
+
   const [data, setData] = React.useState(initialState);
   async function handleAddPost() {
     if (data.title.length > 0 && data.details.length > 0) {
       const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
+      const urlCategories =
+        process.env.NEXT_PUBLIC_HOST_URL + "/postCategories";
+      categoriesToAdd.forEach(async (category, index) => {
+        try {
+          await axios.post(urlCategories, { name: category });
+        } catch {}
+      });
       axios.post(url, data).then((res) => {
         if (res.data.status == "success") {
           setSuccessMsg(true);
           setData(initialState);
+          setTimeout(() => {
+            setCategoriesFetched(null);
+          }, 1000);
+          router.push("/admin");
         }
       });
     }
   }
+  console.log("data", data);
   return (
     <div className={styles.container}>
       <form>
@@ -94,7 +138,7 @@ function AddPost() {
         <div className={styles.input}>
           <label>Details</label>
           <TextEditor
-            // content={data.details}
+            content={data.details}
             setContent={(content) => setData({ ...data, details: content })}
           />
           {/* <textarea
@@ -115,13 +159,16 @@ function AddPost() {
         </div>
         <div className={styles.input}>
           <label>Category</label>
-          <AutoComplete
-            title="Select Categories"
-            tags={initialTags}
-            suggestions={categories}
-            onTagsChanged={tagsChangeHandler}
-            className={classes.reactTags}
-          />
+          {categoriesFetched && categoriesFetched.length > 0 && (
+            <AutoComplete
+              title="Select Categories"
+              tags={initialTags}
+              suggestions={categoriesFetched}
+              onTagsChanged={tagsChangeHandler}
+              className={classes.reactTags}
+            />
+          )}
+
           {/* <ReactTags
             placeholderText={"Enter a value"}
             ref={reactTags}

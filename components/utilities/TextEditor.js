@@ -6,15 +6,15 @@ import classes from "./TextEditor.module.css";
 
 import "quill/dist/quill.snow.css"; // Add css for snow theme
 
-export default function IndexPage({ setContent }) {
+export default function IndexPage({ content, setContent }) {
   const { quill, quillRef } = useQuill();
 
-  // useEffect(() => {
-  //   // console.log(quill, quillRef);
-  //   console.log("!");
-  //   // if (quill) quill.setText("123");
-  //   // if (quill) quill.clipboard.dangerouslyPasteHTML(content);
-  // }, []);
+  useEffect(() => {
+    // console.log(quill, quillRef);
+    console.log("!");
+    // if (quill) quill.setText("123");
+    if (quill) quill.clipboard.dangerouslyPasteHTML("");
+  }, [content]);
   if (quill)
     quill.on("text-change", (delta, oldContents, source) => {
       if (source !== "user") return;

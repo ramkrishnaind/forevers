@@ -7,9 +7,9 @@ import Head from "next/head";
 import Script from "next/script";
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
+    // !window.adsbygoogle
+    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+    //   : console.log("Adsbygoogle already exists");
   }, []);
   return (
     <>
