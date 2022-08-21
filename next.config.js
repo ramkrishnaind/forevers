@@ -18,7 +18,7 @@ const nextConfig = {
         ],
       },
       {
-        source: "/temp.txt",
+        source: "/my.txt",
         headers: [
           {
             key: "Content-Type",
