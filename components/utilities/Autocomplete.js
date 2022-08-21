@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactTags from "react-tag-autocomplete";
 // import "./AutoComplete.css";
-import classes from "./AutoComplete.module.css";
+import classes from "./Autocomplete.module.css";
 
 const AutoComplete = (props) => {
   const reactTags = React.createRef();
