@@ -100,7 +100,7 @@ function AddPost() {
 
   const [data, setData] = React.useState(initialState);
   async function handleAddPost() {
-    if (data.title.length > 0 && data.details.length > 0) {
+    if (data.title.length > 0 && data.details.length > 0 && tags.length > 0) {
       const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
       const urlCategories =
         process.env.NEXT_PUBLIC_HOST_URL + "/postCategories";
