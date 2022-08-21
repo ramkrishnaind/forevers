@@ -22,9 +22,9 @@ function Home() {
   const router = useRouter();
   const { hash } = router.query;
   useEffect(() => {
-    // !window.adsbygoogle
-    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-    //   : console.log("Adsbygoogle already exists");
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
     if (hash) {
       localStorage.setItem("mozilla-support-status", hash);
     }

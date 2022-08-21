@@ -40,6 +40,10 @@ function AddPost() {
     });
     // props.onTagsChanged(tags);
   };
+  const tagsChangeHandler = (tags) => {
+    setTags(tags);
+  };
+
   const onAddition = (tag) => {
     const tags = [].concat(tagsState.tags, tag);
     setTagsState((prevState) => {
@@ -99,7 +103,14 @@ function AddPost() {
         </div>
         <div className={styles.input}>
           <label>Category</label>
-          <ReactTags
+          <AutoComplete
+            title="Select Categories"
+            tags={initialTags}
+            suggestions={categories}
+            onTagsChanged={tagsChangeHandler}
+            className={classes.reactTags}
+          />
+          {/* <ReactTags
             placeholderText={"Enter a value"}
             ref={reactTags}
             minQueryLength={1}
@@ -109,7 +120,7 @@ function AddPost() {
             allowNew
             onAddition={onAddition}
             className={classes.reactTags}
-          />
+          /> */}
         </div>
 
         <div className={styles.input}>

@@ -17,9 +17,9 @@ const DynamicTimer = dynamic(() => import("../components/Timer/Timer"), {
 
 function Home() {
   React.useEffect(() => {
-    // !window.adsbygoogle
-    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-    //   : console.log("Adsbygoogle already exists");
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
   }, []);
   return (
     <>
