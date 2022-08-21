@@ -18,7 +18,12 @@ function Post({ data, id, updatePosts }) {
   if (!data) {
     return <></>;
   }
-
+  function createMarkup() {
+    console.log("data.details", data.details);
+    return {
+      __html: data.details,
+    };
+  }
   return (
     <div className={styles.container}>
       <img src={data.imgUrl} alt="img" className={data.left} />
@@ -31,7 +36,8 @@ function Post({ data, id, updatePosts }) {
             {confirmDelete ? "Confirm" : "X"}
           </button>
         </div>
-        <p className={styles.body}>{data.details}</p>
+        <p dangerouslySetInnerHTML={createMarkup()} />;
+        {/* <p className={styles.body}>{data.details}</p> */}
       </div>
     </div>
   );

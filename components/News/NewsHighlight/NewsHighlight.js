@@ -11,11 +11,18 @@ function NewsHighlight({ data, id }) {
       slug += oldTitle[i].toLowerCase();
     }
   }
+  function createMarkup() {
+    console.log("data.details", data.details);
+    return {
+      __html: data.details,
+    };
+  }
   return (
     <Link href={`/news/${slug}`}>
       <div className={styles.highlightContainer}>
         <img src={data.imgUrl} alt="post-img" />
-        <p>{data.details}</p>
+        <p dangerouslySetInnerHTML={createMarkup()} />;
+        {/* <p>{data.details}</p> */}
       </div>
     </Link>
   );
