@@ -161,7 +161,7 @@ function AddPost() {
           <label>Category</label>
           {categoriesFetched && categoriesFetched.length > 0 && (
             <AutoComplete
-              title="Enter a category and enter"
+              placeholderText="Enter a category and enter"
               tags={initialTags}
               suggestions={categoriesFetched}
               onTagsChanged={tagsChangeHandler}
