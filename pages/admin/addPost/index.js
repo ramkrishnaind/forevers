@@ -116,7 +116,7 @@ function AddPost() {
           setTimeout(() => {
             setCategoriesFetched(null);
           }, 1000);
-          router.push("/admin");
+          router.push("/");
         }
       });
     }
