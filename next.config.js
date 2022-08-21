@@ -17,6 +17,15 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: "/temp.txt",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/plain",
+          },
+        ],
+      },
     ];
   },
 };
