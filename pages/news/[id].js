@@ -132,7 +132,16 @@ function News() {
       );
     }
   };
+  function createMarkup() {
+    // console.log("data.details", data.details);
+    // const p = document.createElement("p");
+    // p.innerHTML = data?.details || "";
 
+    // return p.innerText;
+    return {
+      __html: targetPost.data.details,
+    };
+  }
   if (targetPost) {
     return (
       <>
@@ -148,7 +157,12 @@ function News() {
           <Ad />
           <img src={targetPost.data.imgUrl} />
           <h3>{targetPost.data.title}</h3>
-          <p style={{ textAlign: "center" }}>{targetPost.data.details}</p>
+          <p
+            style={{ textAlign: "center" }}
+            dangerouslySetInnerHTML={createMarkup()}
+          />
+          ;
+          {/* <p style={{ textAlign: "center" }}>{targetPost.data.details}</p> */}
           <Ad />
         </div>
 

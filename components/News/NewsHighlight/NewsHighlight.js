@@ -13,16 +13,20 @@ function NewsHighlight({ data, id }) {
   }
   function createMarkup() {
     console.log("data.details", data.details);
-    return {
-      __html: data.details,
-    };
+    const p = document.createElement("p");
+    p.innerHTML = data?.details || "";
+
+    return p.innerText;
+    // return {
+    //   __html: data.details,
+    // };
   }
   return (
     <Link href={`/news/${slug}`}>
       <div className={styles.highlightContainer}>
         <img src={data.imgUrl} alt="post-img" />
-        <p dangerouslySetInnerHTML={createMarkup()} />;
-        {/* <p>{data.details}</p> */}
+        {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
+        <p>{createMarkup()}</p>
       </div>
     </Link>
   );
