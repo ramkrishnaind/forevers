@@ -36,7 +36,7 @@ function Post({ data, id, updatePosts }) {
             {confirmDelete ? "Confirm" : "X"}
           </button>
         </div>
-        <p dangerouslySetInnerHTML={createMarkup()} />;
+        <p dangerouslySetInnerHTML={createMarkup()} />
         {/* <p className={styles.body}>{data.details}</p> */}
       </div>
     </div>
