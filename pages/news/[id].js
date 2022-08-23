@@ -161,7 +161,6 @@ function News() {
             style={{ textAlign: "center" }}
             dangerouslySetInnerHTML={createMarkup()}
           />
-          ;
           {/* <p style={{ textAlign: "center" }}>{targetPost.data.details}</p> */}
           <Ad />
         </div>
