@@ -19,60 +19,59 @@ function News() {
   }, []);
 
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.left}>
-          <div className={styles.trending} style={{ display: "none" }}>
-            <p>Trending</p>
-            <Link href="/">
-              <a>Sri Lanka Crisis</a>
-            </Link>
-            <Link href="/">
-              <a>Web stories</a>
-            </Link>
-            <Link href="/">
-              <a>Fake news buster</a>
-            </Link>
-            <Link href="/">
-              <a>Coronavirus</a>
-            </Link>
-          </div>
-          <h3>Latest News</h3>
-          <div className={styles.newsContainer}>
-            {state.posts.length == 0 ? (
-              <h1>Fetcing Posts</h1>
-            ) : (
-              state.posts.map((obj) => {
-                return (
-                  <NewsHighlight key={obj.id} data={obj.data} id={obj.id} />
-                );
-              })
-            )}
-          </div>
+    <div className="container-sm md:flex w-100 col-1 flex-1">
+      <div className="w-100 md:flex-1" style={{ border: "1px solid black" }}>
+        <div className={styles.trending} style={{ display: "none" }}>
+          <p>Trending</p>
+          <Link href="/">
+            <a>Sri Lanka Crisis</a>
+          </Link>
+          <Link href="/">
+            <a>Web stories</a>
+          </Link>
+          <Link href="/">
+            <a>Fake news buster</a>
+          </Link>
+          <Link href="/">
+            <a>Coronavirus</a>
+          </Link>
         </div>
-        <div className={styles.right}>
-          <div className={styles.ad}>Ad will be shown</div>
-          <div className={styles.weather} style={{ display: "none" }}>
-            <div className={styles.weatherDetails}>
-              <div>
-                <h3>
-                  26<sup>°C</sup>
-                </h3>
-                <p>cloudy heavy rain</p>
-              </div>
-              <div className={styles.weatherCity}>
-                <select>
-                  <option>Mumbai</option>
-                  <option>Mumbai</option>
-                  <option>Mumbai</option>
-                </select>
-              </div>
-            </div>
-            <h4>Know more</h4>
-          </div>
+        <h3>Latest News</h3>
+        <div>
+          {state.posts.length == 0 ? (
+            <h1>Fetcing Posts</h1>
+          ) : (
+            state.posts.map((obj) => {
+              return (
+                <div>This is some text</div>
+                // <NewsHighlight key={obj.id} data={obj.data} id={obj.id} />
+              );
+            })
+          )}
         </div>
       </div>
-    </>
+      <div className="w-100 md:w-2/6" style={{ border: "1px solid black" }}>
+        <div className={styles.ad}>Ad will be shown</div>
+        <div className={styles.weather} style={{ display: "none" }}>
+          <div className={styles.weatherDetails}>
+            <div>
+              <h3>
+                26<sup>°C</sup>
+              </h3>
+              <p>cloudy heavy rain</p>
+            </div>
+            <div className={styles.weatherCity}>
+              <select>
+                <option>Mumbai</option>
+                <option>Mumbai</option>
+                <option>Mumbai</option>
+              </select>
+            </div>
+          </div>
+          <h4>Know more</h4>
+        </div>
+      </div>
+    </div>
   );
 }
 

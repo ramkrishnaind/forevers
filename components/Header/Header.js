@@ -1,76 +1,101 @@
-import Image from "next/image";
+import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import { useState } from "react";
 import styles from "./style.module.scss";
-function Header() {
+export default function Home() {
+  const [navbar, setNavbar] = useState(false);
   return (
-    <header className={styles.container}>
-      <img src="/assets/menu-icon.png" className={styles.menu} />
-      <Link href="/">
-        <img className={styles.logo} src="/assets/mbl-logo.png" />
-      </Link>
-      <nav>
-        <div className={styles.languages} style={{ display: "none" }}>
-          <a>বাংলা</a>
-          <a>ગુજરાતી</a>
-          <a>हिन्दी</a>
-          <a>ಕನ್ನಡ</a>
-          <a>മലയാളം</a>
-          <a>தமிழ்</a>
-          <a>తెలుగు</a>
-          <a>ଓଡ଼ିଆ</a>
-          <a>ENGLISH</a>
-          <img src="/assets/fb-logo.jpg" alt="f" className={styles.fb} />
-          <img
-            src="/assets/twitter-logo.png"
-            alt="t"
-            className={styles.twitter}
-          />
-          <img src="/assets/yt-logo.png" alt="f" className={styles.yt} />
-        </div>
-        <div className={styles.navLinks}>
-          <div className={styles.links} style={{ display: "none" }}>
-            <Link href="/">
-              <a>News</a>
-            </Link>
-            <Link href="/">
-              <a>Videos</a>
-            </Link>
-            <Link href="/">
-              <a>Special</a>
-            </Link>
-            <Link href="/">
-              <a>City</a>
-            </Link>
-            <Link href="/">
-              <a>Sports</a>
-            </Link>
-            <Link href="/">
-              <a>Movies</a>
-            </Link>
-            <Link href="/">
-              <a>Lifestyle</a>
-            </Link>
-            <Link href="/">
-              <a>Auto</a>
-            </Link>
-            <Link href="/">
-              <a>Gadgets</a>
-            </Link>
-            <Link href="/">
-              <a>Coupens</a>
-            </Link>
-            <img src="/assets/menu.png" className={styles.menu} />
+    <div>
+      <Head>
+        {/* <title>Create Next Responsive Navbar With Tailwind CSS</title> */}
+        {/* <meta
+          name="description"
+          content="Create Next JS Responsive Menu with Tailwind CSS"
+        /> */}
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <nav className="w-full bg-black shadow">
+        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+          <div>
+            <div className="flex items-center justify-between py-3 md:py-5 md:block">
+              <a href="#">
+                <img className={styles.logo} src="/assets/mbl-logo.png" />
+              </a>
+              <div className="md:hidden">
+                <button
+                  className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                  onClick={() => setNavbar(!navbar)}
+                >
+                  {navbar ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6 text-white"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </div>
           </div>
-          <div className={styles.burger} style={{ display: "none" }}>
-            <img src="/assets/icons8-puzzle-48.png" />
-            <img src="/assets/icons8-search-50.png" />
-            <img src="/assets/icons8-notification-48.png" />
+          <div>
+            <div
+              className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+                navbar ? "block" : "hidden"
+              }`}
+            >
+              <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+                <li className="text-white">
+                  <Link href="/">
+                    <a>Home</a>
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link href="/blogs">
+                    <a>Blogs</a>
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link href="/about">
+                    <a>About US</a>
+                  </Link>
+                </li>
+                <li className="text-white">
+                  <Link href="/contact">
+                    <a>Contact US</a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
-    </header>
+      {/* <div className="flex justify-center items-center mt-8">
+        <h1 className="text-2xl font-bold text-purple-500">
+          Create Responsive Navbar Menu in Next js with Tailwind CSS
+        </h1>
+      </div> */}
+    </div>
   );
 }
-
-export default Header;

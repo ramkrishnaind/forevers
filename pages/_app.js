@@ -7,14 +7,14 @@ import Head from "next/head";
 import Script from "next/script";
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
+    // !window.adsbygoogle
+    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+    //   : console.log("Adsbygoogle already exists");
   }, []);
   return (
     <>
-      <div className="global-container">
-        <Script
+      <div>
+        {/* <Script
           id="Adsense-id"
           async
           onError={(e) => {
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
           strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
           crossorigin="anonymous"
-        />
+        /> */}
         <GlobalContext>
           <div
             style={{
@@ -38,16 +38,16 @@ function MyApp({ Component, pageProps }) {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                margin: "auto",
+                // justifyContent: "center",
+                // alignItems: "center",
+                // margin: "auto",
                 minWidth: "100%",
                 flex: 1,
               }}
             >
               <Component {...pageProps} />
+              <Footer />
             </div>
-            <Footer />
           </div>
         </GlobalContext>
       </div>

@@ -22,13 +22,21 @@ function NewsHighlight({ data, id }) {
     // };
   }
   return (
-    <Link href={`/news/${slug}`}>
-      <div className={styles.highlightContainer}>
-        <img src={data.imgUrl} alt="post-img" />
-        {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
-        <p>{createMarkup()}</p>
-      </div>
-    </Link>
+    <div className="container-sm md:px-20 flex gap-3">
+      <Link href={`/news/${slug}`}>
+        <div className="md:flex">
+          <img
+            src={data.imgUrl}
+            alt="post-img"
+            className="w-screen max-w-sm shadow-lg h-52"
+          />
+          {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
+          <p className="w-screen" style={{ wordBreak: "break-all" }}>
+            {createMarkup()}
+          </p>
+        </div>
+      </Link>
+    </div>
   );
 }
 

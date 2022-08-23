@@ -3,19 +3,19 @@ import styles from "./style.module.scss";
 import Link from "next/link";
 function Footer() {
   return (
-    <div className={styles.container}>
-      <div className={styles.links}>
+    <div className={`${styles.container}`}>
+      <div className={`${styles.links} flex-col md:flex-row`}>
         <Link href="/">
-          <a>About Us</a>
+          <a className="py-3 md:py-0">About Us</a>
         </Link>
         <Link href="/">
-          <a>Privacy Policy</a>
+          <a className="py-3 md:py-0">Privacy Policy</a>
         </Link>
         <Link href="/">
-          <a>Disclaimer</a>
+          <a className="py-3 md:py-0">Disclaimer</a>
         </Link>
         <Link href="/">
-          <a>Contact Us</a>
+          <a className="py-3 md:py-0">Contact Us</a>
         </Link>
       </div>
       <p>Copyright &copy; 2022 | FOREVERS.IN | All Rights Are Reserved</p>

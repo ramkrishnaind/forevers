@@ -20,9 +20,9 @@ function News() {
   const router = useRouter();
   const { id } = router.query;
   React.useEffect(() => {
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
+    // !window.adsbygoogle
+    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+    //   : console.log("Adsbygoogle already exists");
     setStatus(localStorage.getItem("mozilla-support-status"));
     if (state.posts.length > 0) {
       return;

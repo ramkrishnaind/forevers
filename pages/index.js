@@ -17,29 +17,27 @@ const DynamicTimer = dynamic(() => import("../components/Timer/Timer"), {
 
 function Home() {
   React.useEffect(() => {
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
+    // !window.adsbygoogle
+    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+    //   : console.log("Adsbygoogle already exists");
   }, []);
   return (
-    <>
+    <div style={{ flex: 1, display: "flex" }}>
       <Head>
         <title>Forevers.in</title>
       </Head>
-      <main className={styles.container}>
-        <div className={styles.app}>
-          <img
-            src="/assets/modi.jpg"
-            alt="pm-image"
-            style={{ width: "100%" }}
-          />
-          <Ad />
+      <main className="container-sm flex flex-col flex-1">
+        {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
+        {/* <div> */}
+        <img src="/assets/modi.jpg" alt="pm-image" />
+        {/* <Ad /> */}
 
-          {/* <DynamicTimer /> */}
-          <News />
-        </div>
+        {/* <DynamicTimer /> */}
+        {/* <div style={{ flex: 1 }}>afjafjl</div> */}
+        <News />
+        {/* </div> */}
       </main>
-    </>
+    </div>
   );
 }
 
