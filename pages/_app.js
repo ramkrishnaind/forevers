@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }) {
             </div>
           </GlobalContext>
         </div>
-        <div className="w-full md:w-1/6">Ad will be shown</div>
+        <div className="w-full hidden md:block md:w-1/6">Ad will be shown</div>
       </div>
     </>
   );
