@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import axios from "axios";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
@@ -10,9 +11,13 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   // console.log("router", router);
   React.useEffect(() => {
+    // console.log("dispatch", dispatch);
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
     //   : console.log("Adsbygoogle already exists");
+    // if (state.posts.length > 0) {
+    //   return;
+    // }
   }, []);
   const other = (
     <>
@@ -46,23 +51,21 @@ function MyApp({ Component, pageProps }) {
           }}
           className="w-full md:w-4/6"
         >
-          <GlobalContext>
-            <Header />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                // justifyContent: "center",
-                // alignItems: "center",
-                // margin: "auto",
-                minWidth: "100%",
-                flex: 1,
-              }}
-            >
-              <Component {...pageProps} />
-              <Footer />
-            </div>
-          </GlobalContext>
+          <Header />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              // justifyContent: "center",
+              // alignItems: "center",
+              // margin: "auto",
+              minWidth: "100%",
+              flex: 1,
+            }}
+          >
+            <Component {...pageProps} />
+            <Footer />
+          </div>
         </div>
         <div className="w-full hidden md:block md:w-1/6">Ad will be shown</div>
       </div>
@@ -88,43 +91,42 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
           crossorigin="anonymous"
         /> */}
-        <GlobalContext>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            backgroundColor: "white",
+            // width: "80vw",
+            minHeight: "100vh",
+            // flex: 1,
+          }}
+          className="md:w-5/6"
+        >
+          <Header />
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              backgroundColor: "white",
-              // width: "80vw",
-              minHeight: "100vh",
-              // flex: 1,
+              // justifyContent: "center",
+              // alignItems: "center",
+              // margin: "auto",
+              minWidth: "100%",
+              flex: 1,
             }}
-            className="md:w-5/6"
           >
-            <Header />
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                // justifyContent: "center",
-                // alignItems: "center",
-                // margin: "auto",
-                minWidth: "100%",
-                flex: 1,
-              }}
-            >
-              <Component {...pageProps} />
-              <Footer />
-            </div>
+            <Component {...pageProps} />
+            <Footer />
           </div>
-        </GlobalContext>
+        </div>
       </div>
     </>
   );
-  if (router.asPath.includes("/news/")) {
-    return news;
-  } else {
-    return other;
-  }
+  return (
+    <GlobalContext>
+      {router.asPath.includes("/news/") ? news : other}
+    </GlobalContext>
+  );
 }
 
 export default MyApp;

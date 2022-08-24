@@ -11,7 +11,9 @@ import Countdown from "react-countdown";
 import Ad from "../../components/Ad/Ad";
 import Ad1 from "../../components/FooterAd1/Ad";
 import Ad2 from "../../components/FooterAd2/Ad";
+import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 function News() {
+  const [targetPost, setTargetPost] = React.useState();
   const [state, dispatch] = useContext(AppContext);
   const [checkAccMsg, setCheckAccMsg] = useState("Check My Account");
   const [status, setStatus] = React.useState("");
@@ -24,18 +26,21 @@ function News() {
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
     //   : console.log("Adsbygoogle already exists");
     setStatus(localStorage.getItem("mozilla-support-status"));
-    if (state.posts.length > 0) {
-      return;
-    }
-    const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
-    (async () => {
-      setFetching(true);
-      axios.get(url).then((res) => {
-        dispatch({ type: "setposts", payload: res.data.data });
-        setFetching(false);
-      });
-    })();
-  }, []);
+    console.log("state", state);
+    // if (state.posts.length > 0) {
+    //   return;
+    // }
+    // const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
+    // (async () => {
+    //   setFetching(true);
+    //   axios.get(url).then((res) => {
+    //     dispatch({ type: "setposts", payload: res.data.data });
+    //     setFetching(false);
+    //   });
+    // })();
+    debugger;
+    setTargetPost(getPost(id));
+  }, [id]);
 
   function getEquivalentSlug(title) {
     let slug = "";
@@ -47,13 +52,17 @@ function News() {
         slug += oldTitle[i].toLowerCase();
       }
     }
+    if (slug.substr(slug.length - 1) === "?")
+      slug = slug.substr(0, slug.length - 1);
     return slug;
   }
 
   function getPost(postSlug) {
+    debugger;
     const allPosts = state.posts;
     let post = null;
     for (let i = 0; i < allPosts.length; i++) {
+      debugger;
       const slug = getEquivalentSlug(allPosts[i].data.title);
       if (slug == postSlug) {
         post = allPosts[i];
@@ -65,7 +74,7 @@ function News() {
   if (isFetching) {
     return <p>Loading...</p>;
   }
-  const targetPost = getPost(id);
+  // const targetPost = getPost(id);
   function handleClickCollectCoin() {
     setCollectingCoin(true);
     // Increment Coin in user profile...

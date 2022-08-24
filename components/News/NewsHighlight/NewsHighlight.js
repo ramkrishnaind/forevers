@@ -14,7 +14,7 @@ function NewsHighlight({ data, id }) {
     }
   }
   function createMarkup(length = 30) {
-    console.log("data.details", data.details);
+    // console.log("data.details", data.details);
     const p = document.createElement("p");
     p.innerHTML = data?.details || "";
     const arr = p.innerText.split(" ");

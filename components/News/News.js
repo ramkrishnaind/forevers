@@ -9,14 +9,15 @@ import { AppContext } from "./../../app/state/contexts/AppContext";
 function News() {
   const [state, dispatch] = useContext(AppContext);
   console.log(state);
-  useEffect(() => {
-    const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
-    (async () => {
-      axios.get(url).then((res) => {
-        dispatch({ type: "setposts", payload: res.data.data });
-      });
-    })();
-  }, []);
+  // useEffect(() => {
+  //   const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
+  //   (async () => {
+  //     axios.get(url).then((res) => {
+  //       console.log("res.data.data", res.data.data);
+  //       dispatch({ type: "setposts", payload: res.data.data });
+  //     });
+  //   })();
+  // }, []);
 
   return (
     <div className="container-sm md:flex w-100 col-1 flex-1">

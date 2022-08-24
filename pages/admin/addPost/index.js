@@ -30,20 +30,20 @@ function AddPost() {
   const [categoriesToAdd, setCategoriesToAdd] = useState(
     categories.map((i) => i.name)
   );
-  useEffect(() => {
-    const url = process.env.NEXT_PUBLIC_HOST_URL + "/postCategories";
-    (async () => {
-      axios.get(url).then((res) => {
-        console.log("res.data", res.data);
-        setCategoriesFetched(
-          res.data.data.map((item, index) => ({
-            id: index + 1,
-            name: item.data.name,
-          }))
-        );
-      });
-    })();
-  }, []);
+  // useEffect(() => {
+  //   const url = process.env.NEXT_PUBLIC_HOST_URL + "/postCategories";
+  //   (async () => {
+  //     axios.get(url).then((res) => {
+  //       console.log("res.data", res.data);
+  //       setCategoriesFetched(
+  //         res.data.data.map((item, index) => ({
+  //           id: index + 1,
+  //           name: item.data.name,
+  //         }))
+  //       );
+  //     });
+  //   })();
+  // }, []);
   const initialTags = [
     // { id: 1, name: "Apples" },
     // { id: 2, name: "Pears" },
