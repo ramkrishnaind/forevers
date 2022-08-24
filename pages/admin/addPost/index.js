@@ -125,42 +125,42 @@ function AddPost() {
   return (
     <div>
       <form>
-        <div className="w-2/3 mx-auto flex">
-          <label className="inline-block w-1/4"></label>
-          <div className="w-5/6 flex justify-center  py-1">
-            <h3 className="w-100">Add Post</h3>
+        <div className="w-5/6 mx-auto flex-col md:flex md:flex-row">
+          <label className="inline-block w-100 md:w-1/4"></label>
+          <div className="md:w-[28rem] md:flex w-100  justify-center  py-1">
+            <h3 className="w-100 text-center">Add Post</h3>
           </div>
         </div>
-        <div className="w-2/3 mx-auto flex justify-between my-4">
-          <label className="w-1/5">Title</label>
+        <div className="w-5/6 mx-auto  w-100 flex flex-col md:flex-row justify-between my-4">
+          <label className="w-100 md:w-1/5">Title</label>
           <input
             type="text"
             required
-            className="w-4/5 border-2 ml-5 py-1 px-1"
+            className="md:w-4/5 w-100 border-2 w-100 py-1 px-1"
             value={data.title}
             onChange={(e) => setData({ ...data, title: e.target.value })}
           />
         </div>
-        <div className="w-2/3 mx-auto flex justify-between">
-          <label className="w-2/5">Details</label>
+        <div className="w-5/6 mx-auto  w-100 flex flex-col md:flex-row justify-between my-4">
+          <label className="md:w-[12rem]">Details</label>
           <TextEditor
-            className="w-3/5"
+            className="w-3/5 ml-5"
             content={data.details}
             setContent={(content) => setData({ ...data, details: content })}
           />
         </div>
 
-        <div className="w-2/3 mx-auto flex justify-between my-4">
+        <div className="w-5/6 mt-10 mx-auto  w-100 flex flex-col md:flex-row justify-between my-4">
           <label className="w-1/5">Author</label>
           <input
             type="text"
             placeholder="(Optional)"
             value={data.author}
-            className="w-4/5 border-2 ml-5 py-1  px-1"
+            className="w-100 md:w-4/5 border-2 py-1  px-1"
             onChange={(e) => setData({ ...data, author: e.target.value })}
           />
         </div>
-        <div className="w-2/3 mx-auto flex justify-between my-4">
+        <div className="w-5/6 mx-auto  w-100 flex flex-col md:flex-row justify-between my-4">
           <label className="w-1/4">Category</label>
           {categoriesFetched && categoriesFetched.length > 0 && (
             <AutoComplete
@@ -172,17 +172,17 @@ function AddPost() {
             />
           )}
         </div>
-        <div className="w-2/3 mx-auto flex justify-between my-4">
+        <div className="w-5/6 mx-auto  w-100 flex flex-col md:flex-row justify-between my-4">
           <label className="w-1/5">ImageURL</label>
           <input
             type="text"
             value={data.imgUrl}
-            className="w-4/5 border-2 ml-5 py-1  px-1"
+            className="w-100 md:w-4/5 border-2 w-100 py-1  px-1"
             onChange={(e) => setData({ ...data, imgUrl: e.target.value })}
           />
         </div>
       </form>
-      <div className="w-2/3 mx-auto flex justify-between my-4">
+      <div className="w-5/6 mx-auto  w-100 flex flex-col md:flex-row justify-between my-4">
         <p
           className={styles.successMsg}
           style={{ display: successMsg ? "block" : "none" }}
@@ -196,7 +196,7 @@ function AddPost() {
           to go back to admin console.
         </p>
       </div>
-      <div className="w-2/3 mx-auto flex justify-end my-4">
+      <div className="w-5/6 mx-auto w-100  flex justify-end my-4">
         <button onClick={handleAddPost} className={styles.addPostBtn}>
           Submit
         </button>
