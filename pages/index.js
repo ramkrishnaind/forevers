@@ -55,10 +55,13 @@ function Home() {
       <Head>
         <title>Forevers.in</title>
       </Head>
-      <main className="container-sm flex flex-col flex-1">
+      <main className="container-sm flex relative flex-col flex-1">
         {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
         {/* <div> */}
-        <img src="/assets/modi.jpg" alt="pm-image" />
+        <div>
+          <img src="/assets/modi.jpg" alt="pm-image" />
+        </div>
+
         {/* <Ad /> */}
 
         {/* <DynamicTimer /> */}

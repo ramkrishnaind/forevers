@@ -3,10 +3,10 @@ import Link from "next/link";
 
 import { useState } from "react";
 import styles from "./style.module.scss";
-export default function Home() {
+export default function Home({ width = 59 }) {
   const [navbar, setNavbar] = useState(false);
   return (
-    <div>
+    <div className="md:max-w-7xl ">
       <Head>
         {/* <title>Create Next Responsive Navbar With Tailwind CSS</title> */}
         {/* <meta
@@ -15,8 +15,8 @@ export default function Home() {
         /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className="w-full bg-black shadow">
-        <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+      <nav className={`w-full fixed z-10 bg-black shadow md:w-[${width}rem]`}>
+        <div className="justify-between px-4 mx-auto md:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <Link href="/">

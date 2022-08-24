@@ -22,25 +22,20 @@ function News() {
   return (
     <div className="container-sm md:flex w-100 col-1 flex-1">
       <div className="w-100 md:flex-1">
-        <div className="grid grid-cols-3">
-          <div className="col-span-2">
-            <h3 className="bg-gray-500 py-2 px-2 text-lg text-white">
-              Latest News
-            </h3>
-            <div className="grid grid-cols-2">
-              {state.posts.length == 0 ? (
-                <h1>Fetcing Posts</h1>
-              ) : (
-                state.posts.map((obj) => {
-                  return (
-                    // <div>This is some text</div>
-                    <NewsHighlight key={obj.id} data={obj.data} id={obj.id} />
-                  );
-                })
-              )}
-            </div>
-          </div>
-          <div className="col-span-1"></div>
+        <h3 className="bg-gray-500 py-2 px-2 text-lg text-white">
+          Latest News
+        </h3>
+        <div className="grid grid-cols-2 md:grid-cols-3 pl-1">
+          {state.posts.length == 0 ? (
+            <h1>Fetcing Posts</h1>
+          ) : (
+            state.posts.map((obj) => {
+              return (
+                // <div>This is some text</div>
+                <NewsHighlight key={obj.id} data={obj.data} id={obj.id} />
+              );
+            })
+          )}
         </div>
       </div>
     </div>
