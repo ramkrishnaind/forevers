@@ -10,15 +10,7 @@ import Script from "next/script";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   // console.log("router", router);
-  React.useEffect(() => {
-    // console.log("dispatch", dispatch);
-    // !window.adsbygoogle
-    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-    //   : console.log("Adsbygoogle already exists");
-    // if (state.posts.length > 0) {
-    //   return;
-    // }
-  }, []);
+  // React.useEffect(() => {}, []);
   const other = (
     <>
       <div
