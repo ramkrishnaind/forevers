@@ -22,7 +22,11 @@ function NewsHighlight({ data, id }) {
     const arrToTake = arr.map((item, index) => {
       if (index <= count) return item;
     });
-    return arrToTake.join(" ") + (arr.length > length ? "..." : "");
+    let result = arrToTake.join(" ") + (arr.length > length ? "..." : "");
+    if (width < 768 && result.length > 110) {
+      result = result.substring(0, 110) + " ...";
+    }
+    return result;
     // return {
     //   __html: data.details,
     // };
@@ -32,7 +36,11 @@ function NewsHighlight({ data, id }) {
       <Link href={`/news/${slug}`}>
         <div className="flex gap-3">
           <div className="w-2/5 px-1 md:px-0 md:pr-3 pt-1">
-            <img src={data.imgUrl} alt="post-img" className="w-72 rounded-md" />
+            <img
+              src={data.imgUrl}
+              alt="post-img"
+              className="w-72 max-h-40 rounded-md"
+            />
           </div>
 
           {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
@@ -40,7 +48,7 @@ function NewsHighlight({ data, id }) {
             className="w-3/5 px-1 md:px-0 md:pr-3  hover:underline"
             style={{ wordBreak: "break-all" }}
           >
-            {createMarkup(width < 768 ? 17 : 40)}
+            {createMarkup(width < 768 ? 17 : 60)}
           </p>
         </div>
       </Link>

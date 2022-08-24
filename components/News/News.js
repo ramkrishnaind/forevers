@@ -20,22 +20,7 @@ function News() {
 
   return (
     <div className="container-sm md:flex w-100 col-1 flex-1">
-      <div className="w-100 md:flex-1" style={{ border: "1px solid black" }}>
-        <div className={styles.trending} style={{ display: "none" }}>
-          <p>Trending</p>
-          <Link href="/">
-            <a>Sri Lanka Crisis</a>
-          </Link>
-          <Link href="/">
-            <a>Web stories</a>
-          </Link>
-          <Link href="/">
-            <a>Fake news buster</a>
-          </Link>
-          <Link href="/">
-            <a>Coronavirus</a>
-          </Link>
-        </div>
+      <div className="w-100 md:flex-1">
         <h3 className="bg-gray-500 py-2 px-2 text-lg text-white">
           Latest News
         </h3>

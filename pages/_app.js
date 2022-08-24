@@ -8,7 +8,7 @@ import Head from "next/head";
 import Script from "next/script";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  console.log("router", router);
+  // console.log("router", router);
   React.useEffect(() => {
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
           justifyContent: "center",
           backgroundColor: "#F2F2F0",
         }}
-        className="flex-col md:flex-row"
+        className="flex-col md:flex-row gap-3"
       >
         {/* <Script
           id="Adsense-id"
@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
           crossorigin="anonymous"
         /> */}
-        <div className="w-full md:w-1/6">Ad will be shown</div>
+        <div className="w-full hidden md:block md:w-1/6">Ad will be shown</div>
         <div
           style={{
             display: "flex",
