@@ -11,28 +11,38 @@ function NewsHighlight({ data, id }) {
       slug += oldTitle[i].toLowerCase();
     }
   }
-  function createMarkup() {
+  function createMarkup(length = 30) {
     console.log("data.details", data.details);
     const p = document.createElement("p");
     p.innerHTML = data?.details || "";
-
-    return p.innerText;
+    const arr = p.innerText.split(" ");
+    const count = Math.floor(arr.length < length ? arr.length : length);
+    const arrToTake = arr.map((item, index) => {
+      if (index <= count) return item;
+    });
+    return arrToTake.join(" ") + (arr.length > length ? "..." : "");
     // return {
     //   __html: data.details,
     // };
   }
   return (
-    <div className="container-sm md:px-20 flex gap-3">
+    <div className="py-3" style={{ cursor: "pointer" }}>
       <Link href={`/news/${slug}`}>
-        <div className="md:flex">
-          <img
-            src={data.imgUrl}
-            alt="post-img"
-            className="w-screen max-w-sm shadow-lg h-52"
-          />
+        <div className="md:flex gap-3">
+          <div className="w-full md:w-1/4 px-3 md:px-0 md:pr-3 pt-1">
+            <img
+              src={data.imgUrl}
+              alt="post-img"
+              className="w-full rounded-md"
+            />
+          </div>
+
           {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
-          <p className="w-screen" style={{ wordBreak: "break-all" }}>
-            {createMarkup()}
+          <p
+            className="w-full md:w-3/4 px-3 md:px-0 md:pr-3  hover:underline"
+            style={{ wordBreak: "break-all" }}
+          >
+            {createMarkup(40)}
           </p>
         </div>
       </Link>

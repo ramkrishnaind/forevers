@@ -13,7 +13,14 @@ function MyApp({ Component, pageProps }) {
   }, []);
   return (
     <>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#F2F2F0",
+        }}
+      >
         {/* <Script
           id="Adsense-id"
           async
@@ -29,9 +36,12 @@ function MyApp({ Component, pageProps }) {
             style={{
               display: "flex",
               flexDirection: "column",
+              backgroundColor: "white",
+              // width: "80vw",
               minHeight: "100vh",
-              flex: 1,
+              // flex: 1,
             }}
+            className="md:w-5/6"
           >
             <Header />
             <div
