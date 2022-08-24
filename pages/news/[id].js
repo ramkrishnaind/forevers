@@ -25,6 +25,38 @@ function News() {
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
     //   : console.log("Adsbygoogle already exists");
+    const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
+    (async () => {
+      setFetching(true);
+      axios.get(url).then((res) => {
+        dispatch({ type: "setposts", payload: res.data.data });
+        setFetching(false);
+      });
+    })();
+    const urlCat =
+      process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts/categories";
+    (async () => {
+      setFetching(true);
+      axios.get(urlCat).then((res) => {
+        dispatch({ type: "set-categories", payload: res.data.data });
+        setFetching(false);
+      });
+    })();
+    const urlCatPosts =
+      process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts/categoryPosts";
+    (async () => {
+      setFetching(true);
+      axios.get(urlCatPosts).then((res) => {
+        dispatch({ type: "set-category-posts", payload: res.data.data });
+        setFetching(false);
+      });
+    })();
+    console.log("state", state);
+  }, [id]);
+  React.useEffect(() => {
+    // !window.adsbygoogle
+    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+    //   : console.log("Adsbygoogle already exists");
     setStatus(localStorage.getItem("mozilla-support-status"));
     console.log("state", state);
     // if (state.posts.length > 0) {
@@ -40,7 +72,7 @@ function News() {
     // })();
     debugger;
     setTargetPost(getPost(id));
-  }, [id]);
+  }, [id, state]);
 
   function getEquivalentSlug(title) {
     let slug = "";

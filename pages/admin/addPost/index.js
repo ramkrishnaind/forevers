@@ -30,20 +30,20 @@ function AddPost() {
   const [categoriesToAdd, setCategoriesToAdd] = useState(
     categories.map((i) => i.name)
   );
-  // useEffect(() => {
-  //   const url = process.env.NEXT_PUBLIC_HOST_URL + "/postCategories";
-  //   (async () => {
-  //     axios.get(url).then((res) => {
-  //       console.log("res.data", res.data);
-  //       setCategoriesFetched(
-  //         res.data.data.map((item, index) => ({
-  //           id: index + 1,
-  //           name: item.data.name,
-  //         }))
-  //       );
-  //     });
-  //   })();
-  // }, []);
+  useEffect(() => {
+    const url = process.env.NEXT_PUBLIC_HOST_URL + "/postCategories";
+    (async () => {
+      axios.get(url).then((res) => {
+        console.log("res.data", res.data);
+        setCategoriesFetched(
+          res.data.data.map((item, index) => ({
+            id: index + 1,
+            name: item.data.name,
+          }))
+        );
+      });
+    })();
+  }, []);
   const initialTags = [
     // { id: 1, name: "Apples" },
     // { id: 2, name: "Pears" },
@@ -123,89 +123,80 @@ function AddPost() {
   }
   console.log("data", data);
   return (
-    <div className={styles.container}>
+    <div>
       <form>
-        <h3>Add Post</h3>
-        <div className={styles.input}>
-          <label>Title</label>
+        <div className="w-2/3 mx-auto flex">
+          <label className="inline-block w-1/4"></label>
+          <div className="w-5/6 flex justify-center  py-1">
+            <h3 className="w-100">Add Post</h3>
+          </div>
+        </div>
+        <div className="w-2/3 mx-auto flex justify-between my-4">
+          <label className="w-1/5">Title</label>
           <input
             type="text"
             required
+            className="w-4/5 border-2 ml-5 py-1 px-1"
             value={data.title}
             onChange={(e) => setData({ ...data, title: e.target.value })}
           />
         </div>
-        <div className={styles.input}>
-          <label>Details</label>
+        <div className="w-2/3 mx-auto flex justify-between">
+          <label className="w-2/5">Details</label>
           <TextEditor
+            className="w-3/5"
             content={data.details}
             setContent={(content) => setData({ ...data, details: content })}
           />
-          {/* <textarea
-            type="text"
-            required
-            value={data.details}
-            onChange={(e) => setData({ ...data, details: e.target.value })}
-          /> */}
         </div>
-        <div className={styles.input}>
-          <label>Author</label>
+
+        <div className="w-2/3 mx-auto flex justify-between my-4">
+          <label className="w-1/5">Author</label>
           <input
             type="text"
             placeholder="(Optional)"
             value={data.author}
+            className="w-4/5 border-2 ml-5 py-1  px-1"
             onChange={(e) => setData({ ...data, author: e.target.value })}
           />
         </div>
-        <div className={styles.input}>
-          <label>Category</label>
+        <div className="w-2/3 mx-auto flex justify-between my-4">
+          <label className="w-1/4">Category</label>
           {categoriesFetched && categoriesFetched.length > 0 && (
             <AutoComplete
               placeholderText="Enter a category and enter"
               tags={initialTags}
               suggestions={categoriesFetched}
               onTagsChanged={tagsChangeHandler}
-              className={classes.reactTags}
+              className="w-3/5 ml-7 border-2 py-1  px-1"
             />
           )}
-
-          {/* <ReactTags
-            placeholderText={"Enter a value"}
-            ref={reactTags}
-            minQueryLength={1}
-            tags={tagsState.tags}
-            suggestions={tagsState.suggestions}
-            onDelete={onDelete}
-            allowNew
-            onAddition={onAddition}
-            className={classes.reactTags}
-          /> */}
         </div>
-
-        <div className={styles.input}>
-          <label>ImageURL</label>
+        <div className="w-2/3 mx-auto flex justify-between my-4">
+          <label className="w-1/5">ImageURL</label>
           <input
             type="text"
             value={data.imgUrl}
+            className="w-4/5 border-2 ml-5 py-1  px-1"
             onChange={(e) => setData({ ...data, imgUrl: e.target.value })}
           />
         </div>
       </form>
-      <p
-        className={styles.successMsg}
-        style={{ display: successMsg ? "block" : "none" }}
-      >
-        <span> Post Added Successfully ✔️</span>
-        <br />
-        Click{" "}
-        <Link href="/admin">
-          <u style={{ cursor: "pointer" }}>here</u>
-        </Link>{" "}
-        to go back to admin console.
-      </p>
-      <div
-        style={{ display: "flex", justifyContent: "flex-end", width: "40%" }}
-      >
+      <div className="w-2/3 mx-auto flex justify-between my-4">
+        <p
+          className={styles.successMsg}
+          style={{ display: successMsg ? "block" : "none" }}
+        >
+          <span> Post Added Successfully ✔️</span>
+          <br />
+          Click{" "}
+          <Link href="/admin">
+            <u style={{ cursor: "pointer" }}>here</u>
+          </Link>{" "}
+          to go back to admin console.
+        </p>
+      </div>
+      <div className="w-2/3 mx-auto flex justify-end my-4">
         <button onClick={handleAddPost} className={styles.addPostBtn}>
           Submit
         </button>

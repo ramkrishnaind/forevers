@@ -12,11 +12,14 @@ function NewsHighlight({ data, id }) {
     } else {
       slug += oldTitle[i].toLowerCase();
     }
+    if (slug.substr(slug.length - 1) === "?")
+      slug = slug.substr(0, slug.length - 1);
   }
+  console.log("slug", data.title);
   function createMarkup(length = 30) {
-    console.log("data.details", data.details);
+    console.log("data.details", data.title);
     const p = document.createElement("p");
-    p.innerHTML = data?.details || "";
+    p.innerHTML = data?.title || "";
     const arr = p.innerText.split(" ");
     const count = Math.floor(arr.length < length ? arr.length : length);
     const arrToTake = arr.map((item, index) => {

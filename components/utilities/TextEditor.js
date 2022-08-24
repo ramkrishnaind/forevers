@@ -23,7 +23,7 @@ export default function IndexPage({ setContent }) {
       setContent(quill.root.innerHTML.split("  ").join(" &nbsp;"));
     });
   return (
-    <div className={classes.container}>
+    <div className={`${classes.container}`}>
       <div ref={quillRef} />
     </div>
   );
