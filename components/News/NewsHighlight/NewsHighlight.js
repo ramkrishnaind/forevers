@@ -14,7 +14,7 @@ function NewsHighlight({ data, id }) {
     }
   }
   function createMarkup(length = 30) {
-    // console.log("data.details", data.details);
+    console.log("data.details", data.details);
     const p = document.createElement("p");
     p.innerHTML = data?.details || "";
     const arr = p.innerText.split(" ");
@@ -39,7 +39,7 @@ function NewsHighlight({ data, id }) {
             <img
               src={data.imgUrl}
               alt="post-img"
-              className="w-100 max-h-40 rounded-md"
+              className="w-80 max-h-40 rounded-md"
             />
           </div>
 
