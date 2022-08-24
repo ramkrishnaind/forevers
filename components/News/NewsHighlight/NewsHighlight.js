@@ -1,7 +1,9 @@
 import React from "react";
 import styles from "./style.module.scss";
 import Link from "next/link";
+import getWindowDimensions from "../../../hooks/useWindowDimensions";
 function NewsHighlight({ data, id }) {
+  const { height, width } = getWindowDimensions();
   let slug = "";
   let oldTitle = data.title;
   for (let i = 0; i < oldTitle.length; i++) {
@@ -28,21 +30,17 @@ function NewsHighlight({ data, id }) {
   return (
     <div className="py-3" style={{ cursor: "pointer" }}>
       <Link href={`/news/${slug}`}>
-        <div className="md:flex gap-3">
-          <div className="w-full md:w-1/4 px-3 md:px-0 md:pr-3 pt-1">
-            <img
-              src={data.imgUrl}
-              alt="post-img"
-              className="w-full rounded-md"
-            />
+        <div className="flex gap-3">
+          <div className="w-2/5 px-1 md:px-0 md:pr-3 pt-1">
+            <img src={data.imgUrl} alt="post-img" className="w-72 rounded-md" />
           </div>
 
           {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
           <p
-            className="w-full md:w-3/4 px-3 md:px-0 md:pr-3  hover:underline"
+            className="w-3/5 px-1 md:px-0 md:pr-3  hover:underline"
             style={{ wordBreak: "break-all" }}
           >
-            {createMarkup(40)}
+            {createMarkup(width < 768 ? 17 : 40)}
           </p>
         </div>
       </Link>

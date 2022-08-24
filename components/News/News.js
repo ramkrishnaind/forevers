@@ -20,27 +20,6 @@ function News() {
 
   return (
     <div className="container-sm md:flex w-100 col-1 flex-1">
-      <div className="w-100 md:w-1/6" style={{ border: "1px solid black" }}>
-        <div className={styles.ad}>Ad will be shown</div>
-        <div className={styles.weather} style={{ display: "none" }}>
-          <div className={styles.weatherDetails}>
-            <div>
-              <h3>
-                26<sup>°C</sup>
-              </h3>
-              <p>cloudy heavy rain</p>
-            </div>
-            <div className={styles.weatherCity}>
-              <select>
-                <option>Mumbai</option>
-                <option>Mumbai</option>
-                <option>Mumbai</option>
-              </select>
-            </div>
-          </div>
-          <h4>Know more</h4>
-        </div>
-      </div>
       <div className="w-100 md:flex-1" style={{ border: "1px solid black" }}>
         <div className={styles.trending} style={{ display: "none" }}>
           <p>Trending</p>
@@ -71,27 +50,6 @@ function News() {
               );
             })
           )}
-        </div>
-      </div>
-      <div className="w-100 md:w-1/6" style={{ border: "1px solid black" }}>
-        <div className={styles.ad}>Ad will be shown</div>
-        <div className={styles.weather} style={{ display: "none" }}>
-          <div className={styles.weatherDetails}>
-            <div>
-              <h3>
-                26<sup>°C</sup>
-              </h3>
-              <p>cloudy heavy rain</p>
-            </div>
-            <div className={styles.weatherCity}>
-              <select>
-                <option>Mumbai</option>
-                <option>Mumbai</option>
-                <option>Mumbai</option>
-              </select>
-            </div>
-          </div>
-          <h4>Know more</h4>
         </div>
       </div>
     </div>

@@ -148,31 +148,38 @@ function News() {
         <Head>
           <title>{targetPost.data.title}</title>
         </Head>
-        <div className={styles.container}>
+        <div className="flex px-3 md:px-0 md:flex-row flex-col gap-3">
           {status == "4" && !collectingCoin ? (
             <Countdown date={Date.now() + 20000} renderer={renderer} />
           ) : (
             ""
           )}
-          <Ad />
-          <img src={targetPost.data.imgUrl} />
-          <h3>{targetPost.data.title}</h3>
-          <p
-            style={{ textAlign: "center" }}
-            dangerouslySetInnerHTML={createMarkup()}
-          />
+          {/* <Ad /> */}
+          <div className="w-full md:w-1/4 pt-3">
+            <img src={targetPost.data.imgUrl} className="w-full md:w-72" />
+          </div>
+          <div className="sm:w-full md:flex-1">
+            <h3 className="text-4xl py-3 capitalize">
+              {targetPost.data.title}
+            </h3>
+            <p
+              style={{ textAlign: "justify" }}
+              dangerouslySetInnerHTML={createMarkup()}
+            />
+          </div>
+          <div className=" md:w-1/7"> advertisement</div>
           {/* <p style={{ textAlign: "center" }}>{targetPost.data.details}</p> */}
-          <Ad />
+          {/* <Ad /> */}
         </div>
 
         <footer id="footer">
-          <Ad1 />
+          {/* <Ad1 /> */}
           {collectingCoin ? (
             <Countdown date={Date.now() + 5000} renderer={renderer2} />
           ) : (
             ""
           )}
-          <Ad2 />
+          {/* <Ad2 /> */}
         </footer>
       </>
     );
