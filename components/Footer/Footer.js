@@ -6,19 +6,23 @@ function Footer() {
     <div className={`${styles.container}`}>
       <div className={`${styles.links} flex-col md:flex-row`}>
         <Link href="/">
-          <a className="py-3 md:py-0">About Us</a>
+          <a className="py-3 md:py-0 text-[.8rem] md:text-base">About Us</a>
         </Link>
         <Link href="/">
-          <a className="py-3 md:py-0">Privacy Policy</a>
+          <a className="py-3 md:py-0 text-[.8rem] md:text-base">
+            Privacy Policy
+          </a>
         </Link>
         <Link href="/">
-          <a className="py-3 md:py-0">Disclaimer</a>
+          <a className="py-3 md:py-0 text-[.8rem] md:text-base">Disclaimer</a>
         </Link>
         <Link href="/">
-          <a className="py-3 md:py-0">Contact Us</a>
+          <a className="py-3 md:py-0 text-[.8rem] md:text-base">Contact Us</a>
         </Link>
       </div>
-      <p>Copyright &copy; 2022 | FOREVERS.IN | All Rights Are Reserved</p>
+      <p className="text-[.8rem] md:text-base">
+        Copyright &copy; 2022 | FOREVERS.IN | All Rights Are Reserved
+      </p>
     </div>
   );
 }
