@@ -18,6 +18,7 @@ const DynamicTimer = dynamic(() => import("../components/Timer/Timer"), {
 function Home() {
   const [state, dispatch] = useContext(AppContext);
   const [isFetching, setFetching] = React.useState(false);
+  const categories = Object.keys(state?.categoryPosts);
   React.useEffect(() => {
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -66,7 +67,26 @@ function Home() {
 
         {/* <DynamicTimer /> */}
         {/* <div style={{ flex: 1 }}>afjafjl</div> */}
-        <News />
+        <News
+          category={"Latest News"}
+          categoryPosts={
+            state.posts.length > 10 ? state.posts.slice(0, 10) : state.posts
+          }
+          more={state.posts.length > 10}
+        />
+        {categories.map((categoryItem, index) => (
+          <News
+            key={index}
+            category={categoryItem}
+            more={state.categoryPosts[categoryItem].length > 10}
+            categoryPosts={
+              state.categoryPosts[categoryItem] > 10
+                ? state.categoryPosts[categoryItem].slice(0, 10)
+                : state.categoryPosts[categoryItem]
+            }
+          />
+        ))}
+
         {/* </div> */}
       </main>
     </div>
