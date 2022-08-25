@@ -26,8 +26,8 @@ function NewsHighlight({ data, id }) {
       if (index <= count) return item;
     });
     let result = arrToTake.join(" ") + (arr.length > length ? "..." : "");
-    if (width < 768 && result.length > 110) {
-      result = result.substring(0, 110) + " ...";
+    if (result.length > 80) {
+      result = result.substring(0, 80) + " ...";
     }
     return result;
     // return {

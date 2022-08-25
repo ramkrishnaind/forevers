@@ -52,11 +52,11 @@ function MyApp({ Component, pageProps }) {
               // alignItems: "center",
               // margin: "auto",
               minWidth: "100%",
-              position: "relative",
+              // position: "relative",
 
               flex: 1,
             }}
-            className="md:top-[5rem] top-[4rem]"
+            // className="md:top-[5rem] top-[4rem]"
           >
             <Component {...pageProps} />
             <Footer />
@@ -104,14 +104,14 @@ function MyApp({ Component, pageProps }) {
             style={{
               display: "flex",
               flexDirection: "column",
-              position: "relative",
+              // position: "relative",
               // justifyContent: "center",
               // alignItems: "center",
               // margin: "auto",
               minWidth: "100%",
               flex: 1,
             }}
-            className="w-full md:w-4/6 md:top-[5rem] top-[4rem]"
+            className="w-full md:w-4/6"
           >
             <Component {...pageProps} />
             <Footer />
