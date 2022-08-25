@@ -326,20 +326,23 @@ export default function Home({ width = 59 }) {
                   </ul>
                 </div>
               </div>
-              <div
-                ref={dotsRef}
-                className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1 hidden"
-                onClick={() => {
-                  setNavbar(false);
-                  setNavbarRight(false);
-                  setExtraCategories(!extraCategories);
-                  setDotClicked(true);
-                }}
-              >
-                <div className={`${styles.dot} my-[.15rem]`}></div>
-                <div className={`${styles.dot} my-[.15rem]`}></div>
-                <div className={`${styles.dot} my-[.15rem]`}></div>
-              </div>
+              {categories.length > 4 && (
+                <div
+                  ref={dotsRef}
+                  className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1 hidden"
+                  onClick={() => {
+                    setNavbar(false);
+                    setNavbarRight(false);
+                    setExtraCategories(!extraCategories);
+                    setDotClicked(true);
+                  }}
+                >
+                  <div className={`${styles.dot} my-[.15rem]`}></div>
+                  <div className={`${styles.dot} my-[.15rem]`}></div>
+                  <div className={`${styles.dot} my-[.15rem]`}></div>
+                </div>
+              )}
+
               <div
                 ref={searchRef}
                 className="md:flex hidden md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
