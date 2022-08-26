@@ -6,6 +6,7 @@ import Script from "next/script";
 import Header from "./../components/Header/Header";
 import Ad from "./../components/Ad/Ad";
 import News from "../components/News/News";
+import PaginatedItems from "../components/Paginate";
 import dynamic from "next/dynamic";
 
 import axios from "axios";
@@ -67,21 +68,22 @@ function Home() {
 
         {/* <DynamicTimer /> */}
         {/* <div style={{ flex: 1 }}>afjafjl</div> */}
+        {/* <PaginatedItems itemsPerPage={4} /> */}
         <News
           category={"Latest News"}
           categoryPosts={
-            state.posts.length > 10 ? state.posts.slice(0, 10) : state.posts
+            state.posts.length > 6 ? state.posts.slice(0, 6) : state.posts
           }
-          more={state.posts.length > 10}
+          more={state.posts.length > 6}
         />
         {categories.map((categoryItem, index) => (
           <News
             key={index}
             category={categoryItem}
-            more={state.categoryPosts[categoryItem].length > 10}
+            more={state.categoryPosts[categoryItem].length > 6}
             categoryPosts={
-              state.categoryPosts[categoryItem] > 10
-                ? state.categoryPosts[categoryItem].slice(0, 10)
+              state.categoryPosts[categoryItem] > 6
+                ? state.categoryPosts[categoryItem].slice(0, 6)
                 : state.categoryPosts[categoryItem]
             }
           />
