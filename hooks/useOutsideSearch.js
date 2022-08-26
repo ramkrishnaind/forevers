@@ -1,9 +1,10 @@
-import React, { useRef, useEffect, useState } from "react";
-
+import React, { useRef, useEffect, useState, useContext } from "react";
+import { AppContext } from "../app/state/contexts/AppContext";
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-function useOutsideSearch(ref, searchRef, show) {
+function useOutsideSearch(ref, searchRef, searchBoxRef, show, search) {
+  const [state, dispatch] = useContext(AppContext);
   const [clickedOutside, setClickedOutside] = useState(!show);
   // debugger;
   useEffect(() => {
@@ -13,6 +14,7 @@ function useOutsideSearch(ref, searchRef, show) {
     /**
      * Alert if clicked on outside of element
      */
+    debugger;
     function handleClickOutside(event) {
       if (
         ref.current &&
@@ -22,6 +24,12 @@ function useOutsideSearch(ref, searchRef, show) {
         // alert("You clicked outside of me!");
         // debugger;
         setClickedOutside(true);
+      } else if (
+        searchBoxRef.current &&
+        searchBoxRef.current.contains(event.target)
+      ) {
+        dispatch({ type: "filter", payload: search });
+        setClickedOutside(false);
       } else if (
         searchRef.current &&
         searchRef.current.contains(event.target)
@@ -35,7 +43,7 @@ function useOutsideSearch(ref, searchRef, show) {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, searchRef, searchBoxRef]);
   return clickedOutside;
 }
 export default useOutsideSearch;

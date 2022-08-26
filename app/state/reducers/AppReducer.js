@@ -57,6 +57,28 @@ function AppReducer(state, action) {
         break;
     }
     return { ...newState };
+  } else if (type == "filter") {
+    debugger;
+    const newState = { ...state };
+    console.log("newState", newState);
+    newState.currentCategory = "Latest News";
+    newState.currentPosts = [
+      ...newState.posts.filter((item) =>
+        item.data.title
+          .toLowerCase()
+          .trim()
+          .includes(action.payload.trim().toLowerCase())
+      ),
+    ];
+
+    return { ...newState };
+  } else if (type == "outside-search") {
+    const newState = { ...state };
+    if (!action.payload) {
+      newState.currentCategory = "";
+      newState.currentPosts = [];
+    }
+    return { ...newState, outsideSearch: action.payload };
   }
 }
 export default AppReducer;

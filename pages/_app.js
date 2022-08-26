@@ -11,6 +11,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   // console.log("router", router);
   // React.useEffect(() => {}, []);
+
   const other = (
     <>
       <div

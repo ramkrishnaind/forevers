@@ -60,7 +60,10 @@ function Home() {
   }, []);
   console.log("state", state);
   return (
-    <div style={{ flex: 1, display: "flex" }}>
+    <div
+      style={{ flex: 1, display: "flex" }}
+      onClick={() => dispatch({ type: "outside-search", payload: true })}
+    >
       <Head>
         <title>Forevers.in</title>
       </Head>

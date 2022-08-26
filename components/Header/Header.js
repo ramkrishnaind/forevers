@@ -25,6 +25,8 @@ export default function Home({ width = 59 }) {
   const dotsRef = useRef(null);
   const searchRef = useRef(null);
   const searchRefMob = useRef(null);
+  const searchBoxRef = useRef(null);
+  const searchBoxRefMob = useRef(null);
   console.log("widthScreen", widthScreen);
   // setCategories(cat);
   useEffect(() => {
@@ -36,16 +38,22 @@ export default function Home({ width = 59 }) {
     searchRef,
     extraCategories
   );
-  const clickedOutSearch = useOutsideSearch(
-    wrapperSearchRef,
-    searchRef,
-    searchClick
-  );
-  const clickedOutSearchMobile = useOutsideSearch(
-    wrapperSearchRefMob,
-    searchRefMob,
-    searchClickMob
-  );
+  const clickedOutSearch = state?.outsideSearch;
+  // useOutsideSearch(
+  //   wrapperSearchRef,
+  //   searchRef,
+  //   searchBoxRef,
+  //   searchClick,
+  //   search
+  // );
+  const clickedOutSearchMobile = state?.outsideSearch;
+  // useOutsideSearch(
+  //   wrapperSearchRefMob,
+  //   searchRefMob,
+  //   searchBoxRefMob,
+  //   searchClickMob,
+  //   search
+  // );
   // debugger;
   // const menuClickHandler = () => {
   //   setMenuClicked(true);
@@ -66,10 +74,16 @@ export default function Home({ width = 59 }) {
       </Head>
       <nav
         className={`w-full relative z-10 bg-black shadow md:w-[${width}rem]`}
+        // onClick={() => dispatch({ type: "outside-search", payload: true })}
       >
         <div className="justify-between  px-2 mx-auto md:max-w-7xl md:items-center md:flex md:px-8">
           <div>
-            <div className="flex items-center justify-between py-3 md:py-5 md:block">
+            <div
+              // onClick={() =>
+              //   dispatch({ type: "outside-search", payload: true })
+              // }
+              className="flex items-center justify-between py-3 md:py-5 md:block"
+            >
               <div className=" md:flex mr-2 items-center">
                 <Link href="/" className="hidden ">
                   <img
@@ -143,20 +157,47 @@ export default function Home({ width = 59 }) {
                 )}
               </div>
               {!clickedOutSearchMobile && (
-                <div className="w-100 flex items-center">
+                <div
+                  className="w-100 flex items-center"
+                  // onClick={() =>
+                  //   dispatch({ type: "outside-search", payload: true })
+                  // }
+                >
                   <div
-                    className={`flex-1 flex items-center justify-self-center md:pb-0 md:mt-0`}
+                    className={`flex-1 flex md:hidden items-center justify-self-center md:pb-0 md:mt-0`}
                   >
                     <input
                       className="rounded-lg md:w-[20rem] px-3 py-[.1rem]"
                       ref={wrapperSearchRefMob}
+                      onChange={(e) => setSearch(e.target.value)}
+                      onKeyDown={(e) => {
+                        debugger;
+                        // setExtraCategories(true);
+                        if (e.key === "Enter") {
+                          dispatch({ type: "outside-search", payload: false });
+                          setSearchClickMob(true);
+                          dispatch({ type: "filter", payload: search });
+                          setSearch("");
+                          dispatch({ type: "outside-search", payload: true });
+                          e.stopPropagation();
+                        }
+                        // setNavbar(false);
+                        // setNavbarRight(false);
+                        // setExtraCategories(!extraCategories);
+                        // setDotClicked(true);
+                      }}
                     />
                     <div
                       className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
                       onClick={(e) => {
-                        // debugger;
+                        debugger;
                         // setExtraCategories(true);
+                        dispatch({ type: "outside-search", payload: false });
                         setSearchClickMob(true);
+                        dispatch({ type: "filter", payload: search });
+                        setSearch("");
+                        dispatch({ type: "outside-search", payload: true });
+                        e.stopPropagation();
                         // setNavbar(false);
                         // setNavbarRight(false);
                         // setExtraCategories(!extraCategories);
@@ -181,7 +222,9 @@ export default function Home({ width = 59 }) {
                 <div
                   ref={searchRefMob}
                   className="md:hidden md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
-                  onClick={() => {
+                  onClick={(e) => {
+                    dispatch({ type: "outside-search", payload: false });
+                    e.stopPropagation();
                     // setNavbar(false);
                     // setNavbarRight(false);
                     // setExtraCategories(!extraCategories);
@@ -245,18 +288,41 @@ export default function Home({ width = 59 }) {
           {!clickedOutSearch && (
             <div>
               <div
-                className={`flex-1 flex items-center justify-self-center pb-3 md:pb-0 md:mt-0`}
+                className={`flex-1 hidden md:flex items-center justify-self-center pb-3 md:pb-0 md:mt-0`}
               >
                 <input
                   className="rounded-lg md:w-[20rem] px-3 py-[.1rem]"
                   ref={wrapperSearchRef}
+                  onChange={(e) => setSearch(e.target.value)}
+                  onKeyDown={(e) => {
+                    debugger;
+                    if (e.key === "Enter") {
+                      setExtraCategories(true);
+                      setSearchClick(true);
+                      dispatch({ type: "outside-search", payload: false });
+                      dispatch({ type: "filter", payload: search });
+                      dispatch({ type: "outside-search", payload: true });
+                      setSearch("");
+                      e.stopPropagation();
+                    }
+                    // setNavbar(false);
+                    // setNavbarRight(false);
+                    // setExtraCategories(!extraCategories);
+                    // setDotClicked(true);
+                  }}
                 />
                 <div
+                  ref={searchBoxRef}
                   className="md:flex hidden md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
                   onClick={(e) => {
-                    // debugger;
+                    debugger;
                     setExtraCategories(true);
                     setSearchClick(true);
+                    dispatch({ type: "outside-search", payload: false });
+                    dispatch({ type: "filter", payload: search });
+                    dispatch({ type: "outside-search", payload: true });
+                    setSearch("");
+                    e.stopPropagation();
                     // setNavbar(false);
                     // setNavbarRight(false);
                     // setExtraCategories(!extraCategories);
@@ -387,8 +453,12 @@ export default function Home({ width = 59 }) {
                 className="md:flex hidden md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
                 onClick={() => {
                   setSearchClick(true);
-
+                  dispatch({ type: "outside-search", payload: false });
                   // setNavbar(false);
+                  setTimeout(() => {
+                    wrapperSearchRef.current?.focus();
+                  }, 10);
+
                   // setNavbarRight(false);
                   // setExtraCategories(!extraCategories);
                   // setDotClicked(true);

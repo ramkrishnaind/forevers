@@ -8,6 +8,7 @@ const initialState = {
   currentCategory: "",
   currentPosts: [],
   more: false,
+  outsideSearch: true,
 };
 
 export const AppContext = createContext(initialState);
