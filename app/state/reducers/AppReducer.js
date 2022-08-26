@@ -61,7 +61,7 @@ function AppReducer(state, action) {
     debugger;
     const newState = { ...state };
     console.log("newState", newState);
-    newState.currentCategory = "Latest News";
+    newState.currentCategory = "Filtered Posts";
     newState.currentPosts = [
       ...newState.posts.filter((item) =>
         item.data.title
