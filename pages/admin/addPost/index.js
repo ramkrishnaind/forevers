@@ -94,9 +94,9 @@ function AddPost() {
     });
     // props.onTagsChanged(tags);
   };
-  console.log("tags", tags);
-  console.log("categoriesFetched", categoriesFetched);
-  console.log("setCategoriesToAdd", categoriesToAdd);
+  // console.log("tags", tags);
+  // console.log("categoriesFetched", categoriesFetched);
+  // console.log("setCategoriesToAdd", categoriesToAdd);
 
   const [data, setData] = React.useState(initialState);
   async function handleAddPost() {
