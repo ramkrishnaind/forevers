@@ -10,15 +10,15 @@ import getWindowDimensions from "../../hooks/useWindowDimensions";
 export default function Home({ width = 59 }) {
   const { height, width: widthScreen } = getWindowDimensions();
   const [state, dispatch] = useContext(AppContext);
+
   const [navbar, setNavbar] = useState(false);
   const [searchClick, setSearchClick] = useState(false);
   const [searchClickMob, setSearchClickMob] = useState(false);
   const [search, setSearch] = useState("");
-  const [dotClicked, setDotClicked] = useState(false);
   const [extraCategories, setExtraCategories] = useState(false);
   const [navbarRight, setNavbarRight] = useState(false);
   const [categories, setCategories] = useState([]);
-  const cat = state.categories;
+  const cat = state?.categories;
   const wrapperRef = useRef(null);
   const wrapperSearchRefMob = useRef(null);
   const wrapperSearchRef = useRef(null);
@@ -26,15 +26,15 @@ export default function Home({ width = 59 }) {
   const searchRef = useRef(null);
   const searchRefMob = useRef(null);
   console.log("widthScreen", widthScreen);
+  // setCategories(cat);
   useEffect(() => {
-    setCategories(state.categories);
-  }, [state.categories]);
+    setCategories(cat);
+  }, [cat]);
   const clickedOut = useOutside(
     wrapperRef,
     dotsRef,
     searchRef,
-    extraCategories,
-    dotClicked
+    extraCategories
   );
   const clickedOutSearch = useOutsideSearch(
     wrapperSearchRef,
@@ -46,7 +46,13 @@ export default function Home({ width = 59 }) {
     searchRefMob,
     searchClickMob
   );
-  debugger;
+  // debugger;
+  // const menuClickHandler = () => {
+  //   setMenuClicked(true);
+  //   // setTimeout(() => {
+  //   //   setMenuClicked(false);
+  //   // }, 10);
+  // };
   console.log("extra", extraCategories);
   return (
     <div className="md:max-w-7xl sticky top-0 z-10">
@@ -69,6 +75,7 @@ export default function Home({ width = 59 }) {
                   <img
                     className={`hidden md:block md:h-10 ${styles.logo}`}
                     src="/assets/mbl-logo.png"
+                    onClick={() => dispatch({ type: "clear-currentCategory" })}
                   />
                 </Link>
                 <div className="hidden rounded-lg h-[1.5rem] align-middle md:flex bg-red-500 w-15 px-2 text-orange-200">
@@ -122,6 +129,11 @@ export default function Home({ width = 59 }) {
                       <img
                         className={`${styles.logo} h-7`}
                         src="/assets/mbl-logo.png"
+                        onClick={() => {
+                          dispatch({ type: "clear-currentCategory" });
+                          setNavbar(false);
+                          setNavbarRight(false);
+                        }}
                       />
                     </Link>
                     <div className="text-xs md:hidden rounded-lg py-1 align-middle flex bg-red-500 w-15 px-2 text-orange-200">
@@ -142,7 +154,7 @@ export default function Home({ width = 59 }) {
                     <div
                       className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
                       onClick={(e) => {
-                        debugger;
+                        // debugger;
                         // setExtraCategories(true);
                         setSearchClickMob(true);
                         // setNavbar(false);
@@ -156,7 +168,7 @@ export default function Home({ width = 59 }) {
                         width="16"
                         height="16"
                         fill="white"
-                        class="bi bi-search"
+                        className="bi bi-search"
                         viewBox="0 0 16 16"
                       >
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -181,7 +193,7 @@ export default function Home({ width = 59 }) {
                     width="16"
                     height="16"
                     fill="white"
-                    class="bi bi-search"
+                    className="bi bi-search"
                     viewBox="0 0 16 16"
                   >
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -242,7 +254,7 @@ export default function Home({ width = 59 }) {
                 <div
                   className="md:flex hidden md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
                   onClick={(e) => {
-                    debugger;
+                    // debugger;
                     setExtraCategories(true);
                     setSearchClick(true);
                     // setNavbar(false);
@@ -256,7 +268,7 @@ export default function Home({ width = 59 }) {
                     width="16"
                     height="16"
                     fill="white"
-                    class="bi bi-search"
+                    className="bi bi-search"
                     viewBox="0 0 16 16"
                   >
                     <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -280,11 +292,22 @@ export default function Home({ width = 59 }) {
                         : categories.slice(0, 5)
                       ).map((item, index) => (
                         <li className="text-white" key={index}>
-                          <Link href="/">
-                            <a className="text-base capitalize">
-                              {item?.toLowerCase()}
-                            </a>
-                          </Link>
+                          {/* <Link href="/"> */}
+                          <a
+                            className="text-base capitalize  cursor-pointer"
+                            onClick={() => {
+                              dispatch({
+                                type: "set-currentCategory",
+                                payload: item,
+                              });
+                              setNavbar(false);
+                              setNavbarRight(false);
+                              // menuClickHandler();
+                            }}
+                          >
+                            {item?.toLowerCase()}
+                          </a>
+                          {/* </Link> */}
                         </li>
                       ))}
                   </ul>
@@ -301,11 +324,27 @@ export default function Home({ width = 59 }) {
                     {categories?.length > 0 &&
                       categories.slice(5).map((item, index) => (
                         <li className="text-white py-1 my-3" key={index}>
-                          <Link href="/">
-                            <a className="text-base capitalize">
-                              {item?.toLowerCase()}
-                            </a>
-                          </Link>
+                          {/* <Link
+                            href="/"
+                            onClick={() =>
+                              dispatch({ type: "clear-currentCategory" })
+                            }
+                          > */}
+                          <a
+                            className="text-base capitalize cursor-pointer"
+                            onClick={() => {
+                              dispatch({
+                                type: "set-currentCategory",
+                                payload: item,
+                              });
+                              setNavbar(false);
+                              setNavbarRight(false);
+                              // menuClickHandler();
+                            }}
+                          >
+                            {item?.toLowerCase()}
+                          </a>
+                          {/* </Link> */}
                         </li>
                       ))}
                     {/* <li className="text-white">
@@ -329,12 +368,12 @@ export default function Home({ width = 59 }) {
               {categories?.length > 5 && (
                 <div
                   ref={dotsRef}
-                  className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1 hidden"
+                  className="md:flex bg-black items-center md:w-4 md:flex-col h-100 ml-3 cursor-pointer flex-1 hidden"
                   onClick={() => {
                     setNavbar(false);
                     setNavbarRight(false);
                     setExtraCategories(!extraCategories);
-                    setDotClicked(true);
+                    // setDotClicked(true);
                   }}
                 >
                   <div className={`${styles.dot} my-[.15rem]`}></div>
@@ -360,7 +399,7 @@ export default function Home({ width = 59 }) {
                   width="16"
                   height="16"
                   fill="white"
-                  class="bi bi-search"
+                  className="bi bi-search"
                   viewBox="0 0 16 16"
                 >
                   <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />

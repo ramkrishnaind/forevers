@@ -19,7 +19,14 @@ const DynamicTimer = dynamic(() => import("../components/Timer/Timer"), {
 function Home() {
   const [state, dispatch] = useContext(AppContext);
   const [isFetching, setFetching] = React.useState(false);
-  const categories = Object.keys(state?.categoryPosts);
+  const [currCate, setCurrCat] = React.useState(false);
+  const categories = state?.categories || [];
+  React.useEffect(() => {
+    setCurrCat(null);
+    setTimeout(() => {
+      setCurrCat(state.currentCategory);
+    }, 10);
+  }, [state.currentCategory]);
   React.useEffect(() => {
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -50,8 +57,8 @@ function Home() {
         setFetching(false);
       });
     })();
-    console.log("state", state);
   }, []);
+  console.log("state", state);
   return (
     <div style={{ flex: 1, display: "flex" }}>
       <Head>
@@ -74,27 +81,54 @@ function Home() {
         {/* <DynamicTimer /> */}
         {/* <div style={{ flex: 1 }}>afjafjl</div> */}
         {/* <PaginatedItems itemsPerPage={4} /> */}
-        <News
-          category={"Latest News"}
-          categoryPosts={
-            state.posts.length > 6 ? state.posts.slice(0, 6) : state.posts
-          }
-          more={state.posts.length > 6}
-        />
-        {categories.map((categoryItem, index) => (
-          <News
-            key={index}
-            category={categoryItem}
-            more={state.categoryPosts[categoryItem].length > 6}
-            categoryPosts={
-              state.categoryPosts[categoryItem] > 6
-                ? state.categoryPosts[categoryItem].slice(0, 6)
-                : state.categoryPosts[categoryItem]
-            }
-          />
-        ))}
-
-        {/* </div> */}
+        {currCate && (
+          <PaginatedItems
+            itemsPerPage={6}
+            category={state?.currentCategory}
+            categoryPosts={state.currentPosts}
+            initialPage={state.more ? 2 : 1}
+            className="pagination"
+          >
+            <News />
+          </PaginatedItems>
+        )}
+        {/* {state.posts.length > 0 && (
+          <PaginatedItems
+            itemsPerPage={6}
+            category="Latest News"
+            categoryPosts={state.posts}
+            items={categories}
+            initialPage={2}
+            className="pagination"
+          >
+            <News />
+          </PaginatedItems>
+        )} */}
+        {!state?.currentCategory && (
+          <>
+            <News
+              category={"Latest News"}
+              categoryPosts={
+                state?.posts?.length > 6
+                  ? state?.posts?.slice(0, 6)
+                  : state?.posts
+              }
+              more={state?.posts.length > 6}
+            />
+            {categories.map((categoryItem, index) => (
+              <News
+                key={index}
+                category={categoryItem}
+                more={state?.categoryPosts[categoryItem]?.length > 6}
+                categoryPosts={
+                  state.categoryPosts[categoryItem] > 6
+                    ? state.categoryPosts[categoryItem].slice(0, 6)
+                    : state.categoryPosts[categoryItem]
+                }
+              />
+            ))}
+          </>
+        )}
       </main>
     </div>
   );

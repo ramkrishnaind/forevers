@@ -5,10 +5,10 @@ import React, { useRef, useEffect, useState } from "react";
  */
 function useOutsideSearch(ref, searchRef, show) {
   const [clickedOutside, setClickedOutside] = useState(!show);
-  debugger;
+  // debugger;
   useEffect(() => {
     setClickedOutside(!show);
-  }, show);
+  }, [show]);
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -20,7 +20,7 @@ function useOutsideSearch(ref, searchRef, show) {
         !(searchRef.current && searchRef.current.contains(event.target))
       ) {
         // alert("You clicked outside of me!");
-        debugger;
+        // debugger;
         setClickedOutside(true);
       } else if (
         searchRef.current &&

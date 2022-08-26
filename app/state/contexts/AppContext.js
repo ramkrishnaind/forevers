@@ -1,7 +1,14 @@
 import AppReducer from "../reducers/AppReducer";
 import { useReducer, createContext } from "react";
 
-const initialState = { posts: [], categories: [], categoryPosts: {} };
+const initialState = {
+  posts: [],
+  categories: [],
+  categoryPosts: {},
+  currentCategory: "",
+  currentPosts: [],
+  more: false,
+};
 
 export const AppContext = createContext(initialState);
 

@@ -3,12 +3,12 @@ import React, { useRef, useEffect, useState } from "react";
 /**
  * Hook that alerts clicks outside of the passed ref
  */
-function useOutsideAlerter(ref, dotsRef, searchRef, show, dotClicked) {
-  const [clickedOutside, setClickedOutside] = useState(!show);
-  debugger;
-  useEffect(() => {
-    setClickedOutside(!show);
-  }, show);
+function useOutsideAlerter(ref, dotsRef, searchRef) {
+  const [clickedOutside, setClickedOutside] = useState(false);
+  // debugger;
+  // useEffect(() => {
+  //   setClickedOutside(!show);
+  // }, [show]);
   useEffect(() => {
     /**
      * Alert if clicked on outside of element
@@ -16,22 +16,23 @@ function useOutsideAlerter(ref, dotsRef, searchRef, show, dotClicked) {
     function handleClickOutside(event) {
       if (
         ref.current &&
-        !ref.current.contains(event.target) &&
-        !(dotsRef.current && dotsRef.current.contains(event.target)) &&
-        !(searchRef.current && searchRef.current.contains(event.target))
+        // !ref.current.contains(event.target) &&
+        !(dotsRef.current && dotsRef.current.contains(event.target))
+        // &&
+        // !(searchRef.current && searchRef.current.contains(event.target))
       ) {
         // alert("You clicked outside of me!");
-        debugger;
+        // debugger;
         setClickedOutside(true);
       } else if (dotsRef.current && dotsRef.current.contains(event.target)) {
         setClickedOutside(false);
       }
     }
     // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mouseup", handleClickOutside);
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mouseup", handleClickOutside);
     };
   }, [ref]);
   return clickedOutside;
