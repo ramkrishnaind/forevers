@@ -113,9 +113,9 @@ function AddPost() {
         if (res.data.status == "success") {
           setSuccessMsg(true);
           setData(initialState);
-          setTimeout(() => {
-            setCategoriesFetched(null);
-          }, 4000);
+          // setTimeout(() => {
+          //   setCategoriesFetched(null);
+          // }, 4000);
           router.push("/");
         }
       });

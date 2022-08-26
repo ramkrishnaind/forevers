@@ -3,6 +3,7 @@ import Link from "next/link";
 // import searchIcon from "../../public/search-icon.svg";
 import { AppContext } from "../../app/state/contexts/AppContext";
 import { useState, useContext, useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import useOutside from "../../hooks/useOutside";
 import useOutsideSearch from "../../hooks/useOutsideSearch";
 import styles from "./style.module.scss";
@@ -10,7 +11,7 @@ import getWindowDimensions from "../../hooks/useWindowDimensions";
 export default function Home({ width = 59 }) {
   const { height, width: widthScreen } = getWindowDimensions();
   const [state, dispatch] = useContext(AppContext);
-
+  const router = useRouter();
   const [navbar, setNavbar] = useState(false);
   const [searchClick, setSearchClick] = useState(false);
   const [searchClickMob, setSearchClickMob] = useState(false);
@@ -174,12 +175,16 @@ export default function Home({ width = 59 }) {
                         debugger;
                         // setExtraCategories(true);
                         if (e.key === "Enter") {
-                          dispatch({ type: "outside-search", payload: false });
+                          dispatch({
+                            type: "outside-search",
+                            payload: false,
+                          });
                           setSearchClickMob(true);
                           dispatch({ type: "filter", payload: search });
                           setSearch("");
                           dispatch({ type: "outside-search", payload: true });
                           e.stopPropagation();
+                          router.push("/");
                         }
                         // setNavbar(false);
                         // setNavbarRight(false);
@@ -187,12 +192,16 @@ export default function Home({ width = 59 }) {
                         // setDotClicked(true);
                       }}
                     />
+
                     <div
                       className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
                       onClick={(e) => {
                         debugger;
                         // setExtraCategories(true);
-                        dispatch({ type: "outside-search", payload: false });
+                        dispatch({
+                          type: "outside-search",
+                          payload: false,
+                        });
                         setSearchClickMob(true);
                         dispatch({ type: "filter", payload: search });
                         setSearch("");
@@ -304,6 +313,7 @@ export default function Home({ width = 59 }) {
                       dispatch({ type: "outside-search", payload: true });
                       setSearch("");
                       e.stopPropagation();
+                      router.push("/");
                     }
                     // setNavbar(false);
                     // setNavbarRight(false);
@@ -311,6 +321,7 @@ export default function Home({ width = 59 }) {
                     // setDotClicked(true);
                   }}
                 />
+
                 <div
                   ref={searchBoxRef}
                   className="md:flex hidden md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"

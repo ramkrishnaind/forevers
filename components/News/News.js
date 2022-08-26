@@ -31,11 +31,11 @@ function News({ category, categoryPosts, more }) {
                   type: "set-more-currentCategory",
                   payload: category,
                 });
-                setTimeout(() => {
-                  dispatch({
-                    type: "clear-more",
-                  });
-                }, 1000);
+                // setTimeout(() => {
+                //   dispatch({
+                //     type: "clear-more",
+                //   });
+                // }, 1000);
               }}
             >
               More {" >>"}

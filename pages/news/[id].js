@@ -196,13 +196,12 @@ function News() {
             ""
           )}
           {/* <Ad /> */}
-          <div className="w-full md:w-1/4 pt-3  bg-[#F2F2F0]">
-            <img src={targetPost.data.imgUrl} className="w-full md:w-72" />
-          </div>
-          <div className="sm:w-full md:flex-1  bg-white px-2">
+          <div className="w-full md:w-1/4 pt-3  bg-[#F2F2F0]"></div>
+          <div className="sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
             <h3 className="text-4xl py-3 capitalize">
               {targetPost.data.title}
             </h3>
+            <img src={targetPost.data.imgUrl} className="w-full object-cover" />
             <p
               style={{ textAlign: "justify" }}
               dangerouslySetInnerHTML={createMarkup()}
