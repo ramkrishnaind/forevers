@@ -13,6 +13,7 @@ function GenerateCoinBtn() {
   function getEquivalentSlug(title) {
     let slug = "";
     let oldTitle = title;
+
     for (let i = 0; i < oldTitle.length; i++) {
       if (oldTitle[i] == " ") {
         slug += "-";

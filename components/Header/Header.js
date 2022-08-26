@@ -274,7 +274,7 @@ export default function Home({ width = 59 }) {
                   }`}
                 >
                   <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                    {categories.length > 0 &&
+                    {categories?.length > 0 &&
                       (widthScreen < 768
                         ? categories
                         : categories.slice(0, 4)
@@ -282,7 +282,7 @@ export default function Home({ width = 59 }) {
                         <li className="text-white" key={index}>
                           <Link href="/">
                             <a className="text-base capitalize">
-                              {item.toLowerCase()}
+                              {item?.toLowerCase()}
                             </a>
                           </Link>
                         </li>
@@ -298,12 +298,12 @@ export default function Home({ width = 59 }) {
                   }`}
                 >
                   <ul className="items-center justify-center">
-                    {categories.length > 0 &&
+                    {categories?.length > 0 &&
                       categories.slice(4).map((item, index) => (
                         <li className="text-white py-1 my-3" key={index}>
                           <Link href="/">
                             <a className="text-base capitalize">
-                              {item.toLowerCase()}
+                              {item?.toLowerCase()}
                             </a>
                           </Link>
                         </li>
@@ -326,7 +326,7 @@ export default function Home({ width = 59 }) {
                   </ul>
                 </div>
               </div>
-              {categories.length > 4 && (
+              {categories?.length > 4 && (
                 <div
                   ref={dotsRef}
                   className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1 hidden"

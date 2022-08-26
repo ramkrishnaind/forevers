@@ -81,7 +81,7 @@ function News() {
       if (oldTitle[i] == " ") {
         slug += "-";
       } else {
-        slug += oldTitle[i].toLowerCase();
+        slug += oldTitle[i]?.toLowerCase();
       }
     }
     if (slug.substr(slug.length - 1) === "?")

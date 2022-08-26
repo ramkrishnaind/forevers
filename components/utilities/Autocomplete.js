@@ -23,7 +23,7 @@ const AutoComplete = (props) => {
   const onAddition = (tag) => {
     debugger;
     const tagFound = tagsState.tags.find(
-      (a) => a.name.toLowerCase().trim() === tag.name.toLowerCase().trim()
+      (a) => a.name?.toLowerCase().trim() === tag.name?.toLowerCase().trim()
     );
     if (!tagFound) {
       const tags = [
@@ -42,7 +42,7 @@ const AutoComplete = (props) => {
       });
     }
     const suggestionFound = tagsState.suggestions.find(
-      (a) => a.name.toLowerCase().trim() === tag.name.toLowerCase().trim()
+      (a) => a.name?.toLowerCase().trim() === tag.name?.toLowerCase().trim()
     );
     if (!suggestionFound) {
       const sugestions = [
