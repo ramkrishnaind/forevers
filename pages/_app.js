@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
           crossorigin="anonymous"
         /> */}
-        <div className="w-full hidden md:block md:w-[10%]">
+        <div className="w-full hidden md:block md:w-[15%]">
           Ad will be shown
         </div>
         <div
@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
             minHeight: "100vh",
             // flex: 1,
           }}
-          className="w-full md:w-[80%]"
+          className="w-full md:w-[70%]"
         >
           <Header width={80} />
           <div
@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps }) {
             <Footer />
           </div>
         </div>
-        <div className="w-full hidden md:block md:w-[10%]">
+        <div className="w-full hidden md:block md:w-[15%]">
           Ad will be shown
         </div>
       </div>

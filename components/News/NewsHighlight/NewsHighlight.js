@@ -49,7 +49,7 @@ function NewsHighlight({ data, id }) {
           {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
           <p
             className="w-3/5 px-1 md:px-0 md:pr-3  hover:underline"
-            style={{ wordBreak: "break-all" }}
+            style={{ wordBreak: "break-word" }}
           >
             {createMarkup(width < 768 ? 17 : 60)}
           </p>
