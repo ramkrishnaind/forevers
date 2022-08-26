@@ -4,7 +4,7 @@ import Link from "next/link";
 function Footer() {
   return (
     <div className={`${styles.container}`}>
-      <div className={`${styles.links} flex-col md:flex-row`}>
+      <div className={`${styles.links} md:flex-row`}>
         <Link href="/">
           <a className="py-3 md:py-0 text-[.8rem] md:text-base">About Us</a>
         </Link>

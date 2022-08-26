@@ -61,7 +61,12 @@ function Home() {
         {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
         {/* <div> */}
         <div>
-          <img src="/assets/modi.jpg" alt="pm-image" />
+          <img
+            src="/assets/modi.jpg"
+            alt="pm-image"
+            style={{ width: "100%" }}
+            className="object-cover w-100"
+          />
         </div>
 
         {/* <Ad /> */}

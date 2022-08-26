@@ -49,7 +49,7 @@ export default function Home({ width = 59 }) {
   debugger;
   console.log("extra", extraCategories);
   return (
-    <div className="md:max-w-7xl ">
+    <div className="md:max-w-7xl sticky top-0 z-10">
       <Head>
         {/* <title>Create Next Responsive Navbar With Tailwind CSS</title> */}
         {/* <meta
@@ -61,7 +61,7 @@ export default function Home({ width = 59 }) {
       <nav
         className={`w-full relative z-10 bg-black shadow md:w-[${width}rem]`}
       >
-        <div className="justify-between sticky top-0  px-2 mx-auto md:max-w-7xl md:items-center md:flex md:px-8">
+        <div className="justify-between  px-2 mx-auto md:max-w-7xl md:items-center md:flex md:px-8">
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <div className=" md:flex mr-2 items-center">
@@ -277,7 +277,7 @@ export default function Home({ width = 59 }) {
                     {categories?.length > 0 &&
                       (widthScreen < 768
                         ? categories
-                        : categories.slice(0, 4)
+                        : categories.slice(0, 5)
                       ).map((item, index) => (
                         <li className="text-white" key={index}>
                           <Link href="/">
@@ -299,7 +299,7 @@ export default function Home({ width = 59 }) {
                 >
                   <ul className="items-center justify-center">
                     {categories?.length > 0 &&
-                      categories.slice(4).map((item, index) => (
+                      categories.slice(5).map((item, index) => (
                         <li className="text-white py-1 my-3" key={index}>
                           <Link href="/">
                             <a className="text-base capitalize">
@@ -326,7 +326,7 @@ export default function Home({ width = 59 }) {
                   </ul>
                 </div>
               </div>
-              {categories?.length > 4 && (
+              {categories?.length > 5 && (
                 <div
                   ref={dotsRef}
                   className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1 hidden"

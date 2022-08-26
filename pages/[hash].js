@@ -41,6 +41,7 @@ function Home() {
             src="/assets/modi.jpg"
             alt="pm-image"
             style={{ width: "100%" }}
+            className="w-100 object-cover"
           />
           {hash ? <DynamicTimer query={hash} /> : <h1>...</h1>}
           <DynamicAd />
