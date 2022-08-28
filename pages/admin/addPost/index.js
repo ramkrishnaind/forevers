@@ -26,21 +26,25 @@ function AddPost() {
     // { id: 1, name: "Apples" },
     // { id: 2, name: "Pears" },
   ];
-  const [categoriesFetched, setCategoriesFetched] = useState([]);
+  const [categoriesFetched, setCategoriesFetched] = useState();
   const [categoriesToAdd, setCategoriesToAdd] = useState(
     categories.map((i) => i.name)
   );
   useEffect(() => {
-    const url = process.env.NEXT_PUBLIC_HOST_URL + "/postCategories";
+    const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreverPostCategories";
     (async () => {
       axios.get(url).then((res) => {
         console.log("res.data", res.data);
-        setCategoriesFetched(
-          res.data.data.map((item, index) => ({
-            id: index + 1,
-            name: item.data.name,
-          }))
-        );
+        if (res.data.data.length === 0) {
+          setCategoriesFetched([]);
+        } else {
+          setCategoriesFetched(
+            res.data.data.map((item, index) => ({
+              id: index + 1,
+              name: item.data.name,
+            }))
+          );
+        }
       });
     })();
   }, []);
@@ -162,7 +166,7 @@ function AddPost() {
         </div>
         <div className="w-5/6 mx-auto  w-100 flex flex-col md:flex-row justify-between my-4">
           <label className="w-1/4">Category</label>
-          {categoriesFetched && categoriesFetched.length > 0 && (
+          {categoriesFetched && (
             <AutoComplete
               placeholderText="Enter a category and enter"
               tags={initialTags}
