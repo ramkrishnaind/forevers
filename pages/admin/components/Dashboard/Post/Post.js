@@ -26,7 +26,13 @@ function Post({ data, id, updatePosts }) {
   }
   return (
     <div className={styles.container}>
-      <img src={data.imgUrl} alt="img" className={data.left} />
+      <div className="w-[15rem] pr-5">
+        <img
+          src={data.imgUrl}
+          alt="img"
+          className={`${data.left} w-full object-cover`}
+        />
+      </div>
 
       <div className={styles.right}>
         <div className={styles.head}>
