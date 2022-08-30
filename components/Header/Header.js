@@ -508,12 +508,12 @@ export default function Home({ width, marginX }) {
             >
               <ul className=" flex flex-col md:border-l-2 md:pl-2 border-orange-500 justify-end items-end space-y-8 md:flex md:space-y-0">
                 <li className="text-white">
-                  <Link href="/">
+                  <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/user`}>
                     <a className="text-base capitalize text-right">Login</a>
                   </Link>
                 </li>
                 <li className="text-white">
-                  <Link href="/">
+                  <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/user`}>
                     <a className="text-base capitalize  text-right">Signup</a>
                   </Link>
                 </li>
