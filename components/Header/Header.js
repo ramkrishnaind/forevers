@@ -8,7 +8,7 @@ import useOutside from "../../hooks/useOutside";
 import useOutsideSearch from "../../hooks/useOutsideSearch";
 import styles from "./style.module.scss";
 import getWindowDimensions from "../../hooks/useWindowDimensions";
-export default function Home({ width = 59 }) {
+export default function Home({ width, marginX }) {
   const { height, width: widthScreen } = getWindowDimensions();
   const [state, dispatch] = useContext(AppContext);
   const router = useRouter();
@@ -64,7 +64,11 @@ export default function Home({ width = 59 }) {
   // };
   console.log("extra", extraCategories);
   return (
-    <div className="md:max-w-7xl sticky top-0 z-10">
+    <div
+      className={`sticky top-0 z-10 ${
+        marginX ? ` md:mx-[${marginX}]` : ` md:max-w-7xl`
+      }`}
+    >
       <Head>
         {/* <title>Create Next Responsive Navbar With Tailwind CSS</title> */}
         {/* <meta
@@ -93,9 +97,11 @@ export default function Home({ width = 59 }) {
                     onClick={() => dispatch({ type: "clear-currentCategory" })}
                   />
                 </Link>
-                <div className="hidden rounded-lg h-[1.5rem] align-middle md:flex bg-red-500 w-15 px-2 text-orange-200">
-                  Earn Coin
-                </div>
+                <Link href={process.env.NEXT_PUBLIC_APP_URL + "/user"}>
+                  <div className="hidden cursor-pointer rounded-lg h-[1.5rem] align-middle md:flex bg-red-500 w-15 px-2 text-orange-200">
+                    Earn Coin
+                  </div>
+                </Link>
               </div>
 
               <div className="flex md:hidden items-center">
@@ -151,9 +157,11 @@ export default function Home({ width = 59 }) {
                         }}
                       />
                     </Link>
-                    <div className="text-xs md:hidden rounded-lg py-1 align-middle flex bg-red-500 w-15 px-2 text-orange-200">
-                      Earn Coin
-                    </div>
+                    <Link href={process.env.NEXT_PUBLIC_APP_URL + "/user"}>
+                      <div className="text-xs md:hidden rounded-lg py-1 align-middle flex bg-red-500 w-15 px-2 text-orange-200">
+                        Earn Coin
+                      </div>
+                    </Link>
                   </>
                 )}
               </div>
@@ -400,7 +408,10 @@ export default function Home({ width = 59 }) {
                   <ul className="items-center justify-center">
                     {categories?.length > 0 &&
                       categories.slice(5).map((item, index) => (
-                        <li className="text-white py-1 my-3" key={index}>
+                        <li
+                          className="text-white py-1 my-3 hover:text-black hover:bg-white ease-in-out duration-300 hover:p-2 hover:mx-auto"
+                          key={index}
+                        >
                           {/* <Link
                             href="/"
                             onClick={() =>
@@ -408,16 +419,17 @@ export default function Home({ width = 59 }) {
                             }
                           > */}
                           <a
-                            className="text-base capitalize cursor-pointer"
                             onClick={() => {
                               dispatch({
                                 type: "set-currentCategory",
                                 payload: item,
                               });
+
                               setNavbar(false);
                               setNavbarRight(false);
                               // menuClickHandler();
                             }}
+                            className="capitalize"
                           >
                             {item?.toLowerCase()}
                           </a>

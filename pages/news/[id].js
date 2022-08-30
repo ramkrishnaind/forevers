@@ -111,6 +111,7 @@ function News() {
     setCollectingCoin(true);
     // Increment Coin in user profile...
     const uid = localStorage.getItem("uad-cache");
+    debugger;
     if (uid.length == 28) {
       const url = process.env.NEXT_PUBLIC_HOST_URL + "/users/ic";
       axios.post(url, { uid }).then((res) => {
@@ -121,13 +122,15 @@ function News() {
     }
   }
   const Completionist = () => (
-    <a
-      href="#footer"
-      onClick={handleClickCollectCoin}
-      className={styles.collectCoinBtn}
-    >
-      Collect Coin
-    </a>
+    <div className="flex justify-center">
+      <a
+        href="#footer"
+        onClick={handleClickCollectCoin}
+        className={`${styles.collectCoinBtn} text-center`}
+      >
+        Collect Coin
+      </a>
+    </div>
   );
   const renderer = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
@@ -136,7 +139,10 @@ function News() {
     } else {
       // Render a countdown
       return (
-        <h2 style={{ color: "red" }}>
+        <h2
+          style={{ color: "red" }}
+          className="mx-auto text-center text-2xl mt-3"
+        >
           Generating coin... {seconds} Seconds...
         </h2>
       );
@@ -151,13 +157,15 @@ function News() {
   const Completionist2 = () => {
     localStorage.removeItem("mozilla-support-status");
     return (
-      <a
-        href={process.env.NEXT_PUBLIC_APP_URL}
-        onClick={transferFunds}
-        className={styles.collectCoinBtn}
-      >
-        {checkAccMsg}
-      </a>
+      <div className="flex justify-center">
+        <a
+          href={`${process.env.NEXT_PUBLIC_APP_URL}/admin/dashboard`}
+          onClick={transferFunds}
+          className={`${styles.collectCoinBtn} text-center`}
+        >
+          {checkAccMsg}
+        </a>
+      </div>
     );
   };
   const renderer2 = ({ hours, minutes, seconds, completed }) => {
@@ -167,7 +175,10 @@ function News() {
     } else {
       // Render a countdown
       return (
-        <h2 style={{ color: "red" }}>
+        <h2
+          style={{ color: "red" }}
+          className="mx-auto text-center text-2xl mt-3"
+        >
           Transferring in Your Account... {seconds} Seconds...
         </h2>
       );
@@ -190,14 +201,16 @@ function News() {
           <title>{targetPost.data.title}</title>
         </Head>
         <div className="flex px-3 md:px-0 md:flex-row flex-col gap-3  bg-[#F2F2F0]">
-          {status == "4" && !collectingCoin ? (
-            <Countdown date={Date.now() + 20000} renderer={renderer} />
-          ) : (
-            ""
-          )}
           {/* <Ad /> */}
-          <div className="w-full md:w-1/4 pt-3  bg-[#F2F2F0]"></div>
+          <div className="w-full md:w-1/5 pt-3  bg-[#F2F2F0]"></div>
           <div className="sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
+            <div className="mx-auto block">
+              {status == "4" && !collectingCoin ? (
+                <Countdown date={Date.now() + 10000} renderer={renderer} />
+              ) : (
+                ""
+              )}
+            </div>
             <h3 className="text-4xl py-3 capitalize">
               {targetPost.data.title}
             </h3>
@@ -209,21 +222,20 @@ function News() {
               style={{ textAlign: "justify" }}
               dangerouslySetInnerHTML={createMarkup()}
             />
+            <footer id="footer">
+              {/* <Ad1 /> */}
+              {collectingCoin ? (
+                <Countdown date={Date.now() + 5000} renderer={renderer2} />
+              ) : (
+                ""
+              )}
+              {/* <Ad2 /> */}
+            </footer>
           </div>
-          <div className="md:w-1/7 bg-[#F2F2F0]"> advertisement</div>
+          <div className="md:w-1/5 bg-[#F2F2F0]"> advertisement</div>
           {/* <p style={{ textAlign: "center" }}>{targetPost.data.details}</p> */}
           {/* <Ad /> */}
         </div>
-
-        <footer id="footer">
-          {/* <Ad1 /> */}
-          {collectingCoin ? (
-            <Countdown date={Date.now() + 5000} renderer={renderer2} />
-          ) : (
-            ""
-          )}
-          {/* <Ad2 /> */}
-        </footer>
       </>
     );
   } else {

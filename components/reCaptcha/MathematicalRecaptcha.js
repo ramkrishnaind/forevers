@@ -41,8 +41,11 @@ function MathematicalRecaptcha({ passCaptcha }) {
         value={text}
         placeholder="Enter captcha code"
         onChange={(e) => setText(e.target.value)}
+        className=" border-gray-300 rounded-lg px-3 py-2 my-3 border-2 "
       />
-      <button onClick={handleClick}>Submit</button>
+      <button className={styles.btn} onClick={handleClick}>
+        Submit
+      </button>
     </div>
   );
 }

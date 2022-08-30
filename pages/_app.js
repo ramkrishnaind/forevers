@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
           }}
           className="w-full md:w-[70%]"
         >
-          <Header width={80} />
+          <Header marginX={"210px"} />
           <div
             style={{
               display: "flex",
@@ -103,9 +103,9 @@ function MyApp({ Component, pageProps }) {
             minHeight: "100vh",
             // flex: 1,
           }}
-          className="w-full md:w-5/6"
+          className="w-full"
         >
-          <Header width={80} />
+          <Header marginX={"80px"} />
           <div
             style={{
               display: "flex",
