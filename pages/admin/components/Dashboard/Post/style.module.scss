@@ -31,10 +31,16 @@
   .author {
     color: gray;
     background-color: lightgray;
+    border-radius: 5px;
+    padding: 5px;
     margin: 0 20px;
   }
   button {
     background-color: red;
+    width: 40px;
+    height: 40px;
+    color: white;
+    border-radius: 20px;
   }
 }
 .body {
