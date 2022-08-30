@@ -206,7 +206,7 @@ function News() {
           <div className="sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
             <div className="mx-auto block">
               {status == "4" && !collectingCoin ? (
-                <Countdown date={Date.now() + 10000} renderer={renderer} />
+                <Countdown date={Date.now() + 20000} renderer={renderer} />
               ) : (
                 ""
               )}
