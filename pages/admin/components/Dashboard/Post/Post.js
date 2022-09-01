@@ -30,7 +30,7 @@ function Post({ data, id, updatePosts }) {
         <img
           src={data.imgUrl}
           alt="img"
-          className={`${data.left} w-full object-cover`}
+          className={`${data.left} w-full object-cover rounded-lg`}
         />
       </div>
 
