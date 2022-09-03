@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./style.module.scss";
 import Link from "next/link";
 import getWindowDimensions from "../../../hooks/useWindowDimensions";
-function NewsHighlight({ data, id }) {
+function NewsHighlight({ data, id, optionalHeight }) {
   const { height, width } = getWindowDimensions();
   let slug = "";
   let oldTitle = data.title;
@@ -42,7 +42,9 @@ function NewsHighlight({ data, id }) {
             <img
               src={data.imgUrl}
               alt="post-img"
-              className="w-80 md:h-24 h-12 object-cover rounded-md"
+              className={`w-80 md:${
+                optionalHeight ? optionalHeight : "h-24"
+              } h-12 object-cover rounded-md`}
             />
           </div>
 
@@ -51,7 +53,7 @@ function NewsHighlight({ data, id }) {
             className="w-3/5 px-1 md:px-0 md:pr-3  hover:underline"
             style={{ wordBreak: "break-word" }}
           >
-            {createMarkup(width < 768 ? 17 : 60)}
+            {createMarkup(width < 768 ? 17 : optionalHeight ? 10 : 60)}
           </p>
         </div>
       </Link>
