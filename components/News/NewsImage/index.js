@@ -30,10 +30,10 @@ const NewsImage = ({ linkUrl, imageUrl, title }) => {
             <img
               src={imageUrl}
               alt="post-img"
-              className={`object-cover md:w-44 md:h-44 ${styles.img}`}
+              className={`object-cover rounded-lg md:w-44 md:h-44 ${styles.img}`}
             />
             <p
-              className={`opacity-0 md:w-44 box-border left-0 py-2 px-2 z-10 bg-blue-900 text-blue-100 ${styles.p} absolute hover:underline`}
+              className={`opacity-0 md:w-44 rounded-lg box-border left-0 py-2 px-2 z-10 bg-blue-900 text-blue-100 ${styles.p} absolute hover:underline`}
               style={{ wordBreak: "break-word" }}
             >
               {createMarkup(width < 768 ? 17 : 10)}
