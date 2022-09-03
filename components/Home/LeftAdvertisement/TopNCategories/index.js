@@ -26,13 +26,13 @@ const AutoPlay = () => {
       <h2 className="text-center bg-gray-500 py-2 px-2 text-lg text-white ">
         Latest news
       </h2>
-      <div>
+      <div className="px-2">
         <Slider {...settings}>
           {(state?.posts || [])?.map((obj, index) => {
             return (
               // <div>This is some text</div>
               <NewsHighlight
-                optionalHeight={"4rem"}
+                optionalHeight={"16"}
                 key={obj.id || index}
                 data={obj.data ? obj.data : obj}
                 id={obj.id || index}

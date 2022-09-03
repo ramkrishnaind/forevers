@@ -42,8 +42,8 @@ function NewsHighlight({ data, id, optionalHeight }) {
             <img
               src={data.imgUrl}
               alt="post-img"
-              className={`w-80 md:${
-                optionalHeight ? optionalHeight : "h-24"
+              className={`w-80 md:h-${
+                optionalHeight ? optionalHeight : "24"
               } h-12 object-cover rounded-md`}
             />
           </div>
