@@ -180,7 +180,7 @@ export default function Home({ width, marginX }) {
                       ref={wrapperSearchRefMob}
                       onChange={(e) => setSearch(e.target.value)}
                       onKeyDown={(e) => {
-                        debugger;
+                        // debugger;
                         // setExtraCategories(true);
                         if (e.key === "Enter") {
                           dispatch({
@@ -204,7 +204,7 @@ export default function Home({ width, marginX }) {
                     <div
                       className="md:flex md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
                       onClick={(e) => {
-                        debugger;
+                        // debugger;
                         // setExtraCategories(true);
                         dispatch({
                           type: "outside-search",
@@ -312,7 +312,7 @@ export default function Home({ width, marginX }) {
                   ref={wrapperSearchRef}
                   onChange={(e) => setSearch(e.target.value)}
                   onKeyDown={(e) => {
-                    debugger;
+                    // debugger;
                     if (e.key === "Enter") {
                       setExtraCategories(true);
                       setSearchClick(true);
@@ -334,7 +334,7 @@ export default function Home({ width, marginX }) {
                   ref={searchBoxRef}
                   className="md:flex hidden md:flex-col h-100 ml-3 cursor-pointer justify-between flex-1"
                   onClick={(e) => {
-                    debugger;
+                    // debugger;
                     setExtraCategories(true);
                     setSearchClick(true);
                     dispatch({ type: "outside-search", payload: false });
@@ -377,22 +377,22 @@ export default function Home({ width, marginX }) {
                         : categories.slice(0, 5)
                       ).map((item, index) => (
                         <li className="text-white" key={index}>
-                          {/* <Link href="/"> */}
-                          <a
-                            className="text-base capitalize  cursor-pointer"
-                            onClick={() => {
-                              dispatch({
-                                type: "set-currentCategory",
-                                payload: item,
-                              });
-                              setNavbar(false);
-                              setNavbarRight(false);
-                              // menuClickHandler();
-                            }}
-                          >
-                            {item?.toLowerCase()}
-                          </a>
-                          {/* </Link> */}
+                          <Link href="/">
+                            <a
+                              className="text-base capitalize  cursor-pointer"
+                              onClick={() => {
+                                dispatch({
+                                  type: "set-currentCategory",
+                                  payload: item,
+                                });
+                                setNavbar(false);
+                                setNavbarRight(false);
+                                // menuClickHandler();
+                              }}
+                            >
+                              {item?.toLowerCase()}
+                            </a>
+                          </Link>
                         </li>
                       ))}
                   </ul>
@@ -409,7 +409,7 @@ export default function Home({ width, marginX }) {
                     {categories?.length > 0 &&
                       categories.slice(5).map((item, index) => (
                         <li
-                          className="text-white py-1 my-3 hover:text-black hover:bg-white ease-in-out duration-300 hover:p-2 hover:mx-auto"
+                          className="text-white py-1 my-3 hover:text-black hover:bg-white ease-in-out duration-300 hover:p-2 hover:mx-auto hover:cursor-pointer"
                           key={index}
                         >
                           {/* <Link

@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../../../app/state/contexts/AppContext";
-import NewsImage from "../../../News/NewsImage";
+import NewsImage from "../../NewsImage";
 const RandomNPosts = ({ numberOfPosts = 5 }) => {
+  const [posts, setPosts] = useState([]);
   function getMultipleRandom(arr, num) {
     const shuffled = [...arr].sort(() => 0.5 - Math.random());
 
@@ -9,9 +10,12 @@ const RandomNPosts = ({ numberOfPosts = 5 }) => {
   }
 
   const [state] = useContext(AppContext);
-  const posts = getMultipleRandom(state?.posts || [], numberOfPosts);
+  useEffect(() => {
+    setPosts(getMultipleRandom(state?.posts || [], numberOfPosts));
+  }, [state?.posts]);
+
   return (
-    <div>
+    <div className="bg-white">
       <h2 className="text-center bg-gray-500 py-2 px-2 text-lg text-white ">
         Hot news
       </h2>

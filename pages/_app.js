@@ -8,7 +8,6 @@ import { GlobalContext } from "./../app/state/contexts/AppContext";
 import Head from "next/head";
 import Script from "next/script";
 
-import LeftAdvertisement from "../components/Home/LeftAdvertisement";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   // console.log("router", router);
@@ -34,9 +33,7 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
           crossorigin="anonymous"
         /> */}
-        <div className="w-full hidden md:flex-1 md:block">
-          <LeftAdvertisement />
-        </div>
+        <div className="w-full hidden md:flex-1 md:block"></div>
         <div
           style={{
             display: "flex",
@@ -103,7 +100,7 @@ function MyApp({ Component, pageProps }) {
             minHeight: "100vh",
             // flex: 1,
           }}
-          className="w-full"
+          className="w-full md:w-1280px"
         >
           <Header marginX={"80px"} />
           <div

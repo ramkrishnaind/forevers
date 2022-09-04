@@ -1,17 +1,18 @@
 function AppReducer(state, action) {
+  // debugger;
   const type = action.type;
   if (type == "setposts") {
     return {
       ...state,
-      currentCategory: "",
-      currentPosts: [],
+      // currentCategory: "",
+      // currentPosts: [],
       posts: action.payload,
     };
   } else if (type == "set-category-posts") {
     return {
       ...state,
-      currentCategory: "",
-      currentPosts: [],
+      // currentCategory: "",
+      // currentPosts: [],
       categoryPosts: action.payload,
     };
   } else if (type == "set-categories") {
@@ -29,7 +30,7 @@ function AppReducer(state, action) {
     console.log("newState", newState);
     switch (action.payload.trim().toLowerCase()) {
       case "latest news":
-        debugger;
+        // debugger;
         newState.currentCategory = action.payload;
         newState.currentPosts = [...newState.posts];
 
@@ -42,12 +43,12 @@ function AppReducer(state, action) {
     newState.more = true;
     return { ...newState };
   } else if (type == "set-currentCategory") {
-    debugger;
+    // debugger;
     const newState = { ...state };
     console.log("newState", newState);
     switch (action.payload.trim().toLowerCase()) {
       case "latest news":
-        debugger;
+        // debugger;
         newState.currentCategory = action.payload;
         newState.currentPosts = [...newState.posts];
         break;
@@ -58,7 +59,7 @@ function AppReducer(state, action) {
     }
     return { ...newState };
   } else if (type == "filter") {
-    debugger;
+    // debugger;
     const newState = { ...state };
     console.log("newState", newState);
     newState.currentCategory = "Filtered Posts";
@@ -79,6 +80,17 @@ function AppReducer(state, action) {
       newState.currentPosts = [];
     }
     return { ...newState, outsideSearch: action.payload };
+  } else if (type == "set-current-post") {
+    debugger;
+    const newState = { ...state };
+    newState.currentPosts = [
+      ...newState.posts.filter(
+        (item) =>
+          item.data.title.toLowerCase().trim() ===
+          action.payload.title.trim().toLowerCase()
+      ),
+    ];
+    return { ...newState };
   }
 }
 export default AppReducer;

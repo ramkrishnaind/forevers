@@ -1,8 +1,12 @@
 import React from "react";
 import styles from "./style.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
+// import { AppContext } from "../../../app/state/contexts/AppContext";
 import getWindowDimensions from "../../../hooks/useWindowDimensions";
 function NewsHighlight({ data, id, optionalHeight }) {
+  const router = useRouter();
+  // const [state, dispatch] = useContext(AppContext);
   const { height, width } = getWindowDimensions();
   let slug = "";
   let oldTitle = data.title;
@@ -35,28 +39,37 @@ function NewsHighlight({ data, id, optionalHeight }) {
     // };
   }
   return (
-    <div className="py-3" style={{ cursor: "pointer" }}>
-      <Link href={`/news/${slug}`}>
-        <div className="flex gap-3">
-          <div className="w-2/5 px-1 md:px-0 md:pr-3 pt-1">
-            <img
-              src={data.imgUrl}
-              alt="post-img"
-              className={`w-80 md:h-${
-                optionalHeight ? optionalHeight : "24"
-              } h-12 object-cover rounded-md`}
-            />
-          </div>
+    <div
+      className="py-3"
+      style={{ cursor: "pointer" }}
+      onClick={() => {
+        debugger;
+        // dispatch({ type: "setposts", payload: res.data.data });
 
-          {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
-          <p
-            className="w-3/5 px-1 md:px-0 md:pr-3  hover:underline"
-            style={{ wordBreak: "break-word" }}
-          >
-            {createMarkup(width < 768 ? 17 : optionalHeight ? 10 : 60)}
-          </p>
+        router.push(`/news/${slug}`);
+      }}
+    >
+      {/* <Link href={`/news/${slug}`}> */}
+      <div className="flex gap-3">
+        <div className="w-2/5 px-1 md:px-0 md:pr-3 pt-1">
+          <img
+            src={data.imgUrl}
+            alt="post-img"
+            className={`w-80 md:h-${
+              optionalHeight ? optionalHeight : "24"
+            } h-12 object-cover rounded-md`}
+          />
         </div>
-      </Link>
+
+        {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
+        <p
+          className="w-3/5 px-1 md:px-0 md:pr-3  hover:underline"
+          style={{ wordBreak: "break-word" }}
+        >
+          {createMarkup(width < 768 ? 17 : optionalHeight ? 10 : 60)}
+        </p>
+      </div>
+      {/* </Link> */}
     </div>
   );
 }

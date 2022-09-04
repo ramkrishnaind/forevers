@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AppContext } from "../../../../app/state/contexts/AppContext";
-import NewsHighlight from "../../../News/NewsHighlight/NewsHighlight";
+import NewsHighlight from "../../NewsHighlight/NewsHighlight";
 const AutoPlay = () => {
   const [state] = useContext(AppContext);
   console.log("state?.categoryPosts", state);
@@ -22,7 +22,7 @@ const AutoPlay = () => {
     pauseOnHover: true,
   };
   return (
-    <>
+    <div className="bg-white">
       <h2 className="text-center bg-gray-500 py-2 px-2 text-lg text-white ">
         Latest news
       </h2>
@@ -41,7 +41,7 @@ const AutoPlay = () => {
           })}
         </Slider>
       </div>
-    </>
+    </div>
   );
 };
 export default AutoPlay;

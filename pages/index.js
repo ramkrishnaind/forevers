@@ -28,6 +28,7 @@ function Home() {
     }, 10);
   }, [state.currentCategory]);
   React.useEffect(() => {
+    debugger;
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
     //   : console.log("Adsbygoogle already exists");
@@ -116,7 +117,7 @@ function Home() {
                   ? state?.posts?.slice(0, 6)
                   : state?.posts
               }
-              more={state?.posts.length > 6}
+              more={state?.posts?.length > 6}
             />
             {categories.map((categoryItem, index) => (
               <News

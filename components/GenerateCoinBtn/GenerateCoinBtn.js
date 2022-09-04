@@ -12,7 +12,7 @@ function GenerateCoinBtn() {
   const [mining, setMining] = useState(false);
   const [notARobot, setNotARobot] = useState(false);
   useEffect(() => {
-    debugger;
+    // debugger;
     if (state?.posts?.length === 0) {
       if (state?.posts?.lenght === 0) {
         const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
