@@ -244,7 +244,6 @@ function News() {
             </footer>
           </div>
           <div className="order-3 md:order-3  md:w-1/5 bg-[#F2F2F0]">
-            {" "}
             <RightAdvertisement />
           </div>
           {/* <p style={{ textAlign: "center" }}>{targetPost.data.details}</p> */}
