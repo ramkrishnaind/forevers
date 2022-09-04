@@ -16,6 +16,7 @@ const DynamicTimer = dynamic(() => import("../components/Timer/Timer"), {
   ssr: false,
 });
 
+// import Ad from "../components/FooterAd1/Ad";
 function Home() {
   const [state, dispatch] = useContext(AppContext);
   const [isFetching, setFetching] = React.useState(false);
@@ -29,9 +30,9 @@ function Home() {
   }, [state.currentCategory]);
   React.useEffect(() => {
     debugger;
-    // !window.adsbygoogle
-    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-    //   : console.log("Adsbygoogle already exists");
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
     const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
     (async () => {
       setFetching(true);

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
@@ -7,12 +7,17 @@ import "./../styles/globals.css";
 import { GlobalContext } from "./../app/state/contexts/AppContext";
 import Head from "next/head";
 import Script from "next/script";
-
+import Ad from "../components/Ad/Ad";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   // console.log("router", router);
   // React.useEffect(() => {}, []);
-
+  React.useEffect(() => {
+    debugger;
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
+  }, []);
   const other = (
     <>
       <div
@@ -33,7 +38,9 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
           crossorigin="anonymous"
         />
-        <div className="w-full hidden md:flex-1 md:block"></div>
+        <div className="w-full hidden md:flex-1 md:block">
+          <Ad dataAdSlot="2909822801" />
+        </div>
         <div
           style={{
             display: "flex",
@@ -65,7 +72,9 @@ function MyApp({ Component, pageProps }) {
             <Footer />
           </div>
         </div>
-        <div className="w-full hidden md:block md:flex-1">Ad will be shown</div>
+        <div className="w-full hidden md:block md:flex-1">
+          <Ad dataAdSlot="2989713855" />
+        </div>
       </div>
     </>
   );

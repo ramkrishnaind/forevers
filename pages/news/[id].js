@@ -9,8 +9,6 @@ import { AppContext } from "./../../app/state/contexts/AppContext";
 import { getCookie, setCookie } from "cookies-next";
 import Countdown from "react-countdown";
 import Ad from "../../components/Ad/Ad";
-import Ad1 from "../../components/FooterAd1/Ad";
-import Ad2 from "../../components/FooterAd2/Ad";
 
 import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 import LeftAdvertisement from "../../components/News/LeftAdvertisement";
@@ -27,9 +25,9 @@ function News() {
   const router = useRouter();
   const { id } = router.query;
   React.useEffect(() => {
-    // !window.adsbygoogle
-    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-    //   : console.log("Adsbygoogle already exists");
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
     const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
     (async () => {
       setFetching(true);
@@ -59,9 +57,9 @@ function News() {
     console.log("state", state);
   }, []);
   React.useEffect(() => {
-    // !window.adsbygoogle
-    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-    //   : console.log("Adsbygoogle already exists");
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
     setStatus(localStorage.getItem("mozilla-support-status"));
     console.log("state", state);
     // if (state.posts.length > 0) {
@@ -164,14 +162,15 @@ function News() {
   const Completionist2 = () => {
     localStorage.removeItem("mozilla-support-status");
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center flex-col items-center">
         <a
-          href={`${process.env.NEXT_PUBLIC_APP_URL}/admin/dashboard`}
+          href={`${process.env.NEXT_PUBLIC_APP_URL}/user`}
           onClick={transferFunds}
-          className={`${styles.collectCoinBtn} text-center`}
+          className={`${styles.collectCoinBtn} text-center w-40`}
         >
           {checkAccMsg}
         </a>
+        <Ad dataAdSlot="5932158699" />
       </div>
     );
   };
@@ -182,12 +181,15 @@ function News() {
     } else {
       // Render a countdown
       return (
-        <h2
-          style={{ color: "red" }}
-          className="mx-auto text-center text-2xl mt-3"
-        >
-          Transferring in Your Account... {seconds} Seconds...
-        </h2>
+        <>
+          <h2
+            style={{ color: "red" }}
+            className="mx-auto text-center text-2xl mt-3"
+          >
+            Transferring in Your Account... {seconds} Seconds...
+          </h2>
+          <Ad dataAdSlot="2371600903" />
+        </>
       );
     }
   };
@@ -213,9 +215,13 @@ function News() {
             <LeftAdvertisement />
           </div>
           <div className="order-1 md:order-2  sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
+            <Ad dataAdSlot="5712118102" />
             <div className="mx-auto block">
               {status == "4" && !collectingCoin ? (
-                <Countdown date={Date.now() + 20000} renderer={renderer} />
+                <>
+                  <Countdown date={Date.now() + 20000} renderer={renderer} />
+                  <Ad dataAdSlot="2291709858" />
+                </>
               ) : (
                 ""
               )}
@@ -234,9 +240,12 @@ function News() {
             <RelatedNPosts orientation="horizontal" N={3} />
             <Comments />
             <footer id="footer">
-              {/* <Ad1 /> */}
+              <Ad dataAdSlot="9758340172" />
               {collectingCoin ? (
-                <Countdown date={Date.now() + 5000} renderer={renderer2} />
+                <>
+                  <Countdown date={Date.now() + 5000} renderer={renderer2} />
+                  <Ad dataAdSlot="1790551941" />
+                </>
               ) : (
                 ""
               )}

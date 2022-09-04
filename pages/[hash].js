@@ -24,9 +24,9 @@ function Home() {
   const [state, dispatch] = useContext(AppContext);
   const { hash } = router.query;
   useEffect(() => {
-    // !window.adsbygoogle
-    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-    //   : console.log("Adsbygoogle already exists");
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
     if (state?.posts?.lenght === 0) {
       const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
       (async () => {
