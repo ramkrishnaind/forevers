@@ -127,7 +127,7 @@ function News() {
     }
   }
   const Completionist = () => (
-    <div className="flex justify-center">
+    <div className="flex-col flex">
       <Script
         id="google-analytics"
         strategy="afterInteractive"
@@ -141,13 +141,15 @@ function News() {
               `,
         }}
       />
-      <a
-        href="#footer"
-        onClick={handleClickCollectCoin}
-        className={`${styles.collectCoinBtn} text-center`}
-      >
-        Collect Coin
-      </a>
+      <div className="flex justify-center">
+        <a
+          href="#footer"
+          onClick={handleClickCollectCoin}
+          className={`${styles.collectCoinBtn} text-center`}
+        >
+          Collect Coin
+        </a>
+      </div>
       <Ad dataAdSlot="1790551941" />
     </div>
   );
