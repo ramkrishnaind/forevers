@@ -22,7 +22,7 @@ const DynamicAd = dynamic(() => import("../components/Ad/Ad"), {
 function Home() {
   const router = useRouter();
   const [state, dispatch] = useContext(AppContext);
-  // const { hash } = router.query;
+  const { hash } = router.query;
   // useEffect(() => {
   //   !window.adsbygoogle
   //     ? (window.adsbygoogle = window.adsbygoogle || []).push({})
