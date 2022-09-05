@@ -24,6 +24,7 @@ function NewsHighlight({ data, id, optionalHeight }) {
     console.log("data.details", data.title);
     const p = document.createElement("p");
     p.innerHTML = data?.title || "";
+    // p.classList.add("hover:underline");
     const arr = p.innerText.split(" ");
     const count = Math.floor(arr.length < length ? arr.length : length);
     const arrToTake = arr.map((item, index) => {
@@ -42,32 +43,40 @@ function NewsHighlight({ data, id, optionalHeight }) {
     <div
       className="py-3"
       style={{ cursor: "pointer" }}
-      onClick={() => {
-        debugger;
-        // dispatch({ type: "setposts", payload: res.data.data });
+      // onClick={() => {
+      //   debugger;
+      //   // dispatch({ type: "setposts", payload: res.data.data });
 
-        router.push(`/news/${slug}`);
-      }}
+      //   router.push(`/news/${slug}`);
+      // }}
     >
       {/* <Link href={`/news/${slug}`}> */}
       <div className="flex gap-3">
         <div className="w-2/5 px-1 md:px-0 md:pr-3 pt-1">
-          <img
-            src={data.imgUrl}
-            alt="post-img"
-            className={`w-80 md:h-${
-              optionalHeight ? optionalHeight : "24"
-            } h-20 object-cover rounded-lg`}
-          />
+          <Link
+            className="w-3/5 px-1 md:px-0 md:pr-3 hover:underline"
+            style={{ wordBreak: "break-word" }}
+            href={`/news/${slug}`}
+          >
+            <img
+              src={data.imgUrl}
+              alt="post-img"
+              className={`w-80 md:h-${
+                optionalHeight ? optionalHeight : "24"
+              } h-20 object-cover rounded-lg`}
+            />
+          </Link>
+          {/* </a> */}
         </div>
 
         {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
-        <p
-          className="w-3/5 px-1 md:px-0 md:pr-3  hover:underline"
+        <Link
+          className="w-3/5 px-1 md:px-0 md:pr-3 hover:underline"
           style={{ wordBreak: "break-word" }}
+          href={`/news/${slug}`}
         >
           {createMarkup(width < 768 ? 17 : optionalHeight ? 10 : 60)}
-        </p>
+        </Link>
       </div>
       {/* </Link> */}
     </div>
