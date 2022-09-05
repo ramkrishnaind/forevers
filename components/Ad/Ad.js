@@ -1,15 +1,26 @@
 import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
+import Script from "next/script";
 function Ad({ dataAdSlot = "2330142456" }) {
-  useEffect(() => {
-    try {
-      !window.adsbygoogle
-        ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-        : console.log("Adsbygoogle already exists");
-    } catch (error) {
-      console.error(error);
-    }
-  }, []);
+  <Script
+    id="Adsense-id"
+    async
+    onError={(e) => {
+      console.error("Script failed to load", e);
+    }}
+    strategy="afterInteractive"
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
+    crossorigin="anonymous"
+  />;
+  // useEffect(() => {
+  //   try {
+  //     !window.adsbygoogle
+  //       ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+  //       : console.log("Adsbygoogle already exists");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }, []);
   return (
     <div className={styles.container}>
       <ins
