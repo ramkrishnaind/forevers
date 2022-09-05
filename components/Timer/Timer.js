@@ -4,6 +4,7 @@ import styles from "./style.module.scss";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
 import { AppContext } from "../../app/state/contexts/AppContext";
 import axios from "axios";
+import Ad from "../Ad/Ad";
 import Script from "next/script";
 const Timer = ({ query }) => {
   const Ref = useRef(null);
@@ -86,7 +87,7 @@ const Timer = ({ query }) => {
         </div>
       ) : (
         <>
-          <Script
+          {/* <Script
             id="google-analytics"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
@@ -98,7 +99,7 @@ const Timer = ({ query }) => {
                 );
               `,
             }}
-          />
+          /> */}
           <h2> Verifying your account...{timer} Seconds</h2>
           <Ad dataAdSlot="9758340172" />
         </>

@@ -4,7 +4,7 @@ import Router, { useRouter } from "next/router";
 import styles from "../styles/Home.module.scss";
 import Script from "next/script";
 import Header from "./../components/Header/Header";
-import Ad from "./../components/Ad/Ad";
+// import Ad from "./../components/Ad/Ad";
 import News from "../components/News/News";
 import dynamic from "next/dynamic";
 // import { AppContext } from "./../app/state/contexts/AppContext";
