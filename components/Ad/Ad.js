@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 function Ad({ dataAdSlot = "2330142456" }) {
+  useEffect(() => {
+    try {
+      !window.adsbygoogle
+        ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+        : console.log("Adsbygoogle already exists");
+    } catch (error) {
+      console.error(error);
+    }
+  }, []);
   return (
     <div className={styles.container}>
       <ins

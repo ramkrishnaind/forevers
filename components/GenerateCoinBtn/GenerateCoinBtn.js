@@ -4,6 +4,8 @@ import styles from "./style.module.scss";
 import Countdown from "react-countdown";
 import { AppContext } from "./../../app/state/contexts/AppContext";
 import axios from "axios";
+import Ad from "../Ad/Ad";
+import Script from "next/script";
 import ReCAPTCHA from "react-google-recaptcha";
 import MathematicalRecaptcha from "../reCaptcha/MathematicalRecaptcha";
 import { getCookie, setCookie } from "cookies-next";
@@ -75,9 +77,25 @@ function GenerateCoinBtn() {
   }
 
   return notARobot ? (
-    <button className={styles.btn} onClick={handleClick}>
-      💲 Generate Coin 💲
-    </button>
+    <>
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+                document.write(
+                  '<script src="//banner.incrementxserv.com/scripts/pageads.js?vzId=IXS848238V7CGBE6&vzR=' +
+                    Math.floor(Math.random() * 100(new Date().getTime() / 1000)) +
+                    '"></script>'
+                );
+              `,
+        }}
+      />
+      <button className={styles.btn} onClick={handleClick}>
+        💲 Generate Coin 💲
+      </button>
+      <Ad dataAdSlot="2096306726" />
+    </>
   ) : (
     <MathematicalRecaptcha passCaptcha={setNotARobot} />
   );

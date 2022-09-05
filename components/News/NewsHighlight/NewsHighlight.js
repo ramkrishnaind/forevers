@@ -57,7 +57,7 @@ function NewsHighlight({ data, id, optionalHeight }) {
             alt="post-img"
             className={`w-80 md:h-${
               optionalHeight ? optionalHeight : "24"
-            } h-12 object-cover rounded-md`}
+            } h-20 object-cover rounded-lg`}
           />
         </div>
 

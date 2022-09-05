@@ -25,9 +25,9 @@ function News() {
   const router = useRouter();
   const { id } = router.query;
   React.useEffect(() => {
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
+    // !window.adsbygoogle
+    //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+    //   : console.log("Adsbygoogle already exists");
     const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
     (async () => {
       setFetching(true);
@@ -128,6 +128,19 @@ function News() {
   }
   const Completionist = () => (
     <div className="flex justify-center">
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+                document.write(
+                  '<script src="//banner.incrementxserv.com/scripts/pageads.js?vzId=IXV694356VB6E22E&vzR=' +
+                    Math.floor(Math.random() * 100(new Date().getTime() / 1000)) +
+                    '"></script>'
+                );
+              `,
+        }}
+      />
       <a
         href="#footer"
         onClick={handleClickCollectCoin}
@@ -135,6 +148,7 @@ function News() {
       >
         Collect Coin
       </a>
+      <Ad dataAdSlot="1790551941" />
     </div>
   );
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -163,6 +177,19 @@ function News() {
     localStorage.removeItem("mozilla-support-status");
     return (
       <div className="flex justify-center flex-col items-center">
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+                document.write(
+                  '<script src="//banner.incrementxserv.com/scripts/pageads.js?vzId=IXP275725VEG2137&vzR=' +
+                    Math.floor(Math.random() * 100(new Date().getTime() / 1000)) +
+                    '"></script>'
+                );
+              `,
+          }}
+        />
         <a
           href={`${process.env.NEXT_PUBLIC_APP_URL}/user`}
           onClick={transferFunds}
@@ -182,6 +209,19 @@ function News() {
       // Render a countdown
       return (
         <>
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                document.write(
+                  '<script src="//banner.incrementxserv.com/scripts/pageads.js?vzId=IXQ933127VED84F6&vzR=' +
+                    Math.floor(Math.random() * 100(new Date().getTime() / 1000)) +
+                    '"></script>'
+                );
+              `,
+            }}
+          />
           <h2
             style={{ color: "red" }}
             className="mx-auto text-center text-2xl mt-3"
@@ -219,6 +259,19 @@ function News() {
             <div className="mx-auto block">
               {status == "4" && !collectingCoin ? (
                 <>
+                  <Script
+                    id="google-analytics"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                      __html: `
+                            document.write(
+                              '<script src="//banner.incrementxserv.com/scripts/pageads.js?vzId=IXQ202375V7392DB&vzR=' +
+                                Math.floor(Math.random() * 100(new Date().getTime() / 1000)) +
+                                '"></script>'
+                            );
+                          `,
+                    }}
+                  />
                   <Countdown date={Date.now() + 20000} renderer={renderer} />
                   <Ad dataAdSlot="2291709858" />
                 </>
@@ -240,9 +293,21 @@ function News() {
             <RelatedNPosts orientation="horizontal" N={3} />
             <Comments />
             <footer id="footer">
-              <Ad dataAdSlot="9758340172" />
               {collectingCoin ? (
                 <>
+                  <Script
+                    id="google-analytics"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                      __html: `
+                            document.write(
+                              '<script src="//banner.incrementxserv.com/scripts/pageads.js?vzId=IXV694356VB6E22E&vzR=' +
+                                Math.floor(Math.random() * 100(new Date().getTime() / 1000)) +
+                                '"></script>'
+                            );
+                          `,
+                    }}
+                  />
                   <Countdown date={Date.now() + 5000} renderer={renderer2} />
                   <Ad dataAdSlot="1790551941" />
                 </>

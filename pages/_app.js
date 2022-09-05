@@ -12,12 +12,12 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   // console.log("router", router);
   // React.useEffect(() => {}, []);
-  React.useEffect(() => {
-    debugger;
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
-  }, []);
+  // React.useEffect(() => {
+  //   debugger;
+  //   !window.adsbygoogle
+  //     ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+  //     : console.log("Adsbygoogle already exists");
+  // }, []);
   const other = (
     <>
       <div

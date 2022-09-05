@@ -4,6 +4,7 @@ import styles from "./style.module.scss";
 import { getCookie, setCookie, deleteCookie } from "cookies-next";
 import { AppContext } from "../../app/state/contexts/AppContext";
 import axios from "axios";
+import Script from "next/script";
 const Timer = ({ query }) => {
   const Ref = useRef(null);
   const [timer, setTimer] = useState("0:0:0");
@@ -84,7 +85,23 @@ const Timer = ({ query }) => {
           <GenerateCoinBtn />
         </div>
       ) : (
-        <h2> Verifying your account...{timer} Seconds</h2>
+        <>
+          <Script
+            id="google-analytics"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                document.write(
+                  '<script src="//banner.incrementxserv.com/scripts/pageads.js?vzId=PNXM746966V21D4DF&vzR=' +
+                    Math.floor(Math.random() * 100(new Date().getTime() / 1000)) +
+                    '"></script>'
+                );
+              `,
+            }}
+          />
+          <h2> Verifying your account...{timer} Seconds</h2>
+          <Ad dataAdSlot="9758340172" />
+        </>
       )}
     </div>
   );
