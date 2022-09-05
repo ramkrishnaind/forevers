@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import styles from "./style.module.scss";
 import Script from "next/script";
 function Ad({ dataAdSlot = "2330142456" }) {
-  // <Script
-  //   id="Adsense-id"
-  //   async
-  //   onError={(e) => {
-  //     console.error("Script failed to load", e);
-  //   }}
-  //   strategy="afterInteractive"
-  //   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
-  //   crossorigin="anonymous"
-  // />;
+  <Script
+    id="Adsense-id"
+    async
+    onError={(e) => {
+      console.error("Script failed to load", e);
+    }}
+    strategy="afterInteractive"
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
+    crossorigin="anonymous"
+  />;
   useEffect(() => {
     try {
       !window.adsbygoogle
