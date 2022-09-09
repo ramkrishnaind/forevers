@@ -39,9 +39,24 @@ function Post({ data, id, updatePosts }) {
           <p className={styles.title}>{data.title}</p>
           {data.author && <span className={styles.author}>{data.author}</span>}
 
-          <button onClick={deletePost}>
-            {confirmDelete ? "Confirm" : "X"}
-          </button>
+          <div className="relative p-3">
+            <button
+              onClick={deletePost}
+              className={`${
+                confirmDelete ? styles["button-confirm"] : styles.button
+              }`}
+            >
+              {confirmDelete ? "Confirm" : "X"}
+            </button>
+            {confirmDelete && (
+              <button
+                onClick={() => setConfirmDelete(!confirmDelete)}
+                className={`absolute right-0 top-0 ${styles["button-cancel"]} bg-pink-200`}
+              >
+                X
+              </button>
+            )}
+          </div>
         </div>
         <p dangerouslySetInnerHTML={createMarkup()} />
         {/* <p className={styles.body}>{data.details}</p> */}
