@@ -10,6 +10,29 @@ import Head from "next/head";
 import Script from "next/script";
 import Ad from "../components/Ad/Ad";
 function MyApp({ Component, pageProps }) {
+  let scriptEle;
+  function loadJS(FILE_URL, async = true) {
+    if (scriptEle) {
+      document.body.removeChild(scriptEle);
+    }
+    scriptEle = document.createElement("script");
+
+    scriptEle.setAttribute("src", FILE_URL);
+    scriptEle.setAttribute("type", "text/javascript");
+    scriptEle.setAttribute("async", async);
+    scriptEle.setAttribute("data-ad-client", "ca-pub-2397723075092719");
+
+    document.body.appendChild(scriptEle);
+
+    // success event
+    scriptEle.addEventListener("load", () => {
+      console.log("File loaded");
+    });
+    // error event
+    scriptEle.addEventListener("error", (ev) => {
+      console.log("Error on loading file", ev);
+    });
+  }
   const router = useRouter();
   debugger;
   useEffect(() => {
@@ -24,10 +47,10 @@ function MyApp({ Component, pageProps }) {
   console.log("router", router);
   // React.useEffect(() => {}, []);
   React.useEffect(() => {
-    debugger;
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
+    loadJS("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+    // document.write(
+    //   '<script data-ad-client="ca-pub-2397723075092719" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
+    // );
   }, [router.asPath]);
   const admin = (
     <>
@@ -197,13 +220,13 @@ function MyApp({ Component, pageProps }) {
   );
   return (
     <GlobalContext>
-      <Script
+      {/* <Script
         id="Adsense-id"
         data-ad-client="ca-pub-2397723075092719"
         async="true"
         strategy="beforeInteractive"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      />
+      /> */}
       {router.asPath.includes("/admin")
         ? admin
         : router.asPath.includes("/news/")
