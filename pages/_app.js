@@ -27,6 +27,60 @@ function MyApp({ Component, pageProps }) {
   //     ? (window.adsbygoogle = window.adsbygoogle || []).push({})
   //     : console.log("Adsbygoogle already exists");
   // }, []);
+  const admin = (
+    <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          backgroundColor: "#F2F2F0",
+        }}
+        className="flex-col md:flex-row gap-3"
+      >
+        {/* <Script
+          id="Adsense-id"
+          data-ad-client="2397723075092719"
+          async="true"
+          strategy="beforeInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        /> */}
+
+        <div className="w-full hidden md:flex-1 md:block"></div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            backgroundColor: "white",
+            // width: "80vw",
+
+            minHeight: "100vh",
+            // flex: 1,
+          }}
+          className="w-full md:w-1000px"
+        >
+          <Header marginX={"220px"} />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              // justifyContent: "center",
+              // alignItems: "center",
+              // margin: "auto",
+              minWidth: "100%",
+              // position: "relative",
+
+              flex: 1,
+            }}
+            // className="md:top-[5rem] top-[4rem]"
+          >
+            <Component {...pageProps} />
+            <Footer />
+          </div>
+        </div>
+        <div className="w-full hidden md:block md:flex-1"></div>
+      </div>
+    </>
+  );
   const other = (
     <>
       <div
@@ -148,7 +202,11 @@ function MyApp({ Component, pageProps }) {
         strategy="beforeInteractive"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       />
-      {router.asPath.includes("/news/") ? news : other}
+      {router.asPath.includes("/admin/")
+        ? admin
+        : router.asPath.includes("/news/")
+        ? news
+        : other}
     </GlobalContext>
   );
 }
