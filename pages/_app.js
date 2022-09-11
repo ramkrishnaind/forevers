@@ -27,6 +27,10 @@ function MyApp({ Component, pageProps }) {
     // success event
     scriptEle.addEventListener("load", () => {
       console.log("File loaded");
+      const { googletag } = window;
+      googletag.cmd.push(function () {
+        googletag.pubads().refresh();
+      });
     });
     // error event
     scriptEle.addEventListener("error", (ev) => {
