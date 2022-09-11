@@ -11,14 +11,14 @@ import Ad from "../components/Ad/Ad";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   debugger;
-  useEffect(() => {
-    const { googletag } = window;
-    if (googletag) {
-      googletag.cmd.push(function () {
-        googletag.pubads().refresh();
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const { googletag } = window;
+  //   if (googletag) {
+  //     googletag.cmd.push(function () {
+  //       googletag.pubads().refresh();
+  //     });
+  //   }
+  // }, []);
   console.log("router", router);
   // React.useEffect(() => {}, []);
   // React.useEffect(() => {
