@@ -94,7 +94,7 @@ function GenerateCoinBtn() {
       <button className={styles.btn} onClick={handleClick}>
         💲 Generate Coin 💲
       </button>
-      <Ad dataAdSlot="2096306726" />
+      <Ad currentPath="Generate Coin" dataAdSlot="2096306726" />
     </>
   ) : (
     <MathematicalRecaptcha passCaptcha={setNotARobot} />

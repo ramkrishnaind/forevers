@@ -10,14 +10,22 @@ import Script from "next/script";
 import Ad from "../components/Ad/Ad";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  useEffect(() => {
+    const { googletag } = window;
+    if (googletag) {
+      googletag.cmd.push(function () {
+        googletag.pubads().refresh();
+      });
+    }
+  }, []);
   console.log("router", router);
   // React.useEffect(() => {}, []);
-  React.useEffect(() => {
-    debugger;
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
-  }, []);
+  // React.useEffect(() => {
+  //   debugger;
+  //   !window.adsbygoogle
+  //     ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+  //     : console.log("Adsbygoogle already exists");
+  // }, []);
   const other = (
     <>
       <div
@@ -28,16 +36,16 @@ function MyApp({ Component, pageProps }) {
         }}
         className="flex-col md:flex-row gap-3"
       >
-        <Script
+        {/* <Script
           id="Adsense-id"
           data-ad-client="2397723075092719"
           async="true"
           strategy="beforeInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        />
+        /> */}
 
         <div className="w-full hidden md:flex-1 md:block">
-          <Ad dataAdSlot="2909822801" />
+          <Ad currentPath="page add" dataAdSlot="2909822801" />
         </div>
         <div
           style={{
@@ -71,7 +79,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
         <div className="w-full hidden md:block md:flex-1">
-          <Ad dataAdSlot="2989713855" />
+          <Ad currentPath="below footer ad" dataAdSlot="2989713855" />
         </div>
       </div>
     </>
@@ -86,7 +94,7 @@ function MyApp({ Component, pageProps }) {
           backgroundColor: "#F2F2F0",
         }}
       >
-        <Script
+        {/* <Script
           id="Adsense-id"
           async
           onError={(e) => {
@@ -95,7 +103,7 @@ function MyApp({ Component, pageProps }) {
           strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
           crossorigin="anonymous"
-        />
+        /> */}
 
         <div
           style={{
@@ -132,6 +140,13 @@ function MyApp({ Component, pageProps }) {
   );
   return (
     <GlobalContext>
+      <Script
+        id="Adsense-id"
+        data-ad-client="ca-pub-2397723075092719"
+        async="true"
+        strategy="beforeInteractive"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      />
       {router.asPath.includes("/news/") ? news : other}
     </GlobalContext>
   );

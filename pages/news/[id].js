@@ -150,7 +150,7 @@ function News() {
           Collect Coin
         </a>
       </div>
-      <Ad dataAdSlot="1790551941" />
+      <Ad currentPath="below collect coin" dataAdSlot="1790551941" />
     </div>
   );
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -199,7 +199,7 @@ function News() {
         >
           {checkAccMsg}
         </a>
-        <Ad dataAdSlot="5932158699" />
+        <Ad currentPath="below check msg" dataAdSlot="5932158699" />
       </div>
     );
   };
@@ -230,7 +230,10 @@ function News() {
           >
             Transferring in Your Account... {seconds} Seconds...
           </h2>
-          <Ad dataAdSlot="2371600903" />
+          <Ad
+            currentPath="transfering in your account"
+            dataAdSlot="2371600903"
+          />
         </>
       );
     }
@@ -257,7 +260,7 @@ function News() {
             <LeftAdvertisement />
           </div>
           <div className="order-1 md:order-2  sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
-            <Ad dataAdSlot="5712118102" />
+            <Ad currentPath="top news ad" dataAdSlot="5712118102" />
             <div className="mx-auto block">
               {status == "4" && !collectingCoin ? (
                 <>
@@ -275,7 +278,7 @@ function News() {
                     }}
                   />
                   <Countdown date={Date.now() + 20000} renderer={renderer} />
-                  <Ad dataAdSlot="2291709858" />
+                  <Ad currentPath="countdown ad" dataAdSlot="2291709858" />
                 </>
               ) : (
                 ""
@@ -311,7 +314,10 @@ function News() {
                     }}
                   />
                   <Countdown date={Date.now() + 5000} renderer={renderer2} />
-                  <Ad dataAdSlot="1790551941" />
+                  <Ad
+                    currentPath="contdown footer ad"
+                    dataAdSlot="1790551941"
+                  />
                 </>
               ) : (
                 ""

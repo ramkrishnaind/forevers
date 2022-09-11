@@ -101,7 +101,7 @@ const Timer = ({ query }) => {
             }}
           /> */}
           <h2> Verifying your account...{timer} Seconds</h2>
-          <Ad dataAdSlot="9758340172" />
+          <Ad currentPath="Verifying your account" dataAdSlot="9758340172" />
         </>
       )}
     </div>
