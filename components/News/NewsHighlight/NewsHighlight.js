@@ -70,12 +70,13 @@ function NewsHighlight({ data, id, optionalHeight }) {
         </div>
 
         {/* <p dangerouslySetInnerHTML={createMarkup()} />; */}
-        <Link
-          className="w-3/5 px-1 md:px-0 md:pr-3 hover:underline"
-          style={{ wordBreak: "break-word" }}
-          href={`/news/${slug}`}
-        >
-          {createMarkup(width < 768 ? 17 : optionalHeight ? 10 : 60)}
+        <Link href={`/news/${slug}`}>
+          <p
+            className="w-3/5 px-1 md:px-0 md:pr-3 hover:underline"
+            style={{ wordBreak: "break-word" }}
+          >
+            {createMarkup(width < 768 ? 17 : optionalHeight ? 10 : 60)}
+          </p>
         </Link>
       </div>
       {/* </Link> */}
