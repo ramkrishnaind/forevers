@@ -5,13 +5,15 @@ function Ad(...props) {
   //{ dataAdSlot = "2330142456" }
   const { currentPath, dataAdSlot = "2330142456" } = props;
   useEffect(() => {
-    window.adsbygoogle = window.adsbygoogle || [];
-    window.adsbygoogle.push({});
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push({});
+    } catch {}
   }, [currentPath]);
   useEffect(() => {
     const { googletag } = window;
     if (googletag) {
-      googletag.cmd.push(function () {
+      googletag?.cmd?.push(function () {
         googletag.pubads().refresh();
       });
     }

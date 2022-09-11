@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styles from "./style.module.scss";
 import GenerateCoinBtn from "../../components/GenerateCoinBtn/GenerateCoinBtn";
 import axios from "axios";
@@ -24,14 +24,15 @@ function News() {
   const [isFetching, setFetching] = React.useState(false);
   const router = useRouter();
   const { id } = router.query;
-  // useEffect(() => {
-  //   const { googletag } = window;
-  //   if (googletag) {
-  //     googletag.cmd.push(function () {
-  //       googletag.pubads().refresh();
-  //     });
-  //   }
-  // }, [id]);
+  useEffect(() => {
+    debugger;
+    const { googletag } = window;
+    if (googletag) {
+      googletag.cmd.push(function () {
+        googletag.pubads().refresh();
+      });
+    }
+  }, [id]);
   React.useEffect(() => {
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})

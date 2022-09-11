@@ -4,6 +4,7 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from "next/router";
 import "./../styles/globals.css";
+
 import { GlobalContext } from "./../app/state/contexts/AppContext";
 import Head from "next/head";
 import Script from "next/script";
@@ -12,13 +13,14 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   debugger;
   useEffect(() => {
+    debugger;
     const { googletag } = window;
     if (googletag) {
       googletag.cmd.push(function () {
         googletag.pubads().refresh();
       });
     }
-  }, []);
+  }, [router.asPath]);
   console.log("router", router);
   // React.useEffect(() => {}, []);
   // React.useEffect(() => {
