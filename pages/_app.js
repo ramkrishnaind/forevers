@@ -202,7 +202,7 @@ function MyApp({ Component, pageProps }) {
         strategy="beforeInteractive"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       />
-      {router.asPath.includes("/admin/")
+      {router.asPath.includes("/admin")
         ? admin
         : router.asPath.includes("/news/")
         ? news
