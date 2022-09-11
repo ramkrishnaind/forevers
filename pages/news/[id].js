@@ -34,6 +34,12 @@ function News() {
     }
   }, [id]);
   React.useEffect(() => {
+    debugger;
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
+  }, [id]);
+  React.useEffect(() => {
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
     //   : console.log("Adsbygoogle already exists");

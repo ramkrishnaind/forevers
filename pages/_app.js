@@ -23,12 +23,12 @@ function MyApp({ Component, pageProps }) {
   }, [router.asPath]);
   console.log("router", router);
   // React.useEffect(() => {}, []);
-  // React.useEffect(() => {
-  //   debugger;
-  //   !window.adsbygoogle
-  //     ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-  //     : console.log("Adsbygoogle already exists");
-  // }, []);
+  React.useEffect(() => {
+    debugger;
+    !window.adsbygoogle
+      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+      : console.log("Adsbygoogle already exists");
+  }, [router.asPath]);
   const admin = (
     <>
       <div
