@@ -24,14 +24,14 @@ function News() {
   const [isFetching, setFetching] = React.useState(false);
   const router = useRouter();
   const { id } = router.query;
-  useEffect(() => {
-    const { googletag } = window;
-    if (googletag) {
-      googletag.cmd.push(function () {
-        googletag.pubads().refresh();
-      });
-    }
-  }, [id]);
+  // useEffect(() => {
+  //   const { googletag } = window;
+  //   if (googletag) {
+  //     googletag.cmd.push(function () {
+  //       googletag.pubads().refresh();
+  //     });
+  //   }
+  // }, [id]);
   React.useEffect(() => {
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})

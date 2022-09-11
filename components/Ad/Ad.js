@@ -8,7 +8,14 @@ function Ad(...props) {
     window.adsbygoogle = window.adsbygoogle || [];
     window.adsbygoogle.push({});
   }, [currentPath]);
-
+  useEffect(() => {
+    const { googletag } = window;
+    if (googletag) {
+      googletag.cmd.push(function () {
+        googletag.pubads().refresh();
+      });
+    }
+  }, []);
   // <Script
   //   id="Adsense-id"
   //   async
