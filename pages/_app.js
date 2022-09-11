@@ -16,9 +16,9 @@ function MyApp({ Component, pageProps }) {
     debugger;
     const { googletag } = window;
     if (googletag) {
-      // googletag.cmd.push(function () {
-      googletag.pubads()?.refresh();
-      // });
+      googletag.cmd.push(function () {
+        googletag.pubads()?.refresh();
+      });
     }
   }, [router.asPath]);
   console.log("router", router);

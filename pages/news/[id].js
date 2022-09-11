@@ -28,9 +28,9 @@ function News() {
     debugger;
     const { googletag } = window;
     if (googletag) {
-      // googletag.cmd.push(function () {
-      googletag.pubads()?.refresh();
-      // });
+      googletag.cmd.push(function () {
+        googletag.pubads()?.refresh();
+      });
     }
   }, [id]);
   React.useEffect(() => {
