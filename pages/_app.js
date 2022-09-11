@@ -37,12 +37,13 @@ function MyApp({ Component, pageProps }) {
   debugger;
   useEffect(() => {
     var ads = document.getElementsByClassName("adsbygoogle").length;
+    window.adsbygoogle = [];
     for (var i = 0; i < ads; i++) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {}
     }
-  }, []);
+  }, [router.asPath]);
   useEffect(() => {
     debugger;
     const { googletag } = window;
