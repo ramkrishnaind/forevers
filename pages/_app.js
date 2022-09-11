@@ -10,6 +10,7 @@ import Script from "next/script";
 import Ad from "../components/Ad/Ad";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  debugger;
   useEffect(() => {
     const { googletag } = window;
     if (googletag) {
