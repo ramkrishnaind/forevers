@@ -17,6 +17,7 @@ import RelatedNPosts from "../../components/News/RIghtAdvertisement/RelatedNPost
 import Comments from "../../components/News/Comments";
 function News() {
   const [targetPost, setTargetPost] = React.useState();
+  const [slugChanged, setSlugChanged] = React.useState(false);
   const [state, dispatch] = useContext(AppContext);
   const [checkAccMsg, setCheckAccMsg] = useState("Check My Account");
   const [status, setStatus] = React.useState("");
@@ -38,6 +39,10 @@ function News() {
     !window.adsbygoogle
       ? (window.adsbygoogle = window.adsbygoogle || []).push({})
       : console.log("Adsbygoogle already exists");
+    setSlugChanged(true);
+    setTimeout(() => {
+      setSlugChanged(false);
+    }, 100);
   }, [id]);
   React.useEffect(() => {
     // !window.adsbygoogle
@@ -272,7 +277,7 @@ function News() {
         <div className="flex px-3 md:px-0 md:flex-row flex-col gap-3  bg-[#F2F2F0]">
           {/* <Ad /> */}
           <div className="order-2 md:order-1 w-full md:w-1/5 pt-3  bg-[#F2F2F0]">
-            <LeftAdvertisement />
+            {!slugChanged && <LeftAdvertisement />}
           </div>
           <div className="order-1 md:order-2  sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
             <Ad currentPath="top news ad" dataAdSlot="5712118102" />
@@ -341,7 +346,7 @@ function News() {
             </footer>
           </div>
           <div className="order-3 md:order-3  md:w-1/5 bg-[#F2F2F0]">
-            <RightAdvertisement />
+            {!slugChanged && <RightAdvertisement />}
           </div>
           {/* <p style={{ textAlign: "center" }}>{targetPost.data.details}</p> */}
           {/* <Ad /> */}
