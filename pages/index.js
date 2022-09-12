@@ -8,7 +8,7 @@ import Ad from "./../components/Ad/Ad";
 import News from "../components/News/News";
 import PaginatedItems from "../components/Paginate";
 import dynamic from "next/dynamic";
-import Ad from "./../components/Ad/Ad";
+// import Ad from "./../components/Ad/Ad";
 import axios from "axios";
 import { AppContext } from "./../app/state/contexts/AppContext";
 
