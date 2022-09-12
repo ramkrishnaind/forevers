@@ -42,7 +42,7 @@ function News() {
     setSlugChanged(true);
     setTimeout(() => {
       setSlugChanged(false);
-    }, 100);
+    }, 10);
   }, [id]);
   React.useEffect(() => {
     // !window.adsbygoogle

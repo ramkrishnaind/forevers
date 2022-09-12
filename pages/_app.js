@@ -9,8 +9,11 @@ import { GlobalContext } from "./../app/state/contexts/AppContext";
 import Head from "next/head";
 import Script from "next/script";
 import Ad from "../components/Ad/Ad";
+
 function MyApp({ Component, pageProps }) {
+  const [slugChanged, setSlugChanged] = React.useState(false);
   let scriptEle;
+
   function loadJS(FILE_URL, async = true) {
     if (scriptEle) {
       document.body.removeChild(scriptEle);
@@ -40,6 +43,12 @@ function MyApp({ Component, pageProps }) {
     });
   }
   const router = useRouter();
+  useEffect(() => {
+    setSlugChanged(true);
+    setTimeout(() => {
+      setSlugChanged(false);
+    }, 10);
+  }, [router.asPath]);
   debugger;
   useEffect(() => {
     var ads = document.getElementsByClassName("adsbygoogle").length;
@@ -242,11 +251,18 @@ function MyApp({ Component, pageProps }) {
         strategy="beforeInteractive"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       /> */}
-      {router.asPath.includes("/admin")
+      {slugChanged
+        ? null
+        : router.asPath.includes("/admin")
         ? admin
         : router.asPath.includes("/news/")
         ? news
         : other}
+      {/* {router.asPath.includes("/admin")
+        ? admin
+        : router.asPath.includes("/news/")
+        ? news
+        : other} */}
     </GlobalContext>
   );
 }
