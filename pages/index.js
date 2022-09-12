@@ -22,6 +22,7 @@ function Home() {
   const [isFetching, setFetching] = React.useState(false);
   const [currCate, setCurrCat] = React.useState(false);
   const categories = state?.categories || [];
+  const adCodes = ["1477423263", "2323601072", "3604306424", "7795667020"];
   React.useEffect(() => {
     setCurrCat(null);
     setTimeout(() => {
@@ -120,17 +121,31 @@ function Home() {
               }
               more={state?.posts?.length > 6}
             />
+            <Ad
+              currentPath="below latest"
+              dataAdSlot="2563521642"
+              className="hidden md:hidden"
+            />
             {categories.map((categoryItem, index) => (
-              <News
-                key={index}
-                category={categoryItem}
-                more={state?.categoryPosts[categoryItem]?.length > 6}
-                categoryPosts={
-                  state.categoryPosts[categoryItem] > 6
-                    ? state.categoryPosts[categoryItem].slice(0, 6)
-                    : state.categoryPosts[categoryItem]
-                }
-              />
+              <>
+                <News
+                  key={index}
+                  category={categoryItem}
+                  more={state?.categoryPosts[categoryItem]?.length > 6}
+                  categoryPosts={
+                    state.categoryPosts[categoryItem] > 6
+                      ? state.categoryPosts[categoryItem].slice(0, 6)
+                      : state.categoryPosts[categoryItem]
+                  }
+                />
+                {index < adCodes.length && (
+                  <Ad
+                    currentPath={`between sections${index}`}
+                    dataAdSlot={adCodes[index]}
+                    className="hidden md:hidden"
+                  />
+                )}
+              </>
             ))}
           </>
         )}
