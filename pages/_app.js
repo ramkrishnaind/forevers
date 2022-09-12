@@ -15,10 +15,14 @@ function MyApp({ Component, pageProps }) {
   let scriptEle;
 
   function loadJS(FILE_URL, async = true) {
-    if (scriptEle || slugChanged) {
+    try {
       document.body.removeChild(scriptEle);
-      console.log("removed");
-    }
+    } catch {}
+    try {
+      scriptEle.removeEventListener("load", loadEvent);
+    } catch {}
+    //   console.log("removed");
+    // }
     scriptEle = document.createElement("script");
 
     scriptEle.setAttribute("src", FILE_URL);
@@ -27,9 +31,7 @@ function MyApp({ Component, pageProps }) {
     // scriptEle.setAttribute("data-ad-client", "ca-pub-2397723075092719");
 
     document.body.appendChild(scriptEle);
-
-    // success event
-    scriptEle.addEventListener("load", () => {
+    const loadEvent = () => {
       console.log("File loaded");
 
       const { googletag } = window;
@@ -37,7 +39,9 @@ function MyApp({ Component, pageProps }) {
         googletag.pubads().disableInitialLoad();
         googletag.enableServices();
       });
-    });
+    };
+    // success event
+    scriptEle.addEventListener("load", loadEvent);
     // error event
     scriptEle.addEventListener("error", (ev) => {
       console.log("Error on loading file", ev);
