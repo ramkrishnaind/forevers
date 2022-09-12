@@ -8,7 +8,7 @@ import Ad from "./../components/Ad/Ad";
 import News from "../components/News/News";
 import PaginatedItems from "../components/Paginate";
 import dynamic from "next/dynamic";
-
+import Ad from "./../components/Ad/Ad";
 import axios from "axios";
 import { AppContext } from "./../app/state/contexts/AppContext";
 
@@ -78,8 +78,9 @@ function Home() {
             src="/assets/modi.jpg"
             alt="pm-image"
             style={{ width: "100%" }}
-            className="object-cover w-100"
+            className="md:object-cover md:w-100 md:inline hidden"
           />
+          <Ad currentPath="Generate Coin" dataAdSlot="2563521642" />
         </div>
 
         {/* <Ad /> */}
@@ -124,7 +125,7 @@ function Home() {
             <Ad
               currentPath="below latest"
               dataAdSlot="2563521642"
-              className="hidden md:hidden"
+              // className="hidden md:hidden"
             />
             {categories.map((categoryItem, index) => (
               <>
@@ -138,11 +139,11 @@ function Home() {
                       : state.categoryPosts[categoryItem]
                   }
                 />
-                {index < adCodes.length && (
+                {index < adCodes.length && index % 2 === 0 && (
                   <Ad
                     currentPath={`between sections${index}`}
                     dataAdSlot={adCodes[index]}
-                    className="hidden md:hidden"
+                    // className="hidden md:hidden"
                   />
                 )}
               </>
