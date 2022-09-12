@@ -32,7 +32,7 @@ function MyApp({ Component, pageProps }) {
       console.log("File loaded");
 
       const { googletag } = window;
-      googletag.cmd.push(function () {
+      googletag?.cmd.push(function () {
         googletag.pubads().disableInitialLoad();
         googletag.enableServices();
       });
@@ -244,13 +244,13 @@ function MyApp({ Component, pageProps }) {
   );
   return (
     <GlobalContext>
-      {/* <Script
+      <Script
         id="Adsense-id"
         data-ad-client="ca-pub-2397723075092719"
         async="true"
         strategy="beforeInteractive"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      /> */}
+      />
       {slugChanged
         ? null
         : router.asPath.includes("/admin")

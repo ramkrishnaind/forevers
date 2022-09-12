@@ -38,7 +38,9 @@ const AutoPlay = ({ N = 5, orientation = "Vertical" }) => {
           </h2>
           <div
             className={`px-2 ${
-              orientation == "horizontal" ? " flex justify-between px-3" : ""
+              orientation == "horizontal"
+                ? " md:flex md:justify-between md:px-3"
+                : ""
             }`}
           >
             {/* <Slider {...settings}> */}
