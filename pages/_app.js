@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
   let scriptEle;
 
   function loadJS(FILE_URL, async = true) {
-    if (scriptEle) {
+    if (scriptEle || slugChanged) {
       document.body.removeChild(scriptEle);
     }
     scriptEle = document.createElement("script");
@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }) {
     scriptEle.setAttribute("src", FILE_URL);
     scriptEle.setAttribute("type", "text/javascript");
     scriptEle.setAttribute("async", async);
-    scriptEle.setAttribute("data-ad-client", "ca-pub-2397723075092719");
+    // scriptEle.setAttribute("data-ad-client", "ca-pub-2397723075092719");
 
     document.body.appendChild(scriptEle);
 
@@ -70,12 +70,14 @@ function MyApp({ Component, pageProps }) {
   }, [router.asPath]);
   console.log("router", router);
   // React.useEffect(() => {}, []);
-  // React.useEffect(() => {
-  //   loadJS("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-  //   // document.write(
-  //   //   '<script data-ad-client="ca-pub-2397723075092719" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
-  //   // );
-  // }, [router.asPath]);
+  React.useEffect(() => {
+    loadJS(
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
+    );
+    // document.write(
+    //   '<script data-ad-client="ca-pub-2397723075092719" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
+    // );
+  }, [router.asPath]);
   const admin = (
     <>
       <div
@@ -244,7 +246,7 @@ function MyApp({ Component, pageProps }) {
   );
   return slugChanged ? null : (
     <GlobalContext>
-      {!slugChanged && (
+      {/* {!slugChanged && (
         <Script
           id="Adsense-id"
           data-ad-client="ca-pub-2397723075092719"
@@ -252,7 +254,7 @@ function MyApp({ Component, pageProps }) {
           strategy="beforeInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         />
-      )}
+      )} */}
 
       {router.asPath.includes("/admin")
         ? admin
