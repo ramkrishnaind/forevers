@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
     setSlugChanged(true);
     setTimeout(() => {
       setSlugChanged(false);
-    }, 10);
+    }, 1000);
   }, [router.asPath]);
   debugger;
   useEffect(() => {
@@ -70,12 +70,12 @@ function MyApp({ Component, pageProps }) {
   }, [router.asPath]);
   console.log("router", router);
   // React.useEffect(() => {}, []);
-  React.useEffect(() => {
-    loadJS("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
-    // document.write(
-    //   '<script data-ad-client="ca-pub-2397723075092719" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
-    // );
-  }, [router.asPath]);
+  // React.useEffect(() => {
+  //   loadJS("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js");
+  //   // document.write(
+  //   //   '<script data-ad-client="ca-pub-2397723075092719" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
+  //   // );
+  // }, [router.asPath]);
   const admin = (
     <>
       <div
@@ -242,7 +242,7 @@ function MyApp({ Component, pageProps }) {
       </div>
     </>
   );
-  return (
+  return slugChanged ? null : (
     <GlobalContext>
       <Script
         id="Adsense-id"
@@ -251,9 +251,8 @@ function MyApp({ Component, pageProps }) {
         strategy="beforeInteractive"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
       />
-      {slugChanged
-        ? null
-        : router.asPath.includes("/admin")
+
+      {router.asPath.includes("/admin")
         ? admin
         : router.asPath.includes("/news/")
         ? news
