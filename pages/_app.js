@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
   function loadJS(FILE_URL, async = true) {
     if (scriptEle || slugChanged) {
       document.body.removeChild(scriptEle);
+      console.log("removed");
     }
     scriptEle = document.createElement("script");
 
@@ -244,7 +245,7 @@ function MyApp({ Component, pageProps }) {
       </div>
     </>
   );
-  return slugChanged ? null : (
+  return (
     <GlobalContext>
       {/* {!slugChanged && (
         <Script
