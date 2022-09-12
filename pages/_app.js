@@ -244,13 +244,15 @@ function MyApp({ Component, pageProps }) {
   );
   return slugChanged ? null : (
     <GlobalContext>
-      <Script
-        id="Adsense-id"
-        data-ad-client="ca-pub-2397723075092719"
-        async="true"
-        strategy="beforeInteractive"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-      />
+      {!slugChanged && (
+        <Script
+          id="Adsense-id"
+          data-ad-client="ca-pub-2397723075092719"
+          async="true"
+          strategy="beforeInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        />
+      )}
 
       {router.asPath.includes("/admin")
         ? admin
