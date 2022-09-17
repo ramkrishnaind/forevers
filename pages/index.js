@@ -149,7 +149,7 @@ function Home() {
                       : state.categoryPosts[categoryItem]
                   }
                 />
-                {index < adCodes.length && index % 4 === 0 && (
+                {index !== 0 && index < adCodes.length && index % 3 === 0 && (
                   <Ad
                     currentPath={`between sections${index}`}
                     dataAdSlot={adCodes[index]}
