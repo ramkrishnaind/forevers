@@ -159,7 +159,7 @@ function Home() {
             <TopNCategories />
             <Ad
               currentPath={`end of categrories`}
-              dataAdSlot={"1568115429"}
+              dataAdSlot={"4816992340"}
               // className="hidden md:hidden"
             />
           </>
