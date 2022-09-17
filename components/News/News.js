@@ -4,6 +4,7 @@ import styles from "./style.module.scss";
 import TopNewsHightlight from "./TopNewsHighlight/TopNewsHightlight";
 import NewsHighlight from "./NewsHighlight/NewsHighlight";
 import axios from "axios";
+import getWindowDimensions from "../../hooks/useWindowDimensions";
 import { AppContext } from "../../app/state/contexts/AppContext";
 function News({ category, categoryPosts, more }) {
   console.log("categoryPosts", categoryPosts);
@@ -18,6 +19,7 @@ function News({ category, categoryPosts, more }) {
   //   })();
   // }, []);
   const [state, dispatch] = useContext(AppContext);
+  const { height, width: widthScreen } = getWindowDimensions();
   return (
     <div className="container-sm md:flex w-100 col-1 flex-1">
       <div className="w-100 md:flex-1">
@@ -48,16 +50,18 @@ function News({ category, categoryPosts, more }) {
               {categoryPosts?.length == 0 ? (
                 <h1>Fetcing Posts</h1>
               ) : (
-                categoryPosts?.slice(0, 6)?.map((obj, index) => {
-                  return (
-                    // <div>This is some text</div>
-                    <NewsHighlight
-                      key={obj.id || index}
-                      data={obj.data ? obj.data : obj}
-                      id={obj.id || index}
-                    />
-                  );
-                })
+                categoryPosts
+                  ?.slice(0, widthScreen < 768 ? 3 : 6)
+                  ?.map((obj, index) => {
+                    return (
+                      // <div>This is some text</div>
+                      <NewsHighlight
+                        key={obj.id || index}
+                        data={obj.data ? obj.data : obj}
+                        id={obj.id || index}
+                      />
+                    );
+                  })
               )}
             </div>
           </>

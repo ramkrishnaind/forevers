@@ -313,6 +313,11 @@ function News() {
               dangerouslySetInnerHTML={createMarkup()}
             />
             <RelatedNPosts orientation="horizontal" N={3} />
+            <Ad
+              currentPath="below latest"
+              dataAdSlot="2563521642"
+              // className="hidden md:hidden"
+            />
             <Comments />
             <footer id="footer">
               {collectingCoin ? (

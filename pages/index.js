@@ -26,6 +26,11 @@ function Home() {
   const [isFetching, setFetching] = React.useState(false);
   const [currCate, setCurrCat] = React.useState(false);
   const categories = state?.categories || [];
+  debugger;
+  const modifiedCategories = state?.categories.filter((value, index, self) => {
+    return self.findIndex((v) => v === value) === index;
+  });
+
   const adCodes = ["1477423263", "2323601072", "3604306424", "7795667020"];
   React.useEffect(() => {
     setCurrCat(null);
@@ -91,7 +96,7 @@ function Home() {
         ) : (
           <h1>...</h1>
         )}
-        <DynamicAd />
+        {/* <DynamicAd /> */}
         {/* <Ad /> */}
 
         {/* <DynamicTimer /> */}
@@ -131,12 +136,8 @@ function Home() {
               }
               more={state?.posts?.length > 6}
             />
-            <Ad
-              currentPath="below latest"
-              dataAdSlot="2563521642"
-              // className="hidden md:hidden"
-            />
-            {categories.map((categoryItem, index) => (
+
+            {categories.slice(0, 8).map((categoryItem, index) => (
               <>
                 <News
                   key={index}
@@ -148,7 +149,7 @@ function Home() {
                       : state.categoryPosts[categoryItem]
                   }
                 />
-                {index < adCodes.length && index % 2 === 0 && (
+                {index < adCodes.length && index % 4 === 0 && (
                   <Ad
                     currentPath={`between sections${index}`}
                     dataAdSlot={adCodes[index]}

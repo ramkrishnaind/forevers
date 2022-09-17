@@ -5,12 +5,12 @@ import Ad from "../Ad/Ad";
 function Footer() {
   return (
     <>
-      <Ad
-        currentPath={`above footer sections`}
-        dataAdSlot={"9786571390"}
-        className="hidden md:hidden"
-      />
       <div className={`${styles.container}`}>
+        <Ad
+          currentPath={`above footer sections`}
+          dataAdSlot={"9786571390"}
+          className="hidden md:hidden"
+        />
         <div className={`${styles.links} md:flex-row`}>
           <Link href="/">
             <a className="py-3 md:py-0 text-[.8rem] md:text-base">About Us</a>
