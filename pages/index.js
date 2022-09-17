@@ -11,7 +11,7 @@ import dynamic from "next/dynamic";
 // import Ad from "./../components/Ad/Ad";
 import axios from "axios";
 import { AppContext } from "./../app/state/contexts/AppContext";
-
+import TopNCategories from "../components/News/TopNCategories";
 const DynamicTimer = dynamic(() => import("../components/Timer/Timer"), {
   ssr: false,
 });
@@ -91,11 +91,7 @@ function Home() {
           />
           <Ad currentPath="Generate Coin" dataAdSlot="2563521642" />
         </div>
-        {state.postsHash ? (
-          <DynamicTimer query={state.postsHash} />
-        ) : (
-          <h1>...</h1>
-        )}
+        {state.postsHash ? <DynamicTimer query={state.postsHash} /> : null}
         {/* <DynamicAd /> */}
         {/* <Ad /> */}
 
@@ -149,15 +145,23 @@ function Home() {
                       : state.categoryPosts[categoryItem]
                   }
                 />
-                {index !== 0 && index < adCodes.length && index % 3 === 0 && (
-                  <Ad
-                    currentPath={`between sections${index}`}
-                    dataAdSlot={adCodes[index]}
-                    // className="hidden md:hidden"
-                  />
-                )}
+                {index !== 0 &&
+                  index < adCodes.length &&
+                  (index == 2 || index == 6) && (
+                    <Ad
+                      currentPath={`between sections${index}`}
+                      dataAdSlot={adCodes[index]}
+                      // className="hidden md:hidden"
+                    />
+                  )}
               </>
             ))}
+            <TopNCategories />
+            <Ad
+              currentPath={`end of categrories`}
+              dataAdSlot={"1568115429"}
+              // className="hidden md:hidden"
+            />
           </>
         )}
       </main>

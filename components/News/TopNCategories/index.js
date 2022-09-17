@@ -1,18 +1,27 @@
 import App from "next/app";
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import { AppContext } from "../../../app/state/contexts/AppContext";
 const TopNCategories = () => {
   const [state, dispatch] = useContext(AppContext);
-
+  const [relatedCategroies, setRelatedCategories] = useState([]);
+  useEffect(() => {
+    const arr = [];
+    state?.categories.forEach((item) => {
+      if (!arr.includes(item.trim()) && !item.includes("\\")) {
+        arr.push(item.trim());
+      }
+    });
+    setRelatedCategories(arr);
+  }, [state?.categories]);
   return (
     <div className="bg-white px-2">
       <h2 className="text-center bg-gray-500 py-2 px-2 text-lg text-white ">
         Post categories
       </h2>
       <ul className="items-center justify-center">
-        {state?.categories?.length > 0 &&
-          state?.categories.map((item, index) => (
+        {relatedCategroies.length > 0 &&
+          relatedCategroies.map((item, index) => (
             <li
               className="text-black py-1 my-3 hover:text-white hover:bg-black ease-in-out duration-300 hover:p-2 hover:mx-auto hover:cursor-pointer"
               key={index}
