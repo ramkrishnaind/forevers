@@ -97,7 +97,14 @@ function GenerateCoinBtn() {
       <Ad currentPath="Generate Coin" dataAdSlot="2096306726" />
     </>
   ) : (
-    <MathematicalRecaptcha passCaptcha={setNotARobot} />
+    <>
+      <MathematicalRecaptcha passCaptcha={setNotARobot} />
+      <Ad
+        currentPath={`below captcha code`}
+        dataAdSlot={"2219583315"}
+        // className="hidden md:hidden"
+      />
+    </>
   );
 }
 
