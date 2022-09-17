@@ -145,15 +145,20 @@ function Home() {
                       : state.categoryPosts[categoryItem]
                   }
                 />
-                {index !== 0 &&
-                  index < adCodes.length &&
-                  (index == 2 || index == 6) && (
-                    <Ad
-                      currentPath={`between sections${index}`}
-                      dataAdSlot={adCodes[index]}
-                      // className="hidden md:hidden"
-                    />
-                  )}
+                {index !== 0 && index == 2 && (
+                  <Ad
+                    currentPath={`between sections${0}`}
+                    dataAdSlot={adCodes[0]}
+                    // className="hidden md:hidden"
+                  />
+                )}
+                {index !== 0 && index == 6 && (
+                  <Ad
+                    currentPath={`between sections${1}`}
+                    dataAdSlot={adCodes[1]}
+                    // className="hidden md:hidden"
+                  />
+                )}
               </>
             ))}
             <TopNCategories />

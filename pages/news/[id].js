@@ -212,7 +212,7 @@ function News() {
         <a
           href={`${process.env.NEXT_PUBLIC_APP_URL}/user`}
           onClick={transferFunds}
-          className={`${styles.collectCoinBtn} text-center w-40`}
+          className={`${styles.collectCoinBtn} text-center w-60`}
         >
           {checkAccMsg}
         </a>
