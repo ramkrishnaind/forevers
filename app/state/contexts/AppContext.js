@@ -9,6 +9,7 @@ const initialState = {
   currentPosts: [],
   more: false,
   outsideSearch: true,
+  postsHash: "",
 };
 
 export const AppContext = createContext(initialState);

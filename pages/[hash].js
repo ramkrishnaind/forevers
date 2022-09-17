@@ -24,62 +24,47 @@ function Home() {
   const [state, dispatch] = useContext(AppContext);
   const { hash } = router.query;
   useEffect(() => {
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
-    if (state?.posts?.lenght === 0) {
-      const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
-      (async () => {
-        setFetching(true);
-        axios.get(url).then((res) => {
-          dispatch({ type: "setposts", payload: res.data.data });
-          setFetching(false);
-        });
-      })();
-      const urlCat =
-        process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts/categories";
-      (async () => {
-        setFetching(true);
-        axios.get(urlCat).then((res) => {
-          dispatch({ type: "set-categories", payload: res.data.data });
-          setFetching(false);
-        });
-      })();
-      const urlCatPosts =
-        process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts/categoryPosts";
-      (async () => {
-        setFetching(true);
-        axios.get(urlCatPosts).then((res) => {
-          dispatch({ type: "set-category-posts", payload: res.data.data });
-          setFetching(false);
-        });
-      })();
-    }
-    if (hash) {
-      localStorage.setItem("mozilla-support-status", hash);
-    }
+    dispatch({ type: "set-hash", payload: hash });
+    router.replace("/");
   }, [hash]);
+  // useEffect(() => {
+  //   !window.adsbygoogle
+  //     ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+  //     : console.log("Adsbygoogle already exists");
+  //   if (state?.posts?.lenght === 0) {
+  //     const url = process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts";
+  //     (async () => {
+  //       setFetching(true);
+  //       axios.get(url).then((res) => {
+  //         dispatch({ type: "setposts", payload: res.data.data });
+  //         setFetching(false);
+  //       });
+  //     })();
+  //     const urlCat =
+  //       process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts/categories";
+  //     (async () => {
+  //       setFetching(true);
+  //       axios.get(urlCat).then((res) => {
+  //         dispatch({ type: "set-categories", payload: res.data.data });
+  //         setFetching(false);
+  //       });
+  //     })();
+  //     const urlCatPosts =
+  //       process.env.NEXT_PUBLIC_HOST_URL + "/foreversPosts/categoryPosts";
+  //     (async () => {
+  //       setFetching(true);
+  //       axios.get(urlCatPosts).then((res) => {
+  //         dispatch({ type: "set-category-posts", payload: res.data.data });
+  //         setFetching(false);
+  //       });
+  //     })();
+  //   }
+  //   if (hash) {
+  //     localStorage.setItem("mozilla-support-status", hash);
+  //   }
+  // }, [hash]);
 
-  return (
-    <>
-      <Head>
-        <title>Forevers.in</title>
-      </Head>
-      <main className={styles.container}>
-        <div className={styles.app}>
-          <img
-            src="/assets/modi.jpg"
-            alt="pm-image"
-            style={{ width: "100%" }}
-            className="w-100 object-cover"
-          />
-          {hash ? <DynamicTimer query={hash} /> : <h1>...</h1>}
-          <DynamicAd />
-          <News />
-        </div>
-      </main>
-    </>
-  );
+  return null;
 }
 
 export default Home;

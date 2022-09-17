@@ -16,6 +16,10 @@ const DynamicTimer = dynamic(() => import("../components/Timer/Timer"), {
   ssr: false,
 });
 
+const DynamicAd = dynamic(() => import("../components/Ad/Ad"), {
+  ssr: false,
+});
+
 // import Ad from "../components/FooterAd1/Ad";
 function Home() {
   const [state, dispatch] = useContext(AppContext);
@@ -82,7 +86,12 @@ function Home() {
           />
           <Ad currentPath="Generate Coin" dataAdSlot="2563521642" />
         </div>
-
+        {state.postsHash ? (
+          <DynamicTimer query={state.postsHash} />
+        ) : (
+          <h1>...</h1>
+        )}
+        <DynamicAd />
         {/* <Ad /> */}
 
         {/* <DynamicTimer /> */}

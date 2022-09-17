@@ -91,6 +91,11 @@ function AppReducer(state, action) {
       ),
     ];
     return { ...newState };
+  } else if (type == "set-hash") {
+    debugger;
+    const newState = { ...state };
+    newState.postsHash = action.payload;
+    return { ...newState };
   }
 }
 export default AppReducer;
