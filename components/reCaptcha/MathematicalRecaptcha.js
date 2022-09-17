@@ -49,7 +49,7 @@ function MathematicalRecaptcha({ passCaptcha }) {
       </button>
       <Ad
         currentPath={`below captcha code`}
-        dataAdSlot={"6225480772"}
+        dataAdSlot={"2219583315"}
         // className="hidden md:hidden"
       />
     </div>
