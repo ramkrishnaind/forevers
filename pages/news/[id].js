@@ -161,12 +161,8 @@ function News() {
               `,
         }}
       />
-      <div className="flex justify-center">
-        <a
-          href="#footer"
-          onClick={handleClickCollectCoin}
-          className={`${styles.collectCoinBtn} text-center`}
-        >
+      <div className="flex justify-center" onClick={handleClickCollectCoin}>
+        <a href="#footer" className={`${styles.collectCoinBtn} text-center`}>
           Collect Coin
         </a>
       </div>
@@ -194,6 +190,7 @@ function News() {
     setCookie("token", "0x0000000000000000000000000000000000000000", {
       maxAge: 60 * 60 * 24 * 30,
     });
+    // handleClickCollectCoin();
   }
   const Completionist2 = () => {
     localStorage.removeItem("mozilla-support-status");
