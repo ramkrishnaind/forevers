@@ -32,7 +32,7 @@ function MathematicalRecaptcha({ passCaptcha }) {
     }
   }
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} min-h-max`}>
       <canvas ref={canvasRef}></canvas>
       <p style={{ visibility: !isValid ? "visible" : "hidden" }}>
         reCaptcha does not match
