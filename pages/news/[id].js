@@ -164,7 +164,7 @@ function News() {
       <div className="flex justify-center" onClick={handleClickCollectCoin}>
         <a
           onClick={() => {
-            document.querySelector("#footer").scrollIntoView();
+            document.querySelector(".footer").scrollIntoView();
           }}
           className={`${styles.collectCoinBtn} text-center`}
         >
@@ -324,7 +324,7 @@ function News() {
               // className="hidden md:hidden"
             />
             <Comments />
-            <footer id="footer" className="hidden md:block order-4 md:order-4 ">
+            <footer className="footer hidden md:block order-4 md:order-4 ">
               {collectingCoin ? (
                 <>
                   {/* <Script
@@ -354,7 +354,7 @@ function News() {
           </div>
           <div className="order-3 md:order-3  md:w-1/5 bg-[#F2F2F0]">
             {!slugChanged && <RightAdvertisement />}
-            <footer id="footer" className=" md:hidden order-4 md:order-4 ">
+            <footer className="footer md:hidden order-4 md:order-4 ">
               {collectingCoin ? (
                 <>
                   {/* <Script
