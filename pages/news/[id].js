@@ -355,7 +355,7 @@ function News() {
                   /> */}
                   <Countdown date={Date.now() + 5000} renderer={renderer2} />
                   <Ad
-                    currentPath="contdown footer ad"
+                    currentPath="countdown footer ad"
                     dataAdSlot="1790551941"
                   />
                 </>
@@ -385,7 +385,7 @@ function News() {
                   /> */}
                   <Countdown date={Date.now() + 5000} renderer={renderer2} />
                   <Ad
-                    currentPath="contdown footer ad"
+                    currentPath="countdown footer ad"
                     dataAdSlot="1790551941"
                   />
                 </>
