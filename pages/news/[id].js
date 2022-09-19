@@ -161,7 +161,12 @@ function News() {
               `,
         }}
       /> */}
-      <div className="flex justify-center" onClick={handleClickCollectCoin}>
+      <div
+        className="flex justify-center"
+        onClick={() => {
+          document.querySelector(".footer").scrollIntoView();
+        }}
+      >
         <a
           onClick={() => {
             document.querySelector(".footer").scrollIntoView();
