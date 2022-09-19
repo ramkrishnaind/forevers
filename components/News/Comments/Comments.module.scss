@@ -1,10 +1,10 @@
 .btn {
-  border: 1.5px black solid;
+  border: 1.5px #0088ff solid;
   outline: none;
   //   width: 100%;
   display: block;
   margin-left: auto;
-  background-color: black;
+  background-color: #0088ff;
   color: white;
   font-size: 14px;
   padding: 5px 12px;
@@ -12,6 +12,6 @@
   transition: 0.2s;
   &:hover {
     background-color: white;
-    color: black;
+    color: #0088ff;
   }
 }
