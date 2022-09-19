@@ -172,6 +172,7 @@ function News() {
         <button
           className={styles.btn}
           onClick={() => {
+            setCollectingCoin(!collectingCoin);
             widthScreen < 768
               ? document.querySelector(".footer-mob").scrollIntoView()
               : document.querySelector(".footer.hidden").scrollIntoView();
