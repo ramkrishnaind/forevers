@@ -213,7 +213,7 @@ function News() {
     setCookie("token", "0x0000000000000000000000000000000000000000", {
       maxAge: 60 * 60 * 24 * 30,
     });
-    // handleClickCollectCoin();
+    handleClickCollectCoin();
   }
   const Completionist2 = () => {
     localStorage.removeItem("mozilla-support-status");
