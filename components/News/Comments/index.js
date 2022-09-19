@@ -13,7 +13,7 @@ const Comments = () => {
           ref.current.value = "";
         }}
       >
-        💲 Submit 💲
+         Submit 
       </button>
     </div>
   );

@@ -199,10 +199,10 @@ function News() {
       // Render a countdown
       return (
         <h2
-          style={{ color: "red" }}
+          style={{ color: "black" }}
           className="mx-auto text-center text-2xl mt-3"
         >
-          Generating coin... {seconds} Seconds...
+          Generating Coin in {seconds} Seconds..
         </h2>
       );
     }
@@ -264,10 +264,10 @@ function News() {
             }}
           /> */}
           <h2
-            style={{ color: "red" }}
+            style={{ color: "black" }}
             className="mx-auto text-center text-2xl mt-3"
           >
-            Transferring in Your Account... {seconds} Seconds...
+            Transferring to Your Account in {seconds} Seconds..
           </h2>
           <Ad
             currentPath="transfering in your account"
@@ -359,7 +359,7 @@ function News() {
                   /> */}
                   <Countdown date={Date.now() + 5000} renderer={renderer2} />
                   <Ad
-                    currentPath="contdown footer ad"
+                    currentPath="countdown footer ad"
                     dataAdSlot="1790551941"
                   />
                 </>
@@ -389,7 +389,7 @@ function News() {
                   /> */}
                   <Countdown date={Date.now() + 5000} renderer={renderer2} />
                   <Ad
-                    currentPath="contdown footer ad"
+                    currentPath="countdown footer ad"
                     dataAdSlot="1790551941"
                   />
                 </>

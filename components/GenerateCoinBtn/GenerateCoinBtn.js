@@ -92,7 +92,7 @@ function GenerateCoinBtn() {
         }}
       />
       <button className={styles.btn} onClick={handleClick}>
-        💲 Generate Coin 💲
+         Generate Coin 
       </button>
       <Ad currentPath="Generate Coin" dataAdSlot="2096306726" />
     </>
