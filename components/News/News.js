@@ -48,7 +48,7 @@ function News({ category, categoryPosts, more }) {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 pl-1">
               {categoryPosts?.length == 0 ? (
-                <h1>Fetcing Posts</h1>
+                <h1>Fetching Posts</h1>
               ) : (
                 categoryPosts
                   ?.slice(0, widthScreen < 768 ? 3 : 6)
