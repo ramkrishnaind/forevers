@@ -1,7 +1,7 @@
 .btn{
     border:none;
     outline:none;
-    background-color:red;
+    background-color:#0088ff;
     color:white;
     padding:7px 20px;
     cursor: pointer;
@@ -10,7 +10,8 @@
     border:1px black solid;
     transition:0.2s;
     &:hover{
-        background-color:rgb(212, 0, 0);
+        background-color:white;
+        color:#0088ff;
     }
 }
 .miningResult{
