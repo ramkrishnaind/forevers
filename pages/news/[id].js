@@ -15,7 +15,9 @@ import LeftAdvertisement from "../../components/News/LeftAdvertisement";
 import RightAdvertisement from "../../components/News/RIghtAdvertisement";
 import RelatedNPosts from "../../components/News/RIghtAdvertisement/RelatedNPosts";
 import Comments from "../../components/News/Comments";
+import getWindowDimensions from "../../hooks/useWindowDimensions";
 function News() {
+  const { height, width: widthScreen } = getWindowDimensions();
   const [targetPost, setTargetPost] = React.useState();
   const [slugChanged, setSlugChanged] = React.useState(false);
   const [state, dispatch] = useContext(AppContext);
@@ -163,14 +165,16 @@ function News() {
       /> */}
       <div
         className="flex justify-center"
-        onClick={() => {
-          document.querySelector(".footer").scrollIntoView();
-        }}
+        // onClick={() => {
+        //   document.querySelector(".footer").scrollIntoView();
+        // }}
       >
         <button
           className={styles.btn}
           onClick={() => {
-            document.querySelector(".footer").scrollIntoView();
+            widthScreen < 768
+              ? document.querySelector(".footer-mob").scrollIntoView()
+              : document.querySelector(".footer.hidden").scrollIntoView();
           }}
         >
           Collect Coin
@@ -367,7 +371,7 @@ function News() {
           </div>
           <div className="order-3 md:order-3  md:w-1/5 bg-[#F2F2F0]">
             {!slugChanged && <RightAdvertisement />}
-            <footer className="footer md:hidden order-4 md:order-4 ">
+            <footer className="footer-mob md:hidden order-4 md:order-4 ">
               {collectingCoin ? (
                 <>
                   {/* <Script
