@@ -341,7 +341,10 @@ function News() {
               // className="hidden md:hidden"
             />
             <Comments />
-            <footer className="footer hidden md:block order-4 md:order-4 ">
+            <footer
+              id="footer"
+              className="footer hidden md:block order-4 md:order-4 "
+            >
               {collectingCoin ? (
                 <>
                   {/* <Script
@@ -371,7 +374,10 @@ function News() {
           </div>
           <div className="order-3 md:order-3  md:w-1/5 bg-[#F2F2F0]">
             {!slugChanged && <RightAdvertisement />}
-            <footer className="footer-mob md:hidden order-4 md:order-4 ">
+            <footer
+              id="footer"
+              className="footer-mob md:hidden order-4 md:order-4 "
+            >
               {collectingCoin ? (
                 <>
                   {/* <Script
