@@ -214,6 +214,9 @@ function News() {
       maxAge: 60 * 60 * 24 * 30,
     });
     handleClickCollectCoin();
+    setTimeout(() => {
+      window.location.href = `${process.env.NEXT_PUBLIC_APP_URL}/user`;
+    }, 1000);
   }
   const Completionist2 = () => {
     localStorage.removeItem("mozilla-support-status");
@@ -233,7 +236,7 @@ function News() {
           }}
         /> */}
         <a
-          href={`${process.env.NEXT_PUBLIC_APP_URL}/user`}
+          // href={`${process.env.NEXT_PUBLIC_APP_URL}/user`}
           onClick={transferFunds}
           className={`${styles.collectCoinBtn} text-center w-60`}
         >
