@@ -23,10 +23,13 @@ function News() {
   const [state, dispatch] = useContext(AppContext);
   const [checkAccMsg, setCheckAccMsg] = useState("Check My Account");
   const [status, setStatus] = React.useState("");
-  const [collectingCoin, setCollectingCoin] = React.useState(false);
+  // const [collectingCoin, setCollectingCoin] = React.useState(false);
   const [isFetching, setFetching] = React.useState(false);
   const router = useRouter();
   const { id } = router.query;
+  const isCollectCoin = () => {
+    return localStorage.getItem("collectCoin") === "1";
+  };
   useEffect(() => {
     debugger;
     const { googletag } = window;
@@ -35,6 +38,7 @@ function News() {
         googletag.pubads()?.refresh();
       });
     }
+    localStorage.setItem("collectCoin", "0");
   }, [id]);
   React.useEffect(() => {
     debugger;
@@ -172,7 +176,8 @@ function News() {
         <button
           className={styles.btn}
           onClick={() => {
-            setCollectingCoin(true);
+            localStorage.setItem("collectCoin", "1");
+            // setCollectingCoin(true);
             widthScreen < 768
               ? document.querySelector(".footer-mob").scrollIntoView()
               : document.querySelector(".footer.hidden").scrollIntoView();
@@ -305,7 +310,7 @@ function News() {
           <div className="order-1 md:order-2  sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
             <Ad currentPath="top news ad" dataAdSlot="5712118102" />
             <div className="mx-auto block">
-              {status == "4" && !collectingCoin ? (
+              {status == "4" && !isCollectCoin() ? (
                 <>
                   {/* <Script
                     id="google-analytics"
@@ -349,7 +354,7 @@ function News() {
               id="footer"
               className="footer hidden md:block order-4 md:order-4 "
             >
-              {collectingCoin ? (
+              {isCollectCoin() ? (
                 <>
                   {/* <Script
                     id="google-analytics"
@@ -382,7 +387,7 @@ function News() {
               id="footer"
               className="footer-mob md:hidden order-4 md:order-4 "
             >
-              {collectingCoin ? (
+              {isCollectCoin() ? (
                 <>
                   {/* <Script
                     id="google-analytics"
