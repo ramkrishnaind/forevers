@@ -135,7 +135,7 @@ function News() {
   }
   // const targetPost = getPost(id);
   function handleClickCollectCoin() {
-    setCollectingCoin(true);
+    // setCollectingCoin(true);
     // Increment Coin in user profile...
     const uid = localStorage.getItem("uad-cache");
     // debugger;
