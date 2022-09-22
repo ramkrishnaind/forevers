@@ -326,7 +326,7 @@ function News() {
                     }}
                   /> */}
                   <CountdownTimer
-                    appendText="Veryfying your account..."
+                    appendText="Veryfying your account in..."
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
@@ -412,7 +412,7 @@ function News() {
                     }}
                   /> */}
                   <CountdownTimer
-                    appendText="Transferingg to your account..."
+                    appendText="Transferingg to your account in ..."
                     timeInSeconds={5}
                     renderer={<Completionist2 />}
                   />

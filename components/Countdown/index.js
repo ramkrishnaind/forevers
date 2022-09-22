@@ -24,7 +24,7 @@ const Countdown = ({ timeInSeconds = 5, appendText = "", renderer }) => {
   else
     return (
       <div className="flex justify-center items-center">
-        {appendText + " " + counter}
+        {appendText + " " + counter + " seconds"}
       </div>
     );
 };
