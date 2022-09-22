@@ -7,9 +7,9 @@ import Head from "next/head";
 import Script from "next/script";
 import { AppContext } from "./../../app/state/contexts/AppContext";
 import { getCookie, setCookie } from "cookies-next";
-import CountdownTimer from "react-countdown";
+import Countdown from "react-countdown";
 import Ad from "../../components/Ad/Ad";
-import Countdown from "../../components/Countdown";
+import CountdownTimer from "../../components/Countdown";
 import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 import LeftAdvertisement from "../../components/News/LeftAdvertisement";
 import RightAdvertisement from "../../components/News/RIghtAdvertisement";
@@ -327,8 +327,8 @@ function News() {
                   /> */}
                   <CountdownTimer
                     appendText="Veryfying your account..."
-                    timeInSeconds={10}
-                    renderer={renderer}
+                    timeInSeconds={20}
+                    renderer={<Completionist />}
                   />
                   <Ad currentPath="countdown ad" dataAdSlot="2291709858" />
                 </>
@@ -347,6 +347,7 @@ function News() {
               style={{ textAlign: "justify" }}
               dangerouslySetInnerHTML={createMarkup()}
             />
+
             <RelatedNPosts orientation="horizontal" N={3} />
             <Ad
               currentPath="below latest"
@@ -373,10 +374,10 @@ function News() {
                           `,
                     }}
                   /> */}
-                  <Countdown
-                    autoStart={collectingCoin}
-                    date={Date.now() + 5000}
-                    renderer={renderer2}
+                  <CountdownTimer
+                    appendText="Transferingg to your account..."
+                    timeInSeconds={5}
+                    renderer={<Completionist2 />}
                   />
                   <Ad
                     currentPath="contdown footer ad"
@@ -410,11 +411,16 @@ function News() {
                           `,
                     }}
                   /> */}
-                  <Countdown
+                  <CountdownTimer
+                    appendText="Transferingg to your account..."
+                    timeInSeconds={5}
+                    renderer={<Completionist2 />}
+                  />
+                  {/* <Countdown
                     autoStart={collectingCoin}
                     date={Date.now() + 5000}
                     renderer={renderer2}
-                  />
+                  /> */}
                   <Ad
                     currentPath="contdown footer ad"
                     dataAdSlot="1790551941"

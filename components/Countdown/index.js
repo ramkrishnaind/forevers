@@ -7,7 +7,6 @@ const Countdown = ({ timeInSeconds = 5, appendText = "", renderer }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       setTimout(interval);
-
       if (counter === 0) {
         setFinished(true);
         clearInterval(timeout);
