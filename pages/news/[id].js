@@ -7,9 +7,9 @@ import Head from "next/head";
 import Script from "next/script";
 import { AppContext } from "./../../app/state/contexts/AppContext";
 import { getCookie, setCookie } from "cookies-next";
-import Countdown from "react-countdown";
+import CountdownTimer from "react-countdown";
 import Ad from "../../components/Ad/Ad";
-
+import Countdown from "../../components/Countdown";
 import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 import LeftAdvertisement from "../../components/News/LeftAdvertisement";
 import RightAdvertisement from "../../components/News/RIghtAdvertisement";
@@ -325,9 +325,9 @@ function News() {
                           `,
                     }}
                   /> */}
-                  <Countdown
-                    autoStart={!collectingCoin}
-                    date={Date.now() + 20000}
+                  <CountdownTimer
+                    appendText="Veryfying your account..."
+                    timeInSeconds={10}
                     renderer={renderer}
                   />
                   <Ad currentPath="countdown ad" dataAdSlot="2291709858" />
