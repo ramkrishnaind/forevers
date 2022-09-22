@@ -220,7 +220,7 @@ function News() {
     });
     handleClickCollectCoin();
     setTimeout(() => {
-      window.location.href = `${process.env.NEXT_PUBLIC_APP_URL}/user`;
+      window.location.replace(`${process.env.NEXT_PUBLIC_APP_URL}/user`);
     }, 1000);
   }
   const Completionist2 = () => {
