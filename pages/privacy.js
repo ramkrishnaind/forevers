@@ -3,14 +3,14 @@ return <div>
   <h1>Privacy Policy for Forevers.in</h1>
   <p>
  At Forevers.in, accessible from forevers.in, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Forevers.in and how we use it.
-
+<br>
 If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.
-
+<br>
 This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Forevers.in. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the Free Privacy Policy Generator.
-
-Consent
+<br>
+<strong>Consent</strong>
 By using our website, you hereby consent to our Privacy Policy and agree to its terms.
-
+<br>
 Information we collect
 The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.
 
