@@ -36,10 +36,10 @@ function Footer() {
               Privacy Policy
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/disclaimer">
             <a className="py-3 md:py-0 text-[.8rem] md:text-base">Disclaimer</a>
           </Link>
-          <Link href="/">
+          <Link href="/contact">
             <a className="py-3 md:py-0 text-[.8rem] md:text-base">Contact Us</a>
           </Link>
         </div>
