@@ -220,7 +220,7 @@ function News() {
     setCookie("token", "0x0000000000000000000000000000000000000000", {
       maxAge: 60 * 60 * 24 * 30,
     });
-    handleClickCollectCoin();
+    if (!coinCollected) handleClickCollectCoin();
     setTimeout(() => {
       window.location.replace(`${process.env.NEXT_PUBLIC_APP_URL}/user`);
     }, 1000);
