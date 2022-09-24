@@ -153,11 +153,11 @@ function Home() {
                   />
                 )}
                 {index !== 0 && index == 6 && (
-                 {/* AD COMMENT BY ANAS <Ad
+                 <Ad
                     currentPath={`between sections${1}`}
                     dataAdSlot={adCodes[1]}
                     // className="hidden md:hidden"
-                  />*/}
+                  />
                 )}
               </>
             ))}
