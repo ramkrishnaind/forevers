@@ -19,6 +19,7 @@ import getWindowDimensions from "../../hooks/useWindowDimensions";
 function News() {
   const { height, width: widthScreen } = getWindowDimensions();
   const [targetPost, setTargetPost] = React.useState();
+  const [coinCollected, setCoinCollected] = React.useState(false);
   const [slugChanged, setSlugChanged] = React.useState(false);
   const [state, dispatch] = useContext(AppContext);
   const [checkAccMsg, setCheckAccMsg] = useState("Check My Account");
@@ -215,7 +216,7 @@ function News() {
   };
 
   function transferFunds(e) {
-    e.target.disabled = true;
+    setCoinCollected(true);
     setCookie("token", "0x0000000000000000000000000000000000000000", {
       maxAge: 60 * 60 * 24 * 30,
     });
@@ -243,6 +244,7 @@ function News() {
         /> */}
         <a
           // href={`${process.env.NEXT_PUBLIC_APP_URL}/user`}
+          disabled={coinCollected}
           onClick={transferFunds}
           className={`${styles.collectCoinBtn} cursor-pointer text-center w-60`}
         >
