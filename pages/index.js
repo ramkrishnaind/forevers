@@ -162,11 +162,11 @@ function Home() {
               </>
             ))}
             <TopNCategories />
-            <Ad
+            {/* AD COMMENT by Anas <Ad
               currentPath={`end of categrories`}
               dataAdSlot={"4816992340"}
               // className="hidden md:hidden"
-            />
+            />*/}
           </>
         )}
       </main>
