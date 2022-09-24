@@ -214,7 +214,8 @@ function News() {
     }
   };
 
-  function transferFunds() {
+  function transferFunds(e) {
+    e.target.disabled = true;
     setCookie("token", "0x0000000000000000000000000000000000000000", {
       maxAge: 60 * 60 * 24 * 30,
     });
