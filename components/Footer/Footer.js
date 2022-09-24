@@ -28,18 +28,18 @@ function Footer() {
           />
         )}
         <div className={`${styles.links} md:flex-row`}>
-          <Link href="/">
+          <Link href="/about">
             <a className="py-3 md:py-0 text-[.8rem] md:text-base">About Us</a>
           </Link>
-          <Link href="/">
+          <Link href="/privacy">
             <a className="py-3 md:py-0 text-[.8rem] md:text-base">
               Privacy Policy
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/disclaimer">
             <a className="py-3 md:py-0 text-[.8rem] md:text-base">Disclaimer</a>
           </Link>
-          <Link href="/">
+          <Link href="/contact">
             <a className="py-3 md:py-0 text-[.8rem] md:text-base">Contact Us</a>
           </Link>
         </div>
