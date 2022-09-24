@@ -1,5 +1,5 @@
 
 function Contact (){
-  return <h1>Contact Us !</h1> <h2 style="text-align: center;">Welcome to <span id="W_Name"> Forevers.in</span>!</h2> <p style="font-size: 17px;">Please email us if you have any queries about the site, advertising, or anything else.</p> <div style="text-align: center;"> <img alt="contact-us" height="87" src="https://lh3.googleusercontent.com/-BA7qy8h_v1g/YLVCWDNZdCI/AAAAAAAAALw/rsHNJWX0BK4P5CuB0ymG8QkJ9A9E8KchgCLcBGAsYHQ/w320-h87/email-us-1805514__480.webp" width="320"> <p style="margin-left: 25%;"><i class="fas fa-envelope-open-text" style="color: #2c3e50; font-size: 20px;"></i> <b><i> <span id="W_Email"><a href="mailto:support-mrkpay@gmail.com">support-mrkpay@gmail.com</a></span></i></b><br> <i class="fab fa-whatsapp-square" style="color: #3edc81; font-size: 20px;"></i> <b><span id="W_whatsapp"><a href="tel:"></a></span></b><br></p> <h3 style="color: #3e005d;">We will revert you as soon as possible...!</h3> <p style="color: #3e005d; text-align: center;">Thank you for contacting us! <br><b>Have a great day</b></p> </div>;
+  return <div><h1>Contact Us on</h1><p>support-forevers@gmail.com</p></div>;
 }
 export default Contact
