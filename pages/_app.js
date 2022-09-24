@@ -155,9 +155,9 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         /> */}
 
-       {/* ABOVE FOOTER AD comment by Anas <div className="w-full hidden md:flex-1 md:block">
+      <div className="w-full hidden md:flex-1 md:block">
           <Ad currentPath="page add" dataAdSlot="2909822801" />
-        </div> */}
+        </div>
         <div
           style={{
             display: "flex",
