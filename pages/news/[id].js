@@ -257,7 +257,7 @@ function News() {
   const renderer2 = ({ hours, minutes, seconds, completed }) => {
     if (completed) {
       // Render a completed state
-      return <Completionist2 />;
+      return state.postsHash ? <Completionist2 /> : null;
     } else {
       // Render a countdown
       return (
@@ -331,7 +331,7 @@ function News() {
                   <CountdownTimer
                     appendText="Verifying Your Account in..."
                     timeInSeconds={20}
-                    renderer={<Completionist />}
+                    renderer={state.postsHash ? <Completionist /> : null}
                   />
                   <Ad currentPath="countdown ad" dataAdSlot="2291709858" />
                 </>
@@ -380,7 +380,7 @@ function News() {
                   <CountdownTimer
                     appendText="Transferring to Your Account..."
                     timeInSeconds={5}
-                    renderer={<Completionist2 />}
+                    renderer={state.postsHash ? <Completionist2 /> : null}
                   />
                   <Ad
                     currentPath="contdown footer ad"
