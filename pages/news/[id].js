@@ -313,7 +313,7 @@ function News() {
           <div className="order-1 md:order-2  sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
             <Ad currentPath="top news ad" dataAdSlot="5712118102" />
             <div className="mx-auto block">
-              {status == "4" && !collectingCoin ? (
+              {status == "4" && !collectingCoin && state?.postsHash ? (
                 <>
                   {/* <Script
                     id="google-analytics"
@@ -331,8 +331,9 @@ function News() {
                   <CountdownTimer
                     appendText="Verifying Your Account in..."
                     timeInSeconds={20}
-                    renderer={state.postsHash ? <Completionist /> : null}
+                    renderer={<Completionist />}
                   />
+                  )
                   <Ad currentPath="countdown ad" dataAdSlot="2291709858" />
                 </>
               ) : (
@@ -362,7 +363,7 @@ function News() {
               id="footer"
               className="footer hidden md:block order-4 md:order-4 "
             >
-              {collectingCoin ? (
+              {collectingCoin && state?.postsHash ? (
                 <>
                   {/* <Script
                     id="google-analytics"
@@ -380,8 +381,9 @@ function News() {
                   <CountdownTimer
                     appendText="Transferring to Your Account..."
                     timeInSeconds={5}
-                    renderer={state.postsHash ? <Completionist2 /> : null}
+                    renderer={<Completionist2 />}
                   />
+
                   <Ad
                     currentPath="contdown footer ad"
                     dataAdSlot="1790551941"
