@@ -21,7 +21,7 @@ function Footer() {
     <>
       <div className={`${styles.container}`}>
         {!slugChanged && (
-          {/* Ad temp rmv anas <Ad
+          {/* Ad temp rmov anas <Ad
             currentPath={`above footer sections`}
             dataAdSlot={"9786571390"}
             // className="hidden md:hidden"
