@@ -89,7 +89,7 @@ function Home() {
             style={{ width: "100%" }}
             className="md:object-cover md:w-100 md:inline hidden"
           />
-          {/* <Ad currentPath="Generate Coin" dataAdSlot="2563521642" /> */}
+          <Ad currentPath="Generate Coin" dataAdSlot="2563521642" />
         </div>
         {state.postsHash ? <DynamicTimer query={state.postsHash} /> : null}
         {/* <DynamicAd /> */}
