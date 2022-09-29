@@ -353,11 +353,11 @@ function News() {
             />
 
             <RelatedNPosts orientation="horizontal" N={3} />
-            <Ad
+            {/* comment by anas comment above<Ad
               currentPath="below latest"
               dataAdSlot="2563521642"
               // className="hidden md:hidden"
-            />
+            /> */}
             <Comments />
             <footer
               id="footer"
