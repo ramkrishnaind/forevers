@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import Script from "next/script";
 function Ad(...props) {
   //{ dataAdSlot = "2330142456" }
-  const { currentPath, dataAdSlot = "2330142456" } = props;
+  //const { currentPath, dataAdSlot = "2330142456" } = props;
   useEffect(() => {
     try {
       window.adsbygoogle = window.adsbygoogle || [];
