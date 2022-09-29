@@ -333,7 +333,6 @@ function News() {
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
-                  )
                   <Ad currentPath="countdown ad" dataAdSlot="2291709858" />
                 </>
               ) : (
