@@ -94,16 +94,16 @@ function GenerateCoinBtn() {
       <button className={styles.btn} onClick={handleClick}>
          Generate Coin 
       </button>
-      <Ad currentPath="Generate Coin" dataAdSlot="2096306726" />
+     {/* Ads removed anas test <Ad currentPath="Generate Coin" dataAdSlot="2096306726" /> */}
     </>
   ) : (
     <>
       <MathematicalRecaptcha passCaptcha={setNotARobot} />
-      <Ad
+      {/* Ads removed anas test<Ad
         currentPath={`below captcha code`}
         dataAdSlot={"2219583315"}
         // className="hidden md:hidden"
-      />
+      />*/}
     </>
   );
 }
