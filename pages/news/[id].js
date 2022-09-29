@@ -329,7 +329,7 @@ function News() {
                     }}
                   /> */}
                   <CountdownTimer
-                    appendText="Verifying Your Account in..."
+                    appendText="Generating Your Account in..."
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
