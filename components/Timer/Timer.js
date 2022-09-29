@@ -100,9 +100,9 @@ const Timer = ({ query }) => {
               `,
             }}
           /> */}
-        {/*ad inserted anas*/}
-<Ad currentPath="Above timer above" dataAdSlot="4063744493" />
-          <h2> Verifying your account...{timer} Seconds</h2>
+        {/*ad inserted anas
+<Ad currentPath="Above timer above" dataAdSlot="4063744493" />*/}
+          <h2> Verifying your account...{timer} Secondsss</h2>
           <Ad currentPath="Verifying your account" dataAdSlot="9758340172" />
         </>
       )}
