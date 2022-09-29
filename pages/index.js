@@ -89,7 +89,7 @@ function Home() {
             style={{ width: "100%" }}
             className="md:object-cover md:w-100 md:inline hidden"
           />
-          <Ad currentPath="Generate Coin" dataAdSlot="2563521642" />
+          {/* <Ad currentPath="Generate Coin" dataAdSlot="2563521642" /> */}
         </div>
         {state.postsHash ? <DynamicTimer query={state.postsHash} /> : null}
         {/* <DynamicAd /> */}
@@ -153,7 +153,7 @@ function Home() {
                   />
                 )}
                 {index !== 0 && index == 6 && (
-                 <Ad
+                  <Ad
                     currentPath={`between sections${1}`}
                     dataAdSlot={adCodes[1]}
                     // className="hidden md:hidden"
@@ -162,11 +162,11 @@ function Home() {
               </>
             ))}
             <TopNCategories />
-            <Ad
+            {/* <Ad
               currentPath={`end of categrories`}
               dataAdSlot={"4816992340"}
               // className="hidden md:hidden"
-            />
+            /> */}
           </>
         )}
       </main>
