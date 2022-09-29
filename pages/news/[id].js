@@ -329,7 +329,7 @@ function News() {
                     }}
                   /> */}
                   <CountdownTimer
-                    appendText="Generating Your Account in..."
+                    appendText="Generating Coin in..."
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
