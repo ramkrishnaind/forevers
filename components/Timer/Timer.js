@@ -6,6 +6,8 @@ import { AppContext } from "../../app/state/contexts/AppContext";
 import axios from "axios";
 import Ad from "../Ad/Ad";
 import Script from "next/script";
+{/*ad inserted anas*/}
+<Ad currentPath="Above RelatedNPosts" dataAdSlot="4063744493" />
 const Timer = ({ query }) => {
   const Ref = useRef(null);
   const [timer, setTimer] = useState("0:0:0");
