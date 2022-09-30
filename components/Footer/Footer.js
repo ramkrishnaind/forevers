@@ -20,12 +20,12 @@ function Footer() {
   return (
     <>
       <div className={`${styles.container}`}>
-        {!slugChanged && (
-          <Ad
+       {!slugChanged && (
+           <Ad
             currentPath={`above footer sections`}
             dataAdSlot={"9786571390"}
             // className="hidden md:hidden"
-          />
+          /> 
         )}
         <div className={`${styles.links} md:flex-row`}>
           <Link href="/about">
