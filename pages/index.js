@@ -5,7 +5,6 @@ import styles from "../styles/Home.module.scss";
 import Script from "next/script";
 import Header from "./../components/Header/Header";
 import Ad from "./../components/Ad/Ad";
-import ExternalAd from "../components/ExternalAd";
 import News from "../components/News/News";
 import PaginatedItems from "../components/Paginate";
 import dynamic from "next/dynamic";
@@ -90,8 +89,7 @@ function Home() {
             style={{ width: "100%" }}
             className="md:object-cover md:w-100 md:inline hidden"
           />
-              {/*   <ExternalAd vzId="IXP275725VEG2137" /> */}
-          {/* <Ad currentPath="Generate Coin" dataAdSlot="2563521642" /> */}
+          <Ad currentPath="Generate Coin" dataAdSlot="2563521642" />
         </div>
         {state.postsHash ? <DynamicTimer query={state.postsHash} /> : null}
         {/* <DynamicAd /> */}
