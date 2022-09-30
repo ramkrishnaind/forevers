@@ -90,7 +90,7 @@ function Home() {
             style={{ width: "100%" }}
             className="md:object-cover md:w-100 md:inline hidden"
           />
-          <ExternalAd vzId="IXP275725VEG2137" />
+              {/*   <ExternalAd vzId="IXP275725VEG2137" /> */}
           {/* <Ad currentPath="Generate Coin" dataAdSlot="2563521642" /> */}
         </div>
         {state.postsHash ? <DynamicTimer query={state.postsHash} /> : null}
