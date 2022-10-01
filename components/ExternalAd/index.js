@@ -10,7 +10,7 @@ const index = ({ vzId = "IXP275725VEG2137" }) => {
       const response = await fetch(
         `//banner.incrementxserv.com/scripts/pageads.js?vzId=${vzId}&vzR=${randomString}`
       );
-      setContent(response);
+      setContent(await response.text());
     };
 
     getContent();
