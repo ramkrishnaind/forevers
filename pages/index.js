@@ -5,7 +5,7 @@ import styles from "../styles/Home.module.scss";
 import Script from "next/script";
 import Header from "./../components/Header/Header";
 import Ad from "./../components/Ad/Ad";
-import ExternalAd from "../components/ExternalAd";
+//import ExternalAd from "../components/ExternalAd";
 import News from "../components/News/News";
 import PaginatedItems from "../components/Paginate";
 import dynamic from "next/dynamic";
@@ -32,7 +32,7 @@ function Home() {
     return self.findIndex((v) => v === value) === index;
   });
 
-  const adCodes = ["1477423263", "2323601072", "3604306424", "7795667020"];
+  const adCodes = ["7322737737", "9685177197", "3435463614", "3243891929"];
   React.useEffect(() => {
     setCurrCat(null);
     setTimeout(() => {
@@ -90,7 +90,7 @@ function Home() {
             style={{ width: "100%" }}
             className="md:object-cover md:w-100 md:inline hidden"
           />
-          <ExternalAd vzId="IXP275725VEG2137" />
+              {/*<ExternalAd vzId="IXP275725VEG2137" />*/}
           {/* <Ad currentPath="Generate Coin" dataAdSlot="2563521642" /> */}
         </div>
         {state.postsHash ? <DynamicTimer query={state.postsHash} /> : null}
