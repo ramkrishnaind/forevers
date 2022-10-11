@@ -1,5 +1,3 @@
-ExternalAd IX
-
 import React, { useState, useEffect, useContext } from "react";
 import Head from "next/head";
 import Router, { useRouter } from "next/router";
