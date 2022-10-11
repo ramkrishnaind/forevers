@@ -186,14 +186,14 @@ function News() {
         >
           Collect Coin
         </button> */}
-        {/* <a
+         <a
           onClick={() => {
             document.querySelector(".footer").scrollIntoView();
           }}
           className={`${styles.collectCoinBtn} text-center`}
         >
           Collect Coin
-        </a> */}
+        </a> 
       </div>
       <Ad currentPath="below collect coin" dataAdSlot="1707448970" />
     </div>
