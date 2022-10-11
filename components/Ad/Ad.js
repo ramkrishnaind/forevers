@@ -44,7 +44,7 @@ function Ad(...props) {
       <ins
         className="adsbygoogle horizonalAds"
         style={{ display: "block" }}
-        data-ad-client="ca-pub-2397723075092719"
+        data-ad-client="ca-pub-7006648733841921"
         data-ad-slot={dataAdSlot}
         data-ad-format="auto"
         data-full-width-responsive="true"
