@@ -174,7 +174,7 @@ function News() {
         //   document.querySelector(".footer").scrollIntoView();
         // }}
       >
-      {/*  <button
+       <button
           className={styles.btn}
           onClick={() => {
             // localStorage.setItem("collectCoin", "1");
@@ -185,7 +185,7 @@ function News() {
           }}
         >
           Collect Coin
-        </button> */}
+        </button> 
         {/* <a
           onClick={() => {
             document.querySelector(".footer").scrollIntoView();
