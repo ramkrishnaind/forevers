@@ -174,7 +174,7 @@ function News() {
         //   document.querySelector(".footer").scrollIntoView();
         // }}
       >
-      {/* <button
+       <button
           className={styles.btn}
           onClick={() => {
             // localStorage.setItem("collectCoin", "1");
@@ -185,15 +185,15 @@ function News() {
           }}
         >
           Collect Coin
-        </button> */}
-         <a
+        </button> 
+        {/* <a
           onClick={() => {
             document.querySelector(".footer").scrollIntoView();
           }}
           className={`${styles.collectCoinBtn} text-center`}
         >
           Collect Coin
-        </a> 
+        </a> */}
       </div>
       <Ad currentPath="below collect coin" dataAdSlot="1707448970" />
     </div>
