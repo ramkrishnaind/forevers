@@ -195,7 +195,7 @@ function News() {
           Collect Coin
         </a> */}
       </div>
-      <Ad currentPath="below collect coin" dataAdSlot="1790551941" />
+      <Ad currentPath="below collect coin" dataAdSlot="1707448970" />
     </div>
   );
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -250,7 +250,7 @@ function News() {
         >
           {checkAccMsg}
         </a>
-        <Ad currentPath="below check msg" dataAdSlot="5932158699" />
+        <Ad currentPath="below check msg" dataAdSlot="6352398854" />
       </div>
     );
   };
@@ -283,7 +283,7 @@ function News() {
           </h2>
           <Ad
             currentPath="transfering in your account"
-            dataAdSlot="2371600903"
+            dataAdSlot="8046175358"
           />
         </>
       );
@@ -311,7 +311,7 @@ function News() {
             {!slugChanged && <LeftAdvertisement />}
           </div>
           <div className="order-1 md:order-2  sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
-            <Ad currentPath="top news ad" dataAdSlot="5712118102" />
+            <Ad currentPath="top news ad" dataAdSlot="7088316902" />
             <div className="mx-auto block">
               {status == "4" && !collectingCoin && state?.postsHash ? (
                 <>
@@ -333,7 +333,7 @@ function News() {
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
-                  <Ad currentPath="countdown ad" dataAdSlot="2291709858" />
+                  <Ad currentPath="countdown ad" dataAdSlot="4079010180" />
                 </>
               ) : (
                 ""
@@ -385,7 +385,7 @@ function News() {
 
                   <Ad
                     currentPath="contdown footer ad"
-                    dataAdSlot="1790551941"
+                    dataAdSlot="3504295119"
                   />
                 </>
               ) : (
@@ -427,7 +427,7 @@ function News() {
                   /> */}
                   <Ad
                     currentPath="contdown footer ad"
-                    dataAdSlot="1790551941"
+                    dataAdSlot="3504295119"
                   />
                 </>
               ) : (
