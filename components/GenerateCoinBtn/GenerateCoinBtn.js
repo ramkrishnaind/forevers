@@ -99,12 +99,12 @@ function GenerateCoinBtn() {
   ) : (
     <>
       <MathematicalRecaptcha passCaptcha={setNotARobot} />
-       <Ad
+     </>
+      <Ad
         currentPath={`below captcha code`}
         dataAdSlot={"8069515645"}
         // className="hidden md:hidden"
       /> 
-    </>
   );
 }
 
