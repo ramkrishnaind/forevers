@@ -7,26 +7,26 @@ function Footer() {
   const [slugChanged, setSlugChanged] = React.useState(false);
   const router = useRouter();
   const { id } = router.query;
-  React.useEffect(() => {
-    debugger;
-    !window.adsbygoogle
-      ? (window.adsbygoogle = window.adsbygoogle || []).push({})
-      : console.log("Adsbygoogle already exists");
-    setSlugChanged(true);
-    setTimeout(() => {
-      setSlugChanged(false);
-    }, 10);
-  }, [id]);
+  // React.useEffect(() => {
+  //   debugger;
+  //   !window.adsbygoogle
+  //     ? (window.adsbygoogle = window.adsbygoogle || []).push({})
+  //     : console.log("Adsbygoogle already exists");
+  //   setSlugChanged(true);
+  //   setTimeout(() => {
+  //     setSlugChanged(false);
+  //   }, 10);
+  // }, [id]);
   return (
     <>
       <div className={`${styles.container}`}>
-       {!slugChanged && (
-           <Ad
-            currentPath={`above footer sections`}
-            dataAdSlot={"5280195617"}
-            // className="hidden md:hidden"
-          /> 
-        )}
+        {/* {!slugChanged && ( */}
+        <Ad
+          currentPath={`above footer sections`}
+          dataAdSlot={"5280195617"}
+          // className="hidden md:hidden"
+        />
+        {/* )} */}
         <div className={`${styles.links} md:flex-row`}>
           <Link href="/about">
             <a className="py-3 md:py-0 text-[.8rem] md:text-base">About Us</a>
