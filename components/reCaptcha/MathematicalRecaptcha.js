@@ -45,7 +45,7 @@ function MathematicalRecaptcha({ passCaptcha }) {
         className="text-center border-gray-300 rounded-lg px-3 py-2 my-3 border-2 "
       />
       <p>text here
-          <Ad currentPath="Generate Coin" dataAdSlot="2792852820" /> 
+          <Ad currentPath="text here below" dataAdSlot="2792852820" /> 
       </p>
       <button className={styles.btn} onClick={handleClick}>
         Submit
