@@ -78,7 +78,7 @@ function Home() {
       onClick={() => dispatch({ type: "outside-search", payload: true })}
     >
       <Head>
-        <title>Forevers.in</title>
+        <title>Findnorton.com</title>
       </Head>
       <main className="container-sm flex relative flex-col flex-1">
         {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
