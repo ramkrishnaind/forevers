@@ -21,12 +21,12 @@ function Footer() {
     <>
       <div className={`${styles.container}`}>
         {/* {!slugChanged && ( */}
-        <p className="text-[.1rem] md:text-base">Ad Unit - FOOTER</p>*/}
-         {/* ad comment footer<Ad
+        {/*<p className="text-[.1rem] md:text-base">Ad Unit - FOOTER</p>*/}
+         <Ad
           currentPath={`above footer sections`}
           dataAdSlot={"5280195617"}
           // className="hidden md:hidden"
-        /> */}
+        />
         {/* )} */}
         <div className={`${styles.links} md:flex-row`}>
           <Link href="/about">
