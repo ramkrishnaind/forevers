@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
     scriptEle.setAttribute("src", FILE_URL);
     scriptEle.setAttribute("type", "text/javascript");
     scriptEle.setAttribute("async", async);
-    // scriptEle.setAttribute("data-ad-client", "ca-pub-2397723075092719");
+    // scriptEle.setAttribute("data-ad-client", "ca-pub-7006648733841921");
 
     document.body.appendChild(scriptEle);
     const loadEvent = () => {
@@ -77,10 +77,10 @@ function MyApp({ Component, pageProps }) {
   // React.useEffect(() => {}, []);
   React.useEffect(() => {
     loadJS(
-      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
+      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
     );
     // document.write(
-    //   '<script data-ad-client="ca-pub-2397723075092719" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
+    //   '<script data-ad-client="ca-pub-7006648733841921" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
     // );
   }, [router.asPath]);
   const admin = (
@@ -95,7 +95,7 @@ function MyApp({ Component, pageProps }) {
       >
         {/* <Script
           id="Adsense-id"
-          data-ad-client="2397723075092719"
+          data-ad-client="7006648733841921"
           async="true"
           strategy="beforeInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
@@ -149,7 +149,7 @@ function MyApp({ Component, pageProps }) {
       >
         {/* <Script
           id="Adsense-id"
-          data-ad-client="2397723075092719"
+          data-ad-client="7006648733841921"
           async="true"
           strategy="beforeInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
@@ -212,7 +212,7 @@ function MyApp({ Component, pageProps }) {
             console.error("Script failed to load", e);
           }}
           strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
           crossorigin="anonymous"
         /> */}
 
@@ -254,7 +254,7 @@ function MyApp({ Component, pageProps }) {
       {/* {!slugChanged && (
         <Script
           id="Adsense-id"
-          data-ad-client="ca-pub-2397723075092719"
+          data-ad-client="ca-pub-7006648733841921"
           async="true"
           strategy="beforeInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
