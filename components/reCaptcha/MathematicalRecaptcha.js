@@ -37,7 +37,6 @@ function MathematicalRecaptcha({ passCaptcha }) {
       <p style={{ visibility: !isValid ? "visible" : "hidden" }}>
         reCaptcha does not match
       </p>
-          <Ad currentPath="Generate Coin" dataAdSlot="2792852820" /> 
       <input
         type="text"
         value={text}
@@ -45,6 +44,8 @@ function MathematicalRecaptcha({ passCaptcha }) {
         onChange={(e) => setText(e.target.value)}
         className="text-center border-gray-300 rounded-lg px-3 py-2 my-3 border-2 "
       />
+                <Ad currentPath="Generate Coin" dataAdSlot="2792852820" /> 
+
       <button className={styles.btn} onClick={handleClick}>
         Submit
       </button>
