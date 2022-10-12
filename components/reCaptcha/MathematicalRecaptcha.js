@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./style.module.scss";
-import Ad from "../Ad/Ad";
+//import Ad from "../Ad/Ad";
 function MathematicalRecaptcha({ passCaptcha }) {
   const canvasRef = useRef(null);
   const [randomNum, setRandomNum] = React.useState("");
@@ -44,8 +44,6 @@ function MathematicalRecaptcha({ passCaptcha }) {
         onChange={(e) => setText(e.target.value)}
         className="text-center border-gray-300 rounded-lg px-3 py-2 my-3 border-2 "
       />
-                <Ad currentPath="Generate Coin" dataAdSlot="2792852820" /> 
-
       <button className={styles.btn} onClick={handleClick}>
         Submit
       </button>
