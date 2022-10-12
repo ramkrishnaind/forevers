@@ -25,7 +25,7 @@ function Ad(...props) {
   //     console.error("Script failed to load", e);
   //   }}
   //   strategy="afterInteractive"
-  //   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
+  //   src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
   //   crossorigin="anonymous"
   // />;
   // ...props
@@ -57,7 +57,7 @@ function Ad(...props) {
     //   <ins
     //     className="adsbygoogle"
     //     style={{ display: "block" }}
-    //     data-ad-client="ca-pub-2397723075092719"
+    //     data-ad-client="ca-pub-7006648733841921"
     //     data-ad-slot={dataAdSlot}
     //     data-ad-format="auto"
     //     data-full-width-responsive="true"
