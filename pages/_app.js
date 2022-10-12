@@ -155,8 +155,8 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         /> */}
 
-      <div className="w-full hidden md:flex-1 md:block">
-          <Ad currentPath="page add" dataAdSlot="2909822801" />
+        <div className="w-full hidden md:flex-1 md:block">
+          {/* <Ad currentPath="page add" dataAdSlot="2909822801" /> */}
         </div>
         <div
           style={{
@@ -190,7 +190,7 @@ function MyApp({ Component, pageProps }) {
           </div>
         </div>
         <div className="w-full hidden md:block md:flex-1">
-          <Ad currentPath="below footer ad" dataAdSlot="2989713855" />
+          {/* <Ad currentPath="below footer ad" dataAdSlot="2989713855" /> */}
         </div>
       </div>
     </>

@@ -174,7 +174,7 @@ function News() {
         //   document.querySelector(".footer").scrollIntoView();
         // }}
       >
-       <button
+        <button
           className={styles.btn}
           onClick={() => {
             // localStorage.setItem("collectCoin", "1");
@@ -185,7 +185,7 @@ function News() {
           }}
         >
           Collect Coin
-        </button> 
+        </button>
         {/* <a
           onClick={() => {
             document.querySelector(".footer").scrollIntoView();
@@ -195,7 +195,7 @@ function News() {
           Collect Coin
         </a> */}
       </div>
-      <Ad currentPath="below collect coin" dataAdSlot="1707448970" />
+      {/* <Ad currentPath="below collect coin" dataAdSlot="1707448970" /> */}
     </div>
   );
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -250,7 +250,7 @@ function News() {
         >
           {checkAccMsg}
         </a>
-        <Ad currentPath="below check msg" dataAdSlot="6352398854" />
+        {/* <Ad currentPath="below check msg" dataAdSlot="6352398854" /> */}
       </div>
     );
   };
@@ -281,10 +281,10 @@ function News() {
           >
             Transferring to Your Account in {seconds} Seconds..
           </h2>
-          <Ad
+          {/* <Ad
             currentPath="transfering in your account"
             dataAdSlot="8046175358"
-          />
+          /> */}
         </>
       );
     }
@@ -311,7 +311,7 @@ function News() {
             {!slugChanged && <LeftAdvertisement />}
           </div>
           <div className="order-1 md:order-2  sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
-            <Ad currentPath="top news ad" dataAdSlot="7088316902" />
+            {/* <Ad currentPath="top news ad" dataAdSlot="7088316902" /> */}
             <div className="mx-auto block">
               {status == "4" && !collectingCoin && state?.postsHash ? (
                 <>
@@ -333,7 +333,7 @@ function News() {
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
-                  <Ad currentPath="countdown ad" dataAdSlot="4079010180" />
+                  {/* <Ad currentPath="countdown ad" dataAdSlot="4079010180" /> */}
                 </>
               ) : (
                 ""
@@ -383,10 +383,10 @@ function News() {
                     renderer={<Completionist2 />}
                   />
 
-                  <Ad
+                  {/* <Ad
                     currentPath="contdown footer ad"
                     dataAdSlot="3504295119"
-                  />
+                  /> */}
                 </>
               ) : (
                 ""
@@ -425,10 +425,10 @@ function News() {
                     date={Date.now() + 5000}
                     renderer={renderer2}
                   /> */}
-                  <Ad
+                  {/* <Ad
                     currentPath="contdown footer ad"
                     dataAdSlot="3504295119"
-                  />
+                  /> */}
                 </>
               ) : (
                 ""
