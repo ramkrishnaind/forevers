@@ -23,6 +23,7 @@ function Footer() {
         {/* {!slugChanged && ( */}
         <Ad
           currentPath={`above footer sections`}
+          dataAdSlot={"5280195617"}
           // className="hidden md:hidden"
         /> 
         {/* )} */}
