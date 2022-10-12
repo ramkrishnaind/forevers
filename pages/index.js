@@ -32,7 +32,7 @@ function Home() {
     return self.findIndex((v) => v === value) === index;
   });
 
-  const adCodes = ["7322737737", "9685177197", "3435463614", "3243891929"];
+//  const adCodes = ["7322737737", "9685177197", "3435463614", "3243891929"];
   React.useEffect(() => {
     setCurrCat(null);
     setTimeout(() => {
