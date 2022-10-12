@@ -6,8 +6,8 @@ function Ad() {
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
-        data-ad-client="ca-pub-2397723075092719"
-        data-ad-slot="2070543229"
+        data-ad-client="ca-pub-7006648733841921"
+        data-ad-slot="8422236410"
         data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
