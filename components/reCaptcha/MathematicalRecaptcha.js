@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./style.module.scss";
-// import Ad from "../Ad/Ad";
+import Ad from "../Ad/Ad";
 function MathematicalRecaptcha({ passCaptcha }) {
   const canvasRef = useRef(null);
   const [randomNum, setRandomNum] = React.useState("");
@@ -37,6 +37,7 @@ function MathematicalRecaptcha({ passCaptcha }) {
       <p style={{ visibility: !isValid ? "visible" : "hidden" }}>
         reCaptcha does not match
       </p>
+          <Ad currentPath="Generate Coin" dataAdSlot="2792852820" /> 
       <input
         type="text"
         value={text}
