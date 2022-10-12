@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./style.module.scss";
 import Link from "next/link";
-import Ad from "../Ad/Ad";
+//import Ad from "../Ad/Ad";
 import { useRouter } from "next/router";
 function Footer() {
   const [slugChanged, setSlugChanged] = React.useState(false);
