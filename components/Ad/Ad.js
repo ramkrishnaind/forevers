@@ -9,15 +9,15 @@ function Ad(...props) {
       window.adsbygoogle = window.adsbygoogle || [];
       window.adsbygoogle.push({});
     } catch {}
-  }, [currentPath]);
-  useEffect(() => {
-    const { googletag } = window;
-    if (googletag) {
-      googletag?.cmd?.push(function () {
-        googletag.pubads().refresh();
-      });
-    }
   }, []);
+  // useEffect(() => {
+  //   const { googletag } = window;
+  //   if (googletag) {
+  //     googletag?.cmd?.push(function () {
+  //       googletag.pubads().refresh();
+  //     });
+  //   }
+  // }, []);
   // <Script
   //   id="Adsense-id"
   //   async
@@ -38,7 +38,7 @@ function Ad(...props) {
   //     console.error(error);
   //   }
   // }, []);
-  if (!dataAdSlot) return null;
+  // if (!dataAdSlot) return null;
   return (
     <div key={currentPath}>
       {/*START horizonalAds Google Adsense */}
