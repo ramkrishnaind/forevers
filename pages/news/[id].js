@@ -195,7 +195,7 @@ function News() {
           Collect Coin
         </a> */}
       </div>
-      {/* <Ad currentPath="below collect coin" dataAdSlot="1707448970" /> */}
+       <Ad currentPath="below collect coin" dataAdSlot="1707448970" /> 
     </div>
   );
   const renderer = ({ hours, minutes, seconds, completed }) => {
@@ -281,10 +281,10 @@ function News() {
           >
             Transferring to Your Account in {seconds} Seconds..
           </h2>
-          {/* <Ad
+           <Ad
             currentPath="transfering in your account"
             dataAdSlot="8046175358"
-          /> */}
+          /> 
         </>
       );
     }
@@ -333,7 +333,7 @@ function News() {
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
-                  {/* <Ad currentPath="countdown ad" dataAdSlot="4079010180" /> */}
+                   <Ad currentPath="countdown ad" dataAdSlot="4079010180" />
                 </>
               ) : (
                 ""
