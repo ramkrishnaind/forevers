@@ -21,7 +21,14 @@ function Footer() {
     <>
       <div className={`${styles.container}`}>
         {/* {!slugChanged && ( */}
-        <p className="text-[.1rem] md:text-base">Ad Unit - FOOTER</p>
+        <p className="text-[.1rem] md:text-base">Ad Unit - FOOTER</p>*/}
+        <ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7006648733841921"
+     data-ad-slot="5280195617"
+     data-ad-format="auto"
+     data-full-width-responsive="true">
+</ins>
         {/* ad comment footer<Ad
           currentPath={`above footer sections`}
           dataAdSlot={"5280195617"}
