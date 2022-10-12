@@ -48,7 +48,7 @@ function MathematicalRecaptcha({ passCaptcha }) {
         Submit
       </button>
     </div>
-    <Ad currentPath="Generate Coin" dataAdSlot="2792852820" /> 
+    <Ad currentPath="captcha btn" dataAdSlot="2792852820" /> 
   );
 }
 
