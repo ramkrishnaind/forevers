@@ -21,6 +21,7 @@ function Footer() {
     <>
       <div className={`${styles.container}`}>
         {/* {!slugChanged && ( */}
+        <p className="text-[.1rem] md:text-base">Ad Unit - FOOTER</p>
         {/* ad comment footer<Ad
           currentPath={`above footer sections`}
           dataAdSlot={"5280195617"}
