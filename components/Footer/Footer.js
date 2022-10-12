@@ -21,11 +21,11 @@ function Footer() {
     <>
       <div className={`${styles.container}`}>
         {/* {!slugChanged && ( */}
-        <Ad
+       {/* <Ad
           currentPath={`above footer sections`}
-          dataAdSlot={"0000"}
+          dataAdSlot={"5280195617"}
           // className="hidden md:hidden"
-        />
+        /> */}
         {/* )} */}
         <div className={`${styles.links} md:flex-row`}>
           <Link href="/about">
@@ -44,7 +44,7 @@ function Footer() {
           </Link>
         </div>
         <p className="text-[.8rem] md:text-base">
-          Copyright &copy; 2022 | FOREVERS.IN | All Rights Are Reserved
+          Copyright &copy; 2022 | Findnorton.com | All Rights Are Reserved
         </p>
       </div>
     </>
