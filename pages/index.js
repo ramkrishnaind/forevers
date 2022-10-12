@@ -147,7 +147,7 @@ function Home() {
                       : state.categoryPosts[categoryItem]
                   }
                 />
-                {index !== 0 && index == 2 && (
+{/*  {index !== 0 && index == 2 && (
                   <Ad
                     currentPath={`between sections${0}`}
                     dataAdSlot={adCodes[0]}
@@ -160,7 +160,7 @@ function Home() {
                     dataAdSlot={adCodes[1]}
                     // className="hidden md:hidden"
                   />
-                )}
+                )} */}
               </>
             ))}
             <TopNCategories />
