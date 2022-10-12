@@ -3,7 +3,7 @@ import styles from "./style.module.scss";
 import Script from "next/script";
 function Ad(...props) {
   //{ dataAdSlot = "2330142456" }
-  const { currentPath, dataAdSlot = "9009891362" } = props;
+  const { currentPath, dataAdSlot } = props;
   useEffect(() => {
     try {
       window.adsbygoogle = window.adsbygoogle || [];
@@ -38,6 +38,7 @@ function Ad(...props) {
   //     console.error(error);
   //   }
   // }, []);
+  if (!dataAdSlot) return null;
   return (
     <div key={currentPath}>
       {/*START horizonalAds Google Adsense */}
