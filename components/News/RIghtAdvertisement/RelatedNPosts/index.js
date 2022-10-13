@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { AppContext } from "../../../../app/state/contexts/AppContext";
 import NewsHighlight from "../../NewsHighlight/NewsHighlight";
 
-const AutoPlay = ({ N = 5, orientation = "Vertical" }) => {
+const AutoPlay = ({ N = 5, orientation = "Vertical", W }) => {
   const [state] = useContext(AppContext);
   const [relatedPosts, setRelatedPosts] = useState([]);
   console.log("state now", state);
@@ -39,7 +39,7 @@ const AutoPlay = ({ N = 5, orientation = "Vertical" }) => {
           <div
             className={`px-2 ${
               orientation == "horizontal"
-                ? " md:flex md:justify-between md:px-3"
+                ? " md:flex md:justify-between md:px-3 md:flex-wrap"
                 : ""
             }`}
           >
@@ -48,6 +48,7 @@ const AutoPlay = ({ N = 5, orientation = "Vertical" }) => {
               return (
                 // <div>This is some text</div>
                 <NewsHighlight
+                  W={W}
                   optionalHeight={"16"}
                   key={obj.id || index}
                   data={obj.data ? obj.data : obj}

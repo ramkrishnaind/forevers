@@ -78,34 +78,34 @@ function GenerateCoinBtn() {
 
   return notARobot ? (
     <>
-      <Script
+      {/* <Script
         id="google-analytics"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
                 document.write(
                   '<script src="//banner.incrementxserv.com/scripts/pageads.js?vzId=IXS848238V7CGBE6&vzR=' +
-                    Math.floor(Math.random() * 100(new Date().getTime() / 1000)) +
+                    Math.floor(Math.random() * 100 * (new Date().getTime() / 1000)) +
                     '"></script>'
                 );
               `,
         }}
-      />
+      /> */}
       <button className={styles.btn} onClick={handleClick}>
         Generate Coin
       </button>
-       <Ad currentPath="Generate Coin" dataAdSlot="4079010180" /> 
+      <Ad currentPath="Generate Coin" dataAdSlot="4079010180" />
     </>
   ) : (
     <>
       <MathematicalRecaptcha passCaptcha={setNotARobot} />
-        <Ad
+      <Ad
         currentPath={`below captcha code`}
         dataAdSlot={"8069515645"}
         // className="hidden md:hidden"
-      /> 
-     </>
-  );     
+      />
+    </>
+  );
 }
 
 export default GenerateCoinBtn;

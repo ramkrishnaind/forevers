@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 // import { AppContext } from "../../../app/state/contexts/AppContext";
 import getWindowDimensions from "../../../hooks/useWindowDimensions";
-function NewsHighlight({ data, id, optionalHeight }) {
+function NewsHighlight({ data, id, optionalHeight, W }) {
   const router = useRouter();
   // const [state, dispatch] = useContext(AppContext);
   const { height, width } = getWindowDimensions();
@@ -41,7 +41,7 @@ function NewsHighlight({ data, id, optionalHeight }) {
   }
   return (
     <div
-      className="py-3"
+      className={`py-3 ${W ? "md:w-1/2" : ""}`}
       style={{ cursor: "pointer" }}
       // onClick={() => {
       //   debugger;
