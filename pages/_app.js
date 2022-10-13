@@ -75,14 +75,14 @@ function MyApp({ Component, pageProps }) {
   }, [router.asPath]);
   console.log("router", router);
   // React.useEffect(() => {}, []);
-  React.useEffect(() => {
-    loadJS(
-      "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
-    );
-    // document.write(
-    //   '<script data-ad-client="ca-pub-7006648733841921" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
-    // );
-  }, [router.asPath]);
+  // React.useEffect(() => {
+  //   loadJS(
+  //     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2397723075092719"
+  //   );
+  //   // document.write(
+  //   //   '<script data-ad-client="ca-pub-2397723075092719" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
+  //   // );
+  // }, [router.asPath]);
   const admin = (
     <>
       <div
@@ -260,7 +260,13 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         />
       )} */}
-
+      <Script
+        id="Adsense-id"
+        data-ad-client="ca-pub-7006648733841921"
+        async="true"
+        strategy="beforeInteractive"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+      />
       {router.asPath.includes("/admin")
         ? admin
         : router.asPath.includes("/news/")
