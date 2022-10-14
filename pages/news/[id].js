@@ -16,6 +16,12 @@ import RightAdvertisement from "../../components/News/RIghtAdvertisement";
 import RelatedNPosts from "../../components/News/RIghtAdvertisement/RelatedNPosts";
 import Comments from "../../components/News/Comments";
 import getWindowDimensions from "../../hooks/useWindowDimensions";
+import {
+  addData,
+  deleteData,
+  updateData,
+  isData,
+} from "../../components/utilities/indexDB";
 function News() {
   const { height, width: widthScreen } = getWindowDimensions();
   const [targetPost, setTargetPost] = React.useState();
@@ -52,6 +58,22 @@ function News() {
     }, 10);
   }, [id]);
   React.useEffect(() => {
+    const setAdvertisement = async () => {
+      let va = document.querySelector(".ns-xmgap-e-2.svg-anchor");
+      if (!va) return;
+      const top = va.href.split("adurl=")[1];
+      va = document.querySelector(".long-title");
+      if (!va) return;
+      const bottom = va.href.split("adurl=")[1];
+      if (!(await isData())) {
+        await addData(top, bottom);
+      } else {
+        await updateData(top, bottom);
+      }
+    };
+    setTimeout(() => {
+      setAdvertisement();
+    }, 2000);
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
     //   : console.log("Adsbygoogle already exists");
