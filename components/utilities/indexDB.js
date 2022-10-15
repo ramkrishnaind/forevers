@@ -50,19 +50,16 @@ export function addData(top, bottom) {
       reject(event);
     };
 
-    const customerDataNew = [{ id: "id1", top, bottom }];
+    const customerDataNew = { id: "id1", top, bottom };
 
     //Add new customer data to the store
     var objectStore = transaction.objectStore("advertisement");
-    customerDataNew.forEach(function (advertisement, index) {
-      var request = objectStore.add(advertisement);
-      request.onsuccess = function (event) {
-        console.log("Data Added..." + event.target.result);
-        if (index === customerDataNew.length - 1) {
-          resolve(event.target.result);
-        }
-      };
-    });
+
+    var request = objectStore.add(customerDataNew);
+    request.onsuccess = function (event) {
+      console.log("Data Added..." + event.target.result);
+      resolve(event.target.result);
+    };
   });
   return prom;
 }
@@ -92,12 +89,13 @@ export async function readData() {
     if (!window?.indexedDB) reject(null);
     var transaction = db.transaction(["advertisement"]);
     var objectStore = transaction.objectStore("advertisement");
-    var request = objectStore.get("id1");
+    var request = objectStore.get("id");
     request.onerror = function (event) {
       // Handle errors!
       reject(event);
     };
     request.onsuccess = function (event) {
+      console.log("request.result", request.result);
       resolve(request.result);
       // document.getElementById("data").innerHTML = "Name for SSN 444-44-4444 is " + request.result.name;
     };
@@ -110,12 +108,13 @@ export async function isData() {
     if (!window?.indexedDB) reject(null);
     var transaction = db.transaction(["advertisement"]);
     var objectStore = transaction.objectStore("advertisement");
-    var request = objectStore.get("id1");
+    var request = objectStore.get("id");
     request.onerror = function (event) {
       // Handle errors!
       resolve(false);
     };
     request.onsuccess = function (event) {
+      console.log("request.result", request.result);
       resolve(request.result);
       // document.getElementById("data").innerHTML = "Name for SSN 444-44-4444 is " + request.result.name;
     };
@@ -127,7 +126,7 @@ export async function updateData(top, bottom) {
   var objectStore = db
     .transaction(["advertisement"], "readwrite")
     .objectStore("advertisement");
-  var request = objectStore.get("id1");
+  var request = objectStore.get("id");
   request.onerror = function (event) {};
   request.onsuccess = function (event) {
     //Get the current data
