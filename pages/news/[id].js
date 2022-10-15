@@ -351,6 +351,7 @@ function News() {
                           `,
                     }}
                   /> */}
+                  <div id="top"></div>
                   <CountdownTimer
                     appendText="Generating Coin in..."
                     timeInSeconds={20}
