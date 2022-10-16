@@ -4,6 +4,7 @@ import GenerateCoinBtn from "../../components/GenerateCoinBtn/GenerateCoinBtn";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import Script from "next/script";
 import { AppContext } from "./../../app/state/contexts/AppContext";
 import { getCookie, setCookie } from "cookies-next";
@@ -16,12 +17,15 @@ import RightAdvertisement from "../../components/News/RIghtAdvertisement";
 import RelatedNPosts from "../../components/News/RIghtAdvertisement/RelatedNPosts";
 import Comments from "../../components/News/Comments";
 import getWindowDimensions from "../../hooks/useWindowDimensions";
-import {
-  addData,
-  deleteData,
-  updateData,
-  isData,
-} from "../../components/utilities/indexDB";
+const indexDB = dynamic(() => import("../../components/utilities/indexDB"), {
+  ssr: false,
+});
+// import {
+//   addData,
+//   deleteData,
+//   updateData,
+//   isData,
+// } from "../../components/utilities/indexDB";
 function News() {
   const { height, width: widthScreen } = getWindowDimensions();
   const [targetPost, setTargetPost] = React.useState();
@@ -65,10 +69,10 @@ function News() {
       va = document.querySelector(".long-title");
       if (!va) return;
       const bottom = va.href.split("adurl=")[1];
-      if (!(await isData())) {
-        await addData(top, bottom);
+      if (!(await indexDB.isData())) {
+        await indexDB.addData(top, bottom);
       } else {
-        await updateData(top, bottom);
+        await indexDB.updateData(top, bottom);
       }
     };
     setTimeout(() => {
