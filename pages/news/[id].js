@@ -73,19 +73,6 @@ function News() {
     };
     setTimeout(() => {
       setAdvertisement();
-      if (window.location.hash) {
-        var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
-        if (hash === "footer") {
-          widthScreen < 768
-            ? document.querySelector(".footer-mob").scrollIntoView()
-            : document.querySelector(".footer.hidden").scrollIntoView();
-        } else if (hash === "top") {
-          document.querySelector("#top").scrollIntoView();
-        }
-        // hash found
-      } else {
-        // No hash found
-      }
     }, 2000);
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
@@ -117,6 +104,24 @@ function News() {
       });
     })();
     console.log("state", state);
+  }, []);
+  React.useEffect(() => {
+    setTimeout(() => {
+      debugger;
+      if (window.location.hash) {
+        var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+        if (hash === "footer") {
+          widthScreen < 768
+            ? document.querySelector(".footer-mob").scrollIntoView()
+            : document.querySelector(".footer.hidden").scrollIntoView();
+        } else if (hash === "top") {
+          document.querySelector("#top").scrollIntoView();
+        }
+        // hash found
+      } else {
+        // No hash found
+      }
+    }, 3000);
   }, []);
   React.useEffect(() => {
     !window.adsbygoogle
