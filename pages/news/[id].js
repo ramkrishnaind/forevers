@@ -106,6 +106,7 @@ function News() {
     console.log("state", state);
   }, []);
   React.useEffect(() => {
+    debugger;
     setTimeout(() => {
       debugger;
       if (window.location.hash) {
@@ -122,7 +123,7 @@ function News() {
         // No hash found
       }
     }, 3000);
-  }, []);
+  }, [id]);
   React.useEffect(() => {
     !window.adsbygoogle
       ? (window.adsbygoogle = window.adsbygoogle || []).push({})
