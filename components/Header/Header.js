@@ -93,7 +93,7 @@ export default function Home({ width, marginX }) {
                 <Link href="/" className="hidden ">
                   <img
                     className={`hidden md:block md:h-10 ${styles.logo}`}
-                    src="/assets/mbl-logo.png"
+                    src="/assets/mbl-logo2.png"
                     onClick={() => dispatch({ type: "clear-currentCategory" })}
                   />
                 </Link>
@@ -149,7 +149,7 @@ export default function Home({ width, marginX }) {
                     <Link href="/">
                       <img
                         className={`${styles.logo} h-7`}
-                        src="/assets/mbl-logo.png"
+                        src="/assets/mbl-logo2.png"
                         onClick={() => {
                           dispatch({ type: "clear-currentCategory" });
                           setNavbar(false);
