@@ -81,7 +81,7 @@ function AppReducer(state, action) {
     }
     return { ...newState, outsideSearch: action.payload };
   } else if (type == "set-current-post") {
-    debugger;
+    // debugger;
     const newState = { ...state };
     newState.currentPosts = [
       ...newState.posts.filter(
@@ -92,7 +92,7 @@ function AppReducer(state, action) {
     ];
     return { ...newState };
   } else if (type == "set-hash") {
-    debugger;
+    // debugger;
     const newState = { ...state };
     newState.postsHash = action.payload;
     return { ...newState };

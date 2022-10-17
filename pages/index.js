@@ -27,12 +27,12 @@ function Home() {
   const [isFetching, setFetching] = React.useState(false);
   const [currCate, setCurrCat] = React.useState(false);
   const categories = state?.categories || [];
-  debugger;
+  // debugger;
   const modifiedCategories = state?.categories.filter((value, index, self) => {
     return self.findIndex((v) => v === value) === index;
   });
 
-//  const adCodes = ["7322737737", "9685177197", "3435463614", "3243891929"];
+  //  const adCodes = ["7322737737", "9685177197", "3435463614", "3243891929"];
   React.useEffect(() => {
     setCurrCat(null);
     setTimeout(() => {
@@ -90,7 +90,7 @@ function Home() {
             style={{ width: "100%" }}
             className="md:object-cover md:w-100 md:inline hidden"
           />
-              {/*<ExternalAd vzId="IXP275725VEG2137" />*/}
+          {/*<ExternalAd vzId="IXP275725VEG2137" />*/}
           {/* <Ad currentPath="Generate Coin" dataAdSlot="2563521642" /> */}
         </div>
         {state.postsHash ? <DynamicTimer query={state.postsHash} /> : null}
@@ -147,7 +147,7 @@ function Home() {
                       : state.categoryPosts[categoryItem]
                   }
                 />
-{/*  {index !== 0 && index == 2 && (
+                {/*  {index !== 0 && index == 2 && (
                   <Ad
                     currentPath={`between sections${0}`}
                     dataAdSlot={adCodes[0]}

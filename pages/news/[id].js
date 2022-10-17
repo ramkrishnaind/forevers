@@ -17,15 +17,21 @@ import RightAdvertisement from "../../components/News/RIghtAdvertisement";
 import RelatedNPosts from "../../components/News/RIghtAdvertisement/RelatedNPosts";
 import Comments from "../../components/News/Comments";
 import getWindowDimensions from "../../hooks/useWindowDimensions";
-const indexDB = dynamic(() => import("../../components/utilities/indexDB"), {
-  ssr: false,
-});
-// import {
-//   addData,
-//   deleteData,
-//   updateData,
-//   isData,
-// } from "../../components/utilities/indexDB";
+// import { lazy } from 'react';
+// const { addData, deleteData, updateData, isData } =lazy(() => import("../../components/utilities/indexDB"))
+// // const { addData, deleteData, updateData, isData } = dynamic(
+// //   () => import("../../components/utilities/indexDB"),
+// //   {
+// //     ssr: false,
+// //   }
+// // );
+import {
+  addData,
+  deleteData,
+  updateData,
+  isData,
+  readData,
+} from "../../components/utilities/indexDB";
 function News() {
   const { height, width: widthScreen } = getWindowDimensions();
   const [targetPost, setTargetPost] = React.useState();
@@ -42,7 +48,7 @@ function News() {
     return localStorage.getItem("collectCoin") === "1";
   };
   useEffect(() => {
-    debugger;
+    // debugger;
     const { googletag } = window;
     if (googletag) {
       googletag.cmd.push(function () {
@@ -52,7 +58,7 @@ function News() {
     localStorage.setItem("collectCoin", "0");
   }, [id]);
   React.useEffect(() => {
-    debugger;
+    // debugger;
     !window.adsbygoogle
       ? (window.adsbygoogle = window.adsbygoogle || []).push({})
       : console.log("Adsbygoogle already exists");
@@ -63,17 +69,142 @@ function News() {
   }, [id]);
   React.useEffect(() => {
     const setAdvertisement = async () => {
-      let va = document.querySelector(".ns-xmgap-e-2.svg-anchor");
-      if (!va) return;
-      const top = va.href.split("adurl=")[1];
-      va = document.querySelector(".long-title");
-      if (!va) return;
-      const bottom = va.href.split("adurl=")[1];
-      if (!(await indexDB.isData())) {
-        await indexDB.addData(top, bottom);
-      } else {
-        await indexDB.updateData(top, bottom);
-      }
+      const dbName = "advertisementDB";
+      var db;
+      // async function addData(top, bottom) {
+      //   const prom = new Promise((resolve, reject) => {
+      //     if (!window?.indexedDB) reject(null);
+      //     //Retrieve the transaction for specific object, specify the mode - readonly, readwrite and versionchange
+      //     var transaction = db.transaction(["advertisement"], "readwrite");
+
+      //     // Handler Invoked when all the data is added to the database.
+      //     transaction.oncomplete = function (event) {
+      //       console.log("Add Completed!");
+      //     };
+
+      //     //Error Handler
+      //     transaction.onerror = function (event) {
+      //       reject(event);
+      //     };
+
+      //     const customerDataNew = { id: "id1", top, bottom };
+
+      //     //Add new customer data to the store
+      //     var objectStore = transaction.objectStore("advertisement");
+
+      //     var request = objectStore.add(customerDataNew);
+      //     request.onsuccess = function (event) {
+      //       console.log("Data Added..." + event.target.result);
+      //       resolve(event.target.result);
+      //     };
+      //   });
+      //   return prom;
+      // }
+      // async function isData() {
+      //   const prom = new Promise((resolve, reject) => {
+      //     if (!window?.indexedDB) reject(null);
+      //     var transaction = db.transaction(["advertisement"]);
+      //     var objectStore = transaction.objectStore("advertisement");
+      //     var request = objectStore.get("id");
+      //     request.onerror = function (event) {
+      //       // Handle errors!
+      //       resolve(false);
+      //     };
+      //     request.onsuccess = function (event) {
+      //       console.log("request.result", request.result);
+      //       resolve(request.result);
+      //       // document.getElementById("data").innerHTML = "Name for SSN 444-44-4444 is " + request.result.name;
+      //     };
+      //   });
+      //   return prom;
+      // }
+      //Update existing data through primary key and put method
+      // async function updateData(top, bottom) {
+      //   var objectStore = db
+      //     .transaction(["advertisement"], "readwrite")
+      //     .objectStore("advertisement");
+      //   var request = objectStore.get("id");
+      //   request.onerror = function (event) {};
+      //   request.onsuccess = function (event) {
+      //     //Get the current data
+      //     var data = event.target.result;
+
+      //     // update the value
+      //     data.top = top;
+      //     data.bottom = bottom;
+
+      //     // Put the updated object to store.
+      //     var requestUpdate = objectStore.put(data);
+      //     requestUpdate.onerror = function (event) {
+      //       // error
+      //     };
+      //     requestUpdate.onsuccess = function (event) {
+      //       console.log("Success - the data is updated!");
+      //     };
+      //   };
+      // }
+      setTimeout(() => {
+        if (window?.indexedDB) {
+          var request = indexedDB.open(dbName, 2);
+
+          //Error Handler
+          request.onerror = function (event) {
+            console.log("error: ");
+          };
+
+          //Success Handler
+          request.onsuccess = function (event) {
+            db = request.result;
+            debugger;
+            console.log("success: " + db);
+            const fn = async () => {
+              debugger;
+              let va = document.querySelector(".ns-xmgap-e-2.svg-anchor");
+              if (!va) return;
+              const top = va.href.split("adurl=")[1];
+              va = document.querySelector(".long-title");
+              if (!va) return;
+              const bottom = va.href.split("adurl=")[1];
+              if (!(await isData(db))) {
+                await addData(db, top, bottom);
+              } else {
+                await updateData(db, top, bottom);
+              }
+              console.log("data1", await readData(db));
+            };
+            fn();
+          };
+          //Handler invoked on successful opening of database
+          //Upgrade the existing DB object if the version is different or create the objects
+          request.onupgradeneeded = function (event) {
+            var db = event.target.result;
+
+            // autoIncrement: true
+            //Create Object store with primary key
+            var objectStore = db.createObjectStore("advertisement", {
+              keyPath: "id",
+            });
+
+            //Define the required Indexes
+            objectStore.createIndex("top", "top", { unique: false });
+            objectStore.createIndex("bottom", "bottom", { unique: true });
+
+            //Add data to the object
+            // customerData.forEach(function (advertisement) {
+            //   objectStore.add(advertisement);
+            // });
+          };
+        }
+      }, 4000);
+
+      debugger;
+      // let va = document.querySelector(".ns-xmgap-e-2.svg-anchor");
+      // if (!va) return;
+      // const top = va.href.split("adurl=")[1];
+      // va = document.querySelector(".long-title");
+      // if (!va) return;
+      // const bottom = va.href.split("adurl=")[1];
+      // const { addData, deleteData, updateData, isData } = indexedDB();
     };
     setTimeout(() => {
       setAdvertisement();
@@ -110,9 +241,9 @@ function News() {
     console.log("state", state);
   }, []);
   React.useEffect(() => {
-    debugger;
+    // debugger;
     setTimeout(() => {
-      debugger;
+      // debugger;
       if (window.location.hash) {
         var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
         if (hash === "footer") {
@@ -176,7 +307,7 @@ function News() {
         break;
       }
     }
-    debugger;
+    // debugger;
     if (post) dispatch({ type: "set-current-post", payload: post?.data });
     return post;
   }

@@ -1,40 +1,12 @@
-const dbName = "advertisementDB";
-var db;
+// import { useEffect } from "react";
+
 //open the db, the db is created if not exist already
 //Specify DB name and version, update the version number if the DB structure need to be modified
-if (window?.indexedDB) {
-  var request = indexedDB.open(dbName, 2);
+// const A = () => {
+// useEffect(() => {
 
-  //Error Handler
-  request.onerror = function (event) {
-    console.log("error: ");
-  };
-
-  //Success Handler
-  request.onsuccess = function (event) {
-    db = request.result;
-    console.log("success: " + db);
-  };
-  //Handler invoked on successful opening of database
-  //Upgrade the existing DB object if the version is different or create the objects
-  request.onupgradeneeded = function (event) {
-    var db = event.target.result;
-
-    // autoIncrement: true
-    //Create Object store with primary key
-    var objectStore = db.createObjectStore("advertisement", { keyPath: "id" });
-
-    //Define the required Indexes
-    objectStore.createIndex("top", "top", { unique: false });
-    objectStore.createIndex("bottom", "bottom", { unique: true });
-
-    //Add data to the object
-    // customerData.forEach(function (advertisement) {
-    //   objectStore.add(advertisement);
-    // });
-  };
-}
-export function addData(top, bottom) {
+// }, []);
+export async function addData(db, top, bottom) {
   const prom = new Promise((resolve, reject) => {
     if (!window?.indexedDB) reject(null);
     //Retrieve the transaction for specific object, specify the mode - readonly, readwrite and versionchange
@@ -60,11 +32,15 @@ export function addData(top, bottom) {
       console.log("Data Added..." + event.target.result);
       resolve(event.target.result);
     };
+    request.onerror = function (event) {
+      // Handle errors!
+      resolve(false);
+    };
   });
   return prom;
 }
 //Delete data from the store through primary key and delete method
-export async function deleteData() {
+export async function deleteData(db) {
   const prom = new Promise((resolve, reject) => {
     if (!window?.indexedDB) reject(null);
     var request = db
@@ -84,12 +60,12 @@ export async function deleteData() {
 }
 
 //Read data from the store through primary key and get method
-export async function readData() {
+export async function readData(db) {
   const prom = new Promise((resolve, reject) => {
     if (!window?.indexedDB) reject(null);
     var transaction = db.transaction(["advertisement"]);
     var objectStore = transaction.objectStore("advertisement");
-    var request = objectStore.get("id");
+    var request = objectStore.get("id1");
     request.onerror = function (event) {
       // Handle errors!
       reject(event);
@@ -103,17 +79,18 @@ export async function readData() {
   return prom;
 }
 
-export async function isData() {
+export async function isData(db) {
   const prom = new Promise((resolve, reject) => {
     if (!window?.indexedDB) reject(null);
     var transaction = db.transaction(["advertisement"]);
     var objectStore = transaction.objectStore("advertisement");
-    var request = objectStore.get("id");
+    var request = objectStore.get("id1");
     request.onerror = function (event) {
       // Handle errors!
       resolve(false);
     };
     request.onsuccess = function (event) {
+      debugger;
       console.log("request.result", request.result);
       resolve(request.result);
       // document.getElementById("data").innerHTML = "Name for SSN 444-44-4444 is " + request.result.name;
@@ -122,11 +99,11 @@ export async function isData() {
   return prom;
 }
 //Update existing data through primary key and put method
-export async function updateData(top, bottom) {
+export async function updateData(db, top, bottom) {
   var objectStore = db
     .transaction(["advertisement"], "readwrite")
     .objectStore("advertisement");
-  var request = objectStore.get("id");
+  var request = objectStore.get("id1");
   request.onerror = function (event) {};
   request.onsuccess = function (event) {
     //Get the current data
@@ -146,3 +123,18 @@ export async function updateData(top, bottom) {
     };
   };
 }
+// return {
+//   addData,
+//   updateData,
+//   deleteData,
+//   isData,
+//   readData,
+// };
+// };
+// export default {
+//   addData,
+//   updateData,
+//   deleteData,
+//   isData,
+//   readData,
+// };

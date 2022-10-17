@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
       setSlugChanged(false);
     }, 1000);
   }, [router.asPath]);
-  debugger;
+  // debugger;
   useEffect(() => {
     var ads = document.getElementsByClassName("adsbygoogle").length;
     window.adsbygoogle = [];
@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
     }
   }, [router.asPath]);
   useEffect(() => {
-    debugger;
+    // debugger;
     const { googletag } = window;
     if (googletag) {
       googletag.cmd.push(function () {
