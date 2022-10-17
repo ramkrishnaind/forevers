@@ -215,7 +215,30 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
           crossorigin="anonymous"
         /> */}
-
+        <Script
+          id="Adsense-id"
+          async
+          // data-ad-client="ca-pub-2397723075092719"
+          onError={(e) => {
+            console.error("Script failed to load", e);
+          }}
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-3FQ8TMKYFR"
+          crossorigin="anonymous"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-3FQ8TMKYFR');
+              `,
+          }}
+        />
         <div
           style={{
             display: "flex",
