@@ -511,10 +511,10 @@ function News() {
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
-                  <Ad currentPath="countdown ad" dataAdSlot="4079010180" />
+                  <Ad currentPath="countdown ad" dataAdSlot="5280195617" />
                 </>
               ) : (
-                ""
+                <Ad currentPath="countdown ad" dataAdSlot="5280195617" />
               )}
             </div>
             <h3 className="text-4xl py-3 capitalize">
