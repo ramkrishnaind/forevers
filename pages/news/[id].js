@@ -159,7 +159,7 @@ function News() {
             console.log("success: " + db);
             const fn = async () => {
               debugger;
-              let va = document.querySelector(".ns-xmgap-e-2.svg-anchor");
+              let va = document.querySelector("#aw0");
               if (!va) return;
               const top = va.href.split("adurl=")[1];
               va = document.querySelector(".long-title");
