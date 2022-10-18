@@ -160,8 +160,8 @@ function News() {
             const fn = async () => {
               debugger;
               let va = document.querySelector("#aw0");
-              if (!va) return;
-              const top = va.href.split("adurl=")[1];
+              // if (!va) return;
+              const top = va?.href?.split("adurl=")[1];
               va = document.querySelector(".long-title");
               if (!va) return;
               const bottom = va.href.split("adurl=")[1];
@@ -490,6 +490,8 @@ function News() {
           <div className="order-1 md:order-2  sm:w-full md:flex-1 md:min-h-[80vh]  bg-white px-2">
             {/* <Ad currentPath="top news ad" dataAdSlot="7088316902" /> */}
             <div className="mx-auto block">
+              <div id="top"></div>
+              <Ad currentPath="countdown ad" dataAdSlot="6233506017" />
               {status == "4" && !collectingCoin && state?.postsHash ? (
                 <>
                   {/* <Script
@@ -505,20 +507,15 @@ function News() {
                           `,
                     }}
                   /> */}
-                  <div id="top"></div>
+
                   <CountdownTimer
                     appendText="Generating Coin in..."
                     timeInSeconds={20}
                     renderer={<Completionist />}
                   />
-                  <Ad currentPath="countdown ad" dataAdSlot="5280195617" />
+                  <Ad currentPath="countdown ad" dataAdSlot="4079010180" />
                 </>
-              ) : (
-                <>
-                  <div id="top"></div>
-                  <Ad currentPath="countdown ad" dataAdSlot="5280195617" />
-                </>
-              )}
+              ) : null}
             </div>
             <h3 className="text-4xl py-3 capitalize">
               {targetPost.data.title}

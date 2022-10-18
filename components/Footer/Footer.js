@@ -22,9 +22,9 @@ function Footer() {
       <div className={`${styles.container}`}>
         {/* {!slugChanged && ( */}
         {/*<p className="text-[.1rem] md:text-base">Ad Unit - FOOTER</p>*/}
-         <Ad
+        <Ad
           currentPath={`above footer sections`}
-          dataAdSlot={"5280195617"}
+          dataAdSlot={"8356288234"}
           // className="hidden md:hidden"
         />
         {/* )} */}
