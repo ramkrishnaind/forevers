@@ -196,7 +196,7 @@ function News() {
             // });
           };
         }
-      }, 6000);
+      }, 3000);
 
       debugger;
       // let va = document.querySelector(".ns-xmgap-e-2.svg-anchor");
@@ -209,7 +209,7 @@ function News() {
     };
     setTimeout(() => {
       setAdvertisement();
-    }, 2000);
+    }, 500);
     // !window.adsbygoogle
     //   ? (window.adsbygoogle = window.adsbygoogle || []).push({})
     //   : console.log("Adsbygoogle already exists");
