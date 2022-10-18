@@ -48,6 +48,7 @@ function Ad(...props) {
         data-ad-client="ca-pub-7006648733841921"
         data-ad-slot={dataAdSlot}
         data-ad-format="auto"
+        
         data-full-width-responsive="true"
       ></ins>
       {/* END horizonalAds Google Adsense */}
