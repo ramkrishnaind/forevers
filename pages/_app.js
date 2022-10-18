@@ -223,7 +223,7 @@ function MyApp({ Component, pageProps }) {
             console.error("Script failed to load", e);
           }}
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-3FQ8TMKYFR"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
           crossorigin="anonymous"
         />
         <Script
