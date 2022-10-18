@@ -159,7 +159,7 @@ function News() {
             console.log("success: " + db);
             const fn = async () => {
               debugger;
-              let va = document.querySelector('#google-center-div a');
+              let va = document.querySelector('.GoogleActiveViewElement a');
 
               if (!va) return;
               const top = va?.href?.split("adurl=")[1];
