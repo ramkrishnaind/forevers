@@ -196,7 +196,7 @@ function News() {
             // });
           };
         }
-      }, 3000);
+      }, 20000);
 
       debugger;
       // let va = document.querySelector(".ns-xmgap-e-2.svg-anchor");
