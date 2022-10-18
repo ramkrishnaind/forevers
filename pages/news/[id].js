@@ -159,10 +159,15 @@ function News() {
             console.log("success: " + db);
             const fn = async () => {
               debugger;
-              let va = document.querySelector("#aw0");
+              let va = document.querySelector(
+                "[data-google-av-adk='758328918'] a"
+              );
+
               // if (!va) return;
               const top = va?.href?.split("adurl=")[1];
-              va = document.querySelector(".long-title");
+              va = document.querySelector(
+                "[data-google-av-adk='2548305653'] a"
+              );
               if (!va) return;
               const bottom = va.href.split("adurl=")[1];
               if (!(await isData(db))) {
