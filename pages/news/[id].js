@@ -159,11 +159,11 @@ function News() {
             console.log("success: " + db);
             const fn = async () => {
               debugger;
-              let va = document.querySelector("[data-google-av-adk='758328918'] a");
+              let va = document.querySelector('#google-center-div a');
 
-              // if (!va) return;
+              if (!va) return;
               const top = va?.href?.split("adurl=")[1];
-              va = document.querySelector("[data-google-av-adk='2548305653'] a");
+              va = document.querySelector('.ns-was45-e-1 a');
               if (!va) return;
               const bottom = va.href.split("adurl=")[1];
               if (!(await isData(db))) {
@@ -196,7 +196,7 @@ function News() {
             // });
           };
         }
-      }, 20000);
+      }, 3000);
 
       debugger;
       // let va = document.querySelector(".ns-xmgap-e-2.svg-anchor");
