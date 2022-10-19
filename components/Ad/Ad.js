@@ -4,15 +4,15 @@ import Script from "next/script";
 function Ad(...props) {
   //{ dataAdSlot = "2330142456" }
   const { currentPath, dataAdSlot } = props;
-  // useEffect(() => {
-  //   try {
-  //     window.adsbygoogle = window.adsbygoogle || [];
-  //     window.adsbygoogle.push({});
-  //   } catch {}
-  // }, []);
   useEffect(() => {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
+    try {
+      window.adsbygoogle = window.adsbygoogle || [];
+      window.adsbygoogle.push({});
+    } catch {}
   }, []);
+  // useEffect(() => {
+  //   (window.adsbygoogle = window.adsbygoogle || []).push({});
+  // }, []);
   // useEffect(() => {
   //   const { googletag } = window;
   //   if (googletag) {
