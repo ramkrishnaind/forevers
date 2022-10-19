@@ -92,7 +92,7 @@ function MyApp({ Component, pageProps }) {
     //   '<script data-ad-client="ca-pub-7006648733841921" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
     // );
   }, []);
-  enableGoogleAdsense();
+  // enableGoogleAdsense();
   const admin = (
     <>
       <div
@@ -270,7 +270,7 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
         />
       )} */}
-      {/* <Script
+      <Script
         id="Adsense-id"
         async
         // data-ad-client="ca-pub-2397723075092719"
@@ -280,7 +280,7 @@ function MyApp({ Component, pageProps }) {
         strategy="afterInteractive"
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
         crossorigin="anonymous"
-      /> */}
+      />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
