@@ -88,11 +88,11 @@ function MyApp({ Component, pageProps }) {
     // loadJS(
     //   "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
     // );
-    enableGoogleAdsense();
     // document.write(
     //   '<script data-ad-client="ca-pub-7006648733841921" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>'
     // );
-  }, [router.asPath]);
+  }, []);
+  enableGoogleAdsense();
   const admin = (
     <>
       <div
