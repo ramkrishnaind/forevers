@@ -63,6 +63,14 @@ function MyApp({ Component, pageProps }) {
       setSlugChanged(false);
     }, 1000);
   }, [router.asPath]);
+  useEffect(() => {
+    var ads = document.getElementsByClassName("adsbygoogle").length;
+    for (var i = 0; i < ads; i++) {
+      try {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    }
+  }, []);
   // debugger;
   useEffect(() => {
     var ads = document.getElementsByClassName("adsbygoogle").length;
