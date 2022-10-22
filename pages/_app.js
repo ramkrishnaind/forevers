@@ -289,6 +289,20 @@ function MyApp({ Component, pageProps }) {
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
         crossorigin="anonymous"
       /> */}
+      <Head>
+        {/* <Script
+          id="Adsense-id"
+          data-ad-client="ca-pub-7006648733841921"
+          async="true"
+          strategy="beforeInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        /> */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
+          crossorigin="anonymous"
+        ></script>
+      </Head>
       <Script
         id="google-analytics"
         strategy="afterInteractive"
