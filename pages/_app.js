@@ -66,6 +66,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     debugger;
     var ads = document.getElementsByClassName("adsbygoogle").length;
+    console.log("ads.length", ads);
     for (var i = 0; i < ads; i++) {
       try {
         (adsbygoogle = window.adsbygoogle || []).push({});
@@ -76,6 +77,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     debugger;
     var ads = document.getElementsByClassName("adsbygoogle").length;
+    console.log("ads.length.2", ads);
     window.adsbygoogle = [];
     for (var i = 0; i < ads; i++) {
       try {
