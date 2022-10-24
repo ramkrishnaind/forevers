@@ -300,6 +300,7 @@ function MyApp({ Component, pageProps }) {
         /> */}
         <script
           async
+          crossorigin="anonymous"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
         ></script>
       </Head>
