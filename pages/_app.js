@@ -64,6 +64,7 @@ function MyApp({ Component, pageProps }) {
     }, 1000);
   }, [router.asPath]);
   useEffect(() => {
+    debugger;
     var ads = document.getElementsByClassName("adsbygoogle").length;
     for (var i = 0; i < ads; i++) {
       try {
