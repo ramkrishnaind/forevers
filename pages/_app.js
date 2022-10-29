@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps }) {
     document
       .querySelector("#div-gpt-ad-1666968727085-0")
       .addEventListener("click", addEL);
-  });
+  }, []);
   const [slugChanged, setSlugChanged] = React.useState(false);
   let scriptEle;
 
