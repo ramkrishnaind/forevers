@@ -5,7 +5,7 @@ export default function Document() {
   React.useEffect(() => {
     document
       .querySelector("#div-gpt-ad-1666968727085-0")
-      .addEventListener("click", () => {
+      .addEventListener("click", (e) => {
         e.preventDefault();
         alert("test");
       });
