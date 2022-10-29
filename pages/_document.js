@@ -4,6 +4,20 @@ export default function Document() {
   return (
     <Html>
       <Head>
+        <script
+          async
+          src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
+        ></script>
+        <Script id="show-banner">
+          {`window.googletag = window.googletag || {cmd: []};
+            googletag.cmd.push(function() {
+            googletag.defineSlot('/22709598084/TOP_GAM_ADSENSE_responsive', [[336, 280], 'fluid'], 'div-gpt-ad-1666968727085-0').addService(googletag.pubads());
+            googletag.pubads().enableSingleRequest();
+            googletag.enableServices();
+          });
+          `}
+        </Script>
+
         <Script
           id="Adsense-id"
           data-ad-client="ca-pub-7006648733841921"
@@ -21,6 +35,11 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <Script id="show-ad-manager">
+          {`
+          googletag.cmd.push(function() { googletag.display('div-gpt-ad-1666968727085-0'); });
+          `}
+        </Script>
       </body>
     </Html>
   );

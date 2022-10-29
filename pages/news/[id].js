@@ -17,6 +17,7 @@ import RightAdvertisement from "../../components/News/RIghtAdvertisement";
 import RelatedNPosts from "../../components/News/RIghtAdvertisement/RelatedNPosts";
 import Comments from "../../components/News/Comments";
 import getWindowDimensions from "../../hooks/useWindowDimensions";
+import AdManager from "../../components/AdManager";
 // import { lazy } from 'react';
 // const { addData, deleteData, updateData, isData } =lazy(() => import("../../components/utilities/indexDB"))
 // // const { addData, deleteData, updateData, isData } = dynamic(
@@ -159,11 +160,11 @@ function News() {
             console.log("success: " + db);
             const fn = async () => {
               debugger;
-              let va = document.querySelector('.GoogleActiveViewElement a');
+              let va = document.querySelector(".GoogleActiveViewElement a");
 
               if (!va) return;
               const top = va?.href?.split("adurl=")[1];
-              va = document.querySelector('.ns-was45-e-1 a');
+              va = document.querySelector(".ns-was45-e-1 a");
               if (!va) return;
               const bottom = va.href.split("adurl=")[1];
               if (!(await isData(db))) {
@@ -492,7 +493,8 @@ function News() {
             {/* <Ad currentPath="top news ad" dataAdSlot="7088316902" /> */}
             <div className="mx-auto block">
               <div id="top"></div>
-              <Ad currentPath="countdown ad" dataAdSlot="6233506017" />
+              <AdManager />
+              {/* <Ad currentPath="countdown ad" dataAdSlot="6233506017" /> */}
               {status == "4" && !collectingCoin && state?.postsHash ? (
                 <>
                   {/* <Script
