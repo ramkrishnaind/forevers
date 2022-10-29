@@ -6,16 +6,16 @@ export default function Document() {
     e.preventDefault();
     alert("test");
   };
-  // React.useEffect(() => {
-  document
-    .querySelector("#div-gpt-ad-1666968727085-0")
-    .addEventListener("click", addEL);
-  // () => {
-  //   document
-  //     .querySelector("#div-gpt-ad-1666968727085-0")
-  //     .removeEventListener("click", addEL);
-  // };
-  // });
+  React.useEffect(() => {
+    document
+      .querySelector("#div-gpt-ad-1666968727085-0")
+      .addEventListener("click", addEL);
+    () => {
+      document
+        .querySelector("#div-gpt-ad-1666968727085-0")
+        .removeEventListener("click", addEL);
+    };
+  });
   return (
     <Html>
       <Head>
