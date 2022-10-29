@@ -230,3 +230,6 @@ ul.pagination li.selected a {
 ul.pagination li.selected {
   background-color: #337ab7;
 }
+#div-gpt-ad-1666968727085-0 iframe {
+  pointer-events: none; /* let any clicks go trough me */
+}

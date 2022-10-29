@@ -1,6 +1,14 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 export default function Document() {
+  React.useEffect(() => {
+    document
+      .querySelector("#div-gpt-ad-1666968727085-0")
+      .addEventListener("click", () => {
+        e.preventDefault();
+        alert("test");
+      });
+  }, []);
   return (
     <Html>
       <Head>
