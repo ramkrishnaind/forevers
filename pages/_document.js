@@ -4,11 +4,12 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <script
+        <Script
           async
+          strategy="beforeInteractive"
           src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"
-        ></script>
-        <Script id="show-banner">
+        ></Script>
+        <Script id="show-banner" strategy="beforeInteractive">
           {`window.googletag = window.googletag || {cmd: []};
             googletag.cmd.push(function() {
             googletag.defineSlot('/22709598084/TOP_GAM_ADSENSE_responsive', [[336, 280], 'fluid'], 'div-gpt-ad-1666968727085-0').addService(googletag.pubads());
@@ -35,7 +36,8 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
-        <Script id="show-ad-manager">
+
+        <Script id="show-ad-manager" strategy="beforeInteractive">
           {`
           googletag.cmd.push(function() { googletag.display('div-gpt-ad-1666968727085-0'); });
           `}
