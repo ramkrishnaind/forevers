@@ -20,6 +20,17 @@ function enableGoogleAdsense() {
   head.appendChild(scriptElement);
 }
 function MyApp({ Component, pageProps }) {
+  React.useEffect(() => {
+    console.log("Added EventListners");
+    document
+      .querySelector("#div-gpt-ad-1666968727085-0")
+      .addEventListener("click", addEL);
+    // () => {
+    //   document
+    //     .querySelector("#div-gpt-ad-1666968727085-0")
+    //     .removeEventListener("click", addEL);
+    // };
+  });
   const [slugChanged, setSlugChanged] = React.useState(false);
   let scriptEle;
 
