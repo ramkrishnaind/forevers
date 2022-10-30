@@ -25,7 +25,7 @@ export default function Document() {
           `}
         </Script>
 
-        {/* <Script
+        <Script
           id="Adsense-id"
           data-ad-client="ca-pub-7006648733841921"
           //   async="true"
@@ -37,17 +37,17 @@ export default function Document() {
           //   async
           crossorigin="anonymous"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
-        ></script> */}
+        ></script>
       </Head>
       <body>
         <Main />
         <NextScript />
 
-        <Script id="show-ad-manager" strategy="beforeInteractive">
+        {/* <Script id="show-ad-manager" strategy="beforeInteractive">
           {`
           googletag.cmd.push(function() { googletag.display('div-gpt-ad-1666968727085-0'); });
           `}
-        </Script>
+        </Script> */}
       </body>
     </Html>
   );

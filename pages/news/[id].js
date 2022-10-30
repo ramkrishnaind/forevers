@@ -493,8 +493,8 @@ function News() {
             {/* <Ad currentPath="top news ad" dataAdSlot="7088316902" /> */}
             <div className="mx-auto block">
               <div id="top"></div>
-              <AdManager />
-              {/* <Ad currentPath="countdown ad" dataAdSlot="6233506017" /> */}
+              {/* <AdManager /> */}
+              <Ad currentPath="countdown ad" dataAdSlot="6233506017" />
               {status == "4" && !collectingCoin && state?.postsHash ? (
                 <>
                   {/* <Script
