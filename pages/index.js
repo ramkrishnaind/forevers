@@ -90,6 +90,9 @@ function Home() {
             style={{ width: "100%" }}
             className="md:object-cover md:w-100 md:inline hidden"
           />
+              {/*<!-- Ezoic - top_of_page - top_of_page -->*/}
+          <div id="ezoic-pub-ad-placeholder-101"> </div>
+            {/*<!-- End Ezoic - top_of_page - top_of_page -->*/}
           {/*<ExternalAd vzId="IXP275725VEG2137" />*/}
           {/* <Ad currentPath="Generate Coin" dataAdSlot="2563521642" /> */}
         </div>
@@ -164,7 +167,10 @@ function Home() {
               </>
             ))}
             <TopNCategories />
-            {/* <Ad
+           {/* <!-- Ezoic - bottom_of_page - bottom_of_page -->
+<div id="ezoic-pub-ad-placeholder-102"> </div>
+<!-- End Ezoic - bottom_of_page - bottom_of_page --> */}
+              {/* <Ad
               currentPath={`end of categrories`}
               dataAdSlot={"4816992340"}
               // className="hidden md:hidden"
