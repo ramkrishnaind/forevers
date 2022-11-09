@@ -308,19 +308,7 @@ function MyApp({ Component, pageProps }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921"
         ></script> */}
       </Head>
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          
-            gtag('config', 'G-3FQ8TMKYFR');
-              `,
-        }}
-      />
+
       {router.asPath.includes("/admin")
         ? admin
         : router.asPath.includes("/news/")
