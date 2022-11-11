@@ -72,8 +72,17 @@ export default function Document() {
               )('offfurreton.com',5516260, document.createElement('script'))`,
           }}
         />
-
-        <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
+         <Script 
+id="https://inklinkor.com/tag.min.js"
+strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `        
+(function(s,u,z,p){
+s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
+}
+)(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517255,document.body||document.documentElement) />
+        <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" 
+/>
       </Head>
       <body>
         <Main />
