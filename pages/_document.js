@@ -56,7 +56,7 @@ export default function Document() {
               `,
           }}
         />
-        <Script
+      {/*  <Script
           id="offfurreton-com"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -71,7 +71,7 @@ export default function Document() {
               }
               )('offfurreton.com',5516260, document.createElement('script'))`,
           }}
-        />
+        />*/}
 
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
