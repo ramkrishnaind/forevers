@@ -56,7 +56,7 @@ export default function Document() {
               `,
           }}
         />
-      {/*  <Script
+       <Script
           id="offfurreton-com"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -71,10 +71,7 @@ export default function Document() {
               }
               )('offfurreton.com',5516260, document.createElement('script'))`,
           }}
-        />*/}
-<Script>
-(function(s,u,z,p){s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);})(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517255,document.body||document.documentElement)
-</Script>
+        />
 
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
