@@ -56,6 +56,23 @@ export default function Document() {
               `,
           }}
         />
+        <Script
+          id="offfurreton-com"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `        
+              (function(d,z,s){
+                s.src='https://'+d+'/400/'+z;
+                try{
+                  (document.body||document.documentElement).appendChild(s)
+                }
+                catch(e){
+                }
+              }
+              )('offfurreton.com',5516260, document.createElement('script'))`,
+          }}
+        />
+
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
       <body>
