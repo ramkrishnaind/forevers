@@ -56,7 +56,7 @@ export default function Document() {
               `,
           }}
         />
-       <Script
+      {/* <Script
           id="offfurreton-com"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -71,7 +71,7 @@ export default function Document() {
               }
               )('offfurreton.com',5516260, document.createElement('script'))`,
           }}
-        />
+        />*/}
          <Script 
 id="https://inklinkor.com/tag.min.js"
 strategy="afterInteractive"
