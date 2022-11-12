@@ -80,8 +80,8 @@ strategy="afterInteractive"
 (function(s,u,z,p){
 s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
 }
-)(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517255,document.body||document.documentElement) 
-}}
+)(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517255,document.body||document.documentElement)`,
+  }}
 />
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
