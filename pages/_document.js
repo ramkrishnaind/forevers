@@ -56,7 +56,7 @@ export default function Document() {
               `,
           }}
         />
-      {/* <Script
+      {/* In-Page Push ad <Script
           id="offfurreton-com"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -72,7 +72,7 @@ export default function Document() {
               )('offfurreton.com',5516260, document.createElement('script'))`,
           }}
         />*/}
-        {/* <Script 
+        {/* multi tag ad <Script 
 id="https://inklinkor.com/tag.min.js"
 strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -83,7 +83,21 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
 )(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517255,document.body||document.documentElement)`,
   }}
 />*/}
-<script async="async" data-cfasync="false" src="//arsnivyr.com/1?z=5519047"></script>
+{/* Native Banner (Interstitial)<script async="async" data-cfasync="false" src="//arsnivyr.com/1?z=5519047"></script>*/}
+
+{/* OnClick (Popunder) */}
+<Script 
+id="https://inklinkor.com/tag.min.js"
+strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+(function(s,u,z,p){
+s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
+}
+)(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517274,document.body||document.documentElement)`,
+  }}
+/>
+
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
       <body>
