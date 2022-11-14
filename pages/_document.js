@@ -85,7 +85,7 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
 />*/}
 {/* Native Banner (Interstitial)<script async="async" data-cfasync="false" src="//arsnivyr.com/1?z=5519047"></script>*/}
 
-{/* OnClick (Popunder) */}
+{/* OnClick (Popunder) 
 <Script 
 id="https://inklinkor.com/tag.min.js"
 strategy="afterInteractive"
@@ -96,8 +96,10 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
 }
 )(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517274,document.body||document.documentElement)`,
   }}
-/>
+/> */}
 
+{/* Push Notification Ad (propaller) */}
+<script src="https://dibsemey.com/pfe/current/tag.min.js?z=5524181" data-cfasync="false" async></script>
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
       <body>
