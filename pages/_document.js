@@ -115,6 +115,17 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
               )('gloaphoo.net',5516273,document.createElement('script'))`,
           }}
         />
+{/* Direct Link Ad (propaller) */}
+
+<Script
+          id="thaudray.com"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+//thaudray.com/4/5519043
+`,
+          }}
+        />
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
       <body>
