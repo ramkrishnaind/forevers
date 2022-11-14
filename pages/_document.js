@@ -56,7 +56,7 @@ export default function Document() {
               `,
           }}
         />
-      {/* In-Page Push ad <Script
+      {/* In-Page Push ad */}<Script
           id="offfurreton-com"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -71,7 +71,7 @@ export default function Document() {
               }
               )('offfurreton.com',5516260, document.createElement('script'))`,
           }}
-        />*/}
+        />
         {/* multi tag ad <Script 
 id="https://inklinkor.com/tag.min.js"
 strategy="afterInteractive"
@@ -83,7 +83,7 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
 )(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517255,document.body||document.documentElement)`,
   }}
 />*/}
-{/* Native Banner (Interstitial)<script async="async" data-cfasync="false" src="//arsnivyr.com/1?z=5519047"></script>*/}
+{/* Native Banner (Interstitial)*/}<script async="async" data-cfasync="false" src="//arsnivyr.com/1?z=5519047"></script>
 
 {/* OnClick (Popunder) 
 <Script 
@@ -101,7 +101,7 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
 {/* Push Notification Ad (propaller) 
 <script src="https://dibsemey.com/pfe/current/tag.min.js?z=5524181" data-cfasync="false" async></script>*/}
 
-{/* Vigenette Ad (propaller) */}
+{/* Vigenette Ad (propaller) 
 <Script
           id="gloaphoo.net"
           strategy="afterInteractive"
@@ -114,8 +114,8 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
               }
               )('gloaphoo.net',5516273,document.createElement('script'))`,
           }}
-        />
-{/* Direct Link Ad (propaller) */}
+        />*/}
+{/* Direct Link Ad (propaller)
 
 <Script
           id="thaudray.com"
@@ -125,7 +125,7 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
 //thaudray.com/4/5519043
 `,
           }}
-        />
+        />*/}
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
       <body>
