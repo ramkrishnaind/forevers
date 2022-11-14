@@ -98,8 +98,23 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
   }}
 /> */}
 
-{/* Push Notification Ad (propaller) */}
-<script src="https://dibsemey.com/pfe/current/tag.min.js?z=5524181" data-cfasync="false" async></script>
+{/* Push Notification Ad (propaller) 
+<script src="https://dibsemey.com/pfe/current/tag.min.js?z=5524181" data-cfasync="false" async></script>*/}
+
+{/* Vigenette Ad (propaller) */}
+<Script
+          id="gloaphoo.net"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `        
+              (function(d,z,s){s.src='https://'+d+'/401/'+z;try{(document.body||document.documentElement).appendChild(s)
+                }
+                catch(e){
+                }
+              }
+              )('gloaphoo.net',5516273,document.createElement('script'))`,
+          }}
+        />
         <meta name="propeller" content="fbacef6fa9bcd14b32d00e977aa69329" />
       </Head>
       <body>
