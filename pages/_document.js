@@ -1,6 +1,7 @@
 // import React from "react";
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
+
 export default function Document() {
   const addEL = (e) => {
     e.preventDefault();
@@ -44,6 +45,24 @@ export default function Document() {
         `}
         </Script>
         <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-3FQ8TMKYFR"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-3FQ8TMKYFR', {
+            page_path: window.location.pathname,
+          });
+        `,
+          }}
+        />
+        {/* <Script
           id="google-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -55,7 +74,7 @@ export default function Document() {
             gtag('config', 'G-3FQ8TMKYFR');
               `,
           }}
-        />
+        /> */}
         <Script
           id="offfurreton-com"
           strategy="afterInteractive"
