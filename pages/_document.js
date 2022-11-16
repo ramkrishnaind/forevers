@@ -90,7 +90,7 @@ export default function Document() {
               )('offfurreton.com',5516260, document.createElement('script'))`,
           }}
         />
-        */}
+
         {/* multi tag ad <Script 
 id="https://inklinkor.com/tag.min.js"
 strategy="afterInteractive"
