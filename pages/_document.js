@@ -102,12 +102,12 @@ s.src=u,s.setAttribute('data-zone',z),p.appendChild(s);
 )(document.createElement('script'),'https://inklinkor.com/tag.min.js',5517255,document.body||document.documentElement)`,
   }}
 />*/}
-        {/* Native Banner (Interstitial)*/}
+        {/* Native Banner (Interstitial)
         <script
           async="async"
           data-cfasync="false"
           src="//arsnivyr.com/1?z=5519047"
-        ></script>
+        ></script>*/}
         {/* OnClick (Popunder) 
 <Script 
 id="https://inklinkor.com/tag.min.js"
