@@ -25,14 +25,14 @@ export default function Document() {
           });
           `}
         </Script>
-        <Script
+       {/* <Script
           id="Adsense-id"
           data-ad-client="ca-pub-7006648733841921"
           //   async="true"
           strategy="beforeInteractive"
           crossorigin="anonymous"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        />
+        />*/}
         <script
           //   async
           crossorigin="anonymous"
