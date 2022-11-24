@@ -9,7 +9,7 @@ import { GlobalContext } from "./../app/state/contexts/AppContext";
 import Head from "next/head";
 import Script from "next/script";
 import Ad from "../components/Ad/Ad";
-{/*function enableGoogleAdsense() {
+function enableGoogleAdsense() {
   const head = document.getElementsByTagName("head")[0];
   const scriptElement = document.createElement(`script`);
   scriptElement.type = `text/javascript`;
@@ -18,7 +18,7 @@ import Ad from "../components/Ad/Ad";
     "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7006648733841921";
   scriptElement.crossOrigin = "anonymous";
   head.appendChild(scriptElement);
-}/*}
+}
 function MyApp({ Component, pageProps }) {
   const [slugChanged, setSlugChanged] = React.useState(false);
   let scriptEle;
